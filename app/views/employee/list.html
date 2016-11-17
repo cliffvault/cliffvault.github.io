@@ -1,0 +1,247 @@
+<style>
+    .user_card {
+        margin-bottom: 35px;
+        /*overflow: hidden;*/
+    }
+    .actions {
+        position: absolute;
+        right: 13px;
+        top: 10px;
+        transform: translateY(-150%);
+        transition: all .2s;
+        opacity: 0;
+    }
+    .actions li a {
+        color: #fff;
+        padding: 3px;
+        transition: all .2s;
+    }
+    .actions li a:hover {
+        background: rgba(0, 0, 0, 0.40);
+        border-radius: 2px;
+        text-decoration: none;
+    }
+    .user_card:hover .actions {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .input-search {
+        max-width: 450px;
+        margin: 35px auto 32px;
+    }    
+    .status_symbol {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        text-align: center;
+        border: 3px solid #fff;
+    }
+    .status_symbol.active { background: green; }
+    .status_symbol.inactive { background: red; }
+    
+    .user_card .editable {
+        color: #fff;
+        border-bottom: 0;
+    }
+    .user_card .editable:hover { color: #fff; text-decoration: underline; }
+    .text_grey { color: #76838f!important; }
+    .margin-top--20 { margin-top: -20px; }
+    .user_card .list-group-item {
+        width: 100%;
+        float: left;
+    }
+    .user_card .badge select.input-sm {
+        height: 28px!important;
+        line-height: 28px!important;
+    }
+    .user_card .badge .btn-sm {
+        padding: 4px 10px;
+    }
+    .no_result_box_hide {
+        transform: translateX(-150%);
+        display: none;
+    }
+    .no_result_box { padding: 2% 0 5%; }
+    
+</style>
+
+
+<div class="row padding-vertical-30 padding-top-0">
+    <div class="col-sm-12 text-center">
+        <h2>Search from Employees.</h2>
+        <form role="search">
+            <div class="input-search">
+                <input type="text" ng-model="search.$" class="form-control round text-center" placeholder="Type any keyword...">
+                <button type="submit" class="input-search-btn">
+                    <i class="icon wb-search" aria-hidden="true"></i>
+                </button>
+            </div>
+            <p class="page-search-count margin-bottom-0 count_from_text margin-top--20" ng-hide="!(listEmployee|filter:search).length">
+                About <span>{{(listEmployee|filter:search).length}} </span> result (<span>{{ (listEmployee|filter:search).length / 60 | limitTo: 4 }}</span> seconds)
+            </p>
+            <p class="page-search-count margin-bottom-0 count_from_text margin-top--20" ng-show="!(listEmployee|filter:search).length">
+                About <span>{{(listEmployee|filter:search).length}} </span> result (<span>0.1</span> seconds)
+            </p>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<div class="panel">
+  <div class="panel-body container-fluid">
+
+      
+<!--
+    <div class="col-md-12 text-center">
+      <ul uib-pagination total-items="totalItemsEmp" ng-model="currentPageEmp" ng-change="pageChangedEmp()" max-size="maxSize" items-per-page="itemsPerPageEmp" class="pagination-sm margin-top-0" boundary-links="true" force-ellipses="true"></ul>
+    </div>
+-->
+      
+      
+      
+<!--
+      <table class="table">
+         <tr>
+             <th>ID</th> 
+             <th>Name</th>
+             <th>Platform</th>
+             <th>Designation</th>
+         </tr>      
+         <tr ng-repeat="post in listEmployee.slice(((currentPageEmp-1)*itemsPerPageEmp), ((currentPageEmp)*itemsPerPageEmp))">
+             <td><a href="#" editable-text="post.id">{{ post.id || "empty" }}</a></td>
+             <td><a href="#" editable-text="post.e_name">{{ post.e_name || "empty" }}</a></td>
+             <td>
+                 <a href="#" editable-select="post.platform_id" onaftersave="showPlatformStatus($data)" e-ng-options="s.id as s.platform for s in allPlatformEmp">
+                       {{ showPlatformSelect(post.platform_id) }}
+                 </a>
+             </td>
+             <td>
+                 <a href="#" editable-select="post.designation_id" onaftersave="showDesignationStatus($data)" e-ng-options="s.id as s.designation for s in allDesignationEmp">
+                       {{ showDesignationSelect(post.designation_id) }}
+                 </a>
+             </td>
+         </tr>
+      </table>
+-->
+
+
+    <br>
+      
+
+    <div class="col-md-4 col-sm-12 col-lg-4 user_card match_height" ng-repeat="list in listEmployee.slice(((currentPageEmp-1)*itemsPerPageEmp), ((currentPageEmp)*itemsPerPageEmp)) | filter:search:strict" my-repeat-directive>
+        <div class="widget get_empId_from_list" data-id="{{list.id}}">
+        <div class="widget-header white bg-cyan-600 padding-30 clearfix text-capitalize display-flex">
+                        
+            <!--<ul class="list-inline pull-right actions">
+                  <li>
+                    <a href="#" ng-show="list.status==='InActive'" tooltip-placement="top" uib-tooltip="Click&nbsp;to&nbsp;InActive"><i class="icon wb-check"></i> Active</a>
+                    <a href="#" ng-show="list.status==='Active'" tooltip-placement="top" uib-tooltip="Click&nbsp;to&nbsp;Active"><i class="icon wb-close"></i> InActive</a>
+                  </li>
+            </ul>-->
+            
+            <a class="avatar avatar-100 pull-left margin-right-20" href="javascript:void(0)">
+                <div class="status_symbol active" ng-show="list.status==='InActive'"></div>
+                <div class="status_symbol inactive" ng-show="list.status==='Active'"></div>
+                <img src="../../resources/images/{{list.photo}}" alt="">
+            </a>
+            
+            <div class="pull-left">
+                <div class="font-size-20 margin-bottom-15">
+                    <a href="#" editable-text="list.e_name">{{ list.e_name || "empty" }}</a>
+                    <div class="font-size-14 text-truncate">
+                    <a href="#" editable-select="list.designation_id" onaftersave="showDesignationStatus($data)" e-ng-options="s.id as s.designation for s in allDesignationEmp">
+                       {{ showDesignationSelect(list.designation_id) }}
+                    </a>
+                    </div>
+                </div>
+                <p class="margin-bottom-5 text-nowrap">
+                    <i class="icon wb-envelope margin-right-10" aria-hidden="true"></i>
+                    <span class="text-break">{{list.email}}</span>
+                </p>
+                <p class="margin-bottom-5 text-nowrap">
+                    <i class="icon wb-mobile margin-right-10" aria-hidden="true"></i>
+                    <a href="#" editable-text="list.phn" class="text-break">{{ list.phn || "empty" }}</a>
+                </p>
+            </div>
+        </div>
+        <div class="widget-content">
+            <div class="widget-content">
+              <ul class="list-group list-group-bordered text-left">
+                <li class="list-group-item">
+                  <span class="badge badge-info">
+                      <a href="#" editable-select="list.platform_id" onaftersave="editPlatformEmp($data, list.id)" e-ng-options="s.id as s.platform for s in allPlatformEmp">
+                         {{ showPlatformSelect(list.platform_id) }}
+                      </a>
+                  </span>
+                  <i class="icon wb-plugin" aria-hidden="true" draggable="true"></i>Platform
+                </li>
+                <li class="list-group-item">
+                  <span class="badge badge-info">
+                      <a href="#" editable-select="list.id" e-ng-options="s.id as s.dept for s in listEmployee">
+                          {{ showDepartmentSelect(list.id) }}
+                      </a>
+                  </span>
+                  <i class="icon wb-table" aria-hidden="true" draggable="true"></i>Department
+                </li>
+                <li class="list-group-item">
+                  <span class="badge badge-info">
+                      <a href="#" editable-select="list.id" e-ng-options="s.id as s.e_role for s in listEmployee">
+                          {{ showRoleSelect(list.id) }}
+                      </a>
+                  </span>
+                  <i class="icon wb-random" aria-hidden="true" draggable="true"></i>Role
+                </li>      
+                <li class="list-group-item">
+                  <span class="badge badge-danger">
+                      <a href="#" editable-select="list.id" e-ng-options="s.id as s.blood_grp for s in listEmployee">
+                          {{ showBloodGroupSelect(list.id) }}
+                      </a>
+                  </span>
+                  <i class="icon wb-info" aria-hidden="true" draggable="true"></i>Blood group
+                </li>
+                <li class="list-group-item">
+                  <span class="badge badge-success">
+                      <a href="#" editable-select="list.id" e-ng-options="s.id as s.status for s in listEmployee">
+                          {{ showStatusSelect(list.id) }}
+                      </a>
+                  </span>
+                  <i class="icon wb-help" aria-hidden="true" draggable="true"></i>Status
+                </li>
+                <li class="list-group-item">
+                  <i class="icon wb-map" aria-hidden="true" draggable="true"></i>
+                    <a href="#" class="text_grey" editable-text="list.address">{{ list.address || "empty" }}</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+    </div>
+        
+      
+    <!-- Show while no search result -->
+    <div class="widget no_result_box" ng-show="!(listEmployee|filter:search).length">
+        <div class="widget-content padding-50 bg-white">
+              <div class="counter counter-lg">
+                <div class="warning_icon">
+                    <img src="../../resources/images/sad.svg" style="width:70px;margin-bottom:7px;">
+                </div>
+                <div class="counter-label text-uppercase font-size-16">Sorry !!!</div>
+                <div class="counter-number-group margin-bottom-10">
+                  <span class="counter-number">No matching employees found</span>
+                </div>
+                <div class="counter-label text-uppercase font-size-16">for this search</div>
+              </div>
+        </div>
+    </div>
+      
+      
+  </div>
+    
+</div>
+
+<a href="#/add-employee">
+  <button type="button" class="btn btn-floating btn-danger material_btn_corner"><i class="icon wb-plus" aria-hidden="true"></i></button>
+</a>

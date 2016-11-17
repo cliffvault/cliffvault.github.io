@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="appTmp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="appTmp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="appTmp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="appTmp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>TMP</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <link type="text/plain" rel="author" href="humans.txt" />
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>    
+  
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.svg">
+
+<!--build:css resources/css/styles.min.css-->    
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/bootstrap-extend.min.css">
+  <link rel="stylesheet" href="resources/css/site.min.css">
+  
+  <!-- Plugins -->
+  <link rel="stylesheet" href="bower_components/jquery-asPieProgress/dist/css/asPieProgress.min.css">
+  <link rel="stylesheet" href="bower_components/chartist/dist/chartist.min.css">
+  <link rel="stylesheet" href="resources/css/chartist-plugin-tooltip.min.css">
+  <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+  <link rel="stylesheet" href="resources/css/animate-delay.css">
+  <link rel="stylesheet" href="bower_components/ng-img-crop/compile/minified/ng-img-crop.css">
+  <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css">    
+    
+  <!-- Plugins -->
+  <link rel="stylesheet" href="resources/css/animsition.min.css">
+  <link rel="stylesheet" href="resources/css/asScrollable.min.css">
+  <link rel="stylesheet" href="resources/css/switchery.min.css">
+  <link rel="stylesheet" href="resources/css/introjs.min.css">
+  <link rel="stylesheet" href="resources/css/slidePanel.min.css">  
+  <link rel="stylesheet" href="resources/css/jquery-selective.min.css">
+  <link rel="stylesheet" href="resources/css/bootstrap-datepicker.min.css">
+
+  <!-- Page -->
+  <link rel="stylesheet" href="resources/css/team.min.css">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="resources/css/web-icons.min.css">
+    
+<!--endbuild-->
+    
+    
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
+    
+    
+  <!--[if lt IE 9]>
+    <script src="../global/vendor/html5shiv/html5shiv.min.js"></script>
+    <![endif]-->
+
+  <!--[if lt IE 10]>
+    <script src="../global/vendor/media-match/media.match.min.js"></script>
+    <script src="../global/vendor/respond/respond.min.js"></script>
+    <![endif]-->
+  <!-- Scripts -->
+  <script src="resources/js/modernizr.min.js"></script>
+  <script src="resources/js/breakpoints.min.js"></script>
+  <script>
+    Breakpoints();
+  </script>
+      
+</head>
+
+
+<body ng-controller="MainCtrl" class="dashboard site-navbar-small" ngsf-fullscreen>
+<!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+    
+    <!-- Header Nav -->
+    <nav class="site-navbar navbar navbar-default navbar-fixed-top navbar-mega navbar-inverse" role="navigation">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle hamburger hamburger-close navbar-toggle-left hided" data-toggle="menubar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-collapse" data-toggle="collapse">
+        <i class="icon wb-more-horizontal" aria-hidden="true"></i>
+      </button>
+      <a class="navbar-brand navbar-brand-center" href="/#">
+        <img class="navbar-brand-logo navbar-brand-logo-normal" src="resources/images/logo.svg" title="TMP">
+        <!--<img class="navbar-brand-logo navbar-brand-logo-special" src="resources/images/logo-blue.png" title="TMP">-->
+        <span class="navbar-brand-text hidden-xs"> TMP</span>
+      </a>
+      <button type="button" class="navbar-toggle collapsed" data-target="#site-navbar-search" data-toggle="collapse">
+        <span class="sr-only">Toggle Search</span>
+        <i class="icon wb-search" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div class="navbar-container container-fluid">
+      <!-- Navbar Collapse -->
+      <div class="collapse navbar-collapse navbar-collapse-toolbar" id="site-navbar-collapse">
+        <!-- Navbar Toolbar -->
+        <ul class="nav navbar-toolbar">
+          <li class="hidden-float" id="toggleMenubar">
+            <a data-toggle="menubar" href="#" role="button">
+              <i class="icon hamburger hamburger-arrow-left">
+                  <span class="sr-only">Toggle menubar</span>
+                  <span class="hamburger-bar"></span>
+                </i>
+            </a>
+          </li>
+          <li class="hidden-xs" id="toggleFullscreen">
+             <a class="icon icon-fullscreen" ngsf-toggle-fullscreen show-if-fullscreen=false></a>
+             <a class="icon icon-fullscreen active" ngsf-toggle-fullscreen show-if-fullscreen=true></a>
+          </li>
+          <li class="hidden-float">
+            <a class="icon wb-search" data-toggle="collapse" href="#" data-target="#site-navbar-search" role="button">
+              <span class="sr-only">Toggle Search</span>
+            </a>
+          </li>
+          <li class="dropdown dropdown-fw dropdown-mega">
+            <a class="dropdown-toggle" data-toggle="dropdown" data-target="#" aria-expanded="false" data-animation="fade" role="button">Mega <i class="icon wb-chevron-down-mini" aria-hidden="true"></i></a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="presentation">
+                <div class="mega-content">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <h5>UI Kit</h5>
+                      <ul class="blocks-2">
+                        <li class="mega-menu margin-0">
+                          <ul class="list-icons">
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Animation</a>
+                            </li>
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Buttons</a>
+                            </li>
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Colors</a>
+                            </li>
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Dropdowns</a>
+                            </li>
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Icons</a>
+                            </li>
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Lightbox</a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="mega-menu margin-0">
+                          <ul class="list-icons">
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Modals</a>
+                            </li>
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Panels</a>
+                            </li>
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Overlay</a>
+                            </li>
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Tooltips</a>
+                            </li>
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Scrollable</a>
+                            </li>
+                            <li><i class="wb-chevron-right-mini" aria-hidden="true"></i>
+                              <a href="#">Typography</a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-4">
+                      <h5>Media
+                        <span class="badge badge-success">4</span>
+                      </h5>
+                      <ul class="blocks-3">
+                        <li>
+                          <a class="thumbnail margin-0" href="javascript:void(0)">
+                            <img class="width-full" src="resources/images/view-1-150x100.jpg" alt="...">
+                          </a>
+                        </li>
+                        <li>
+                          <a class="thumbnail margin-0" href="javascript:void(0)">
+                            <img class="width-full" src="resources/images/view-2-150x100.jpg" alt="...">
+                          </a>
+                        </li>
+                        <li>
+                          <a class="thumbnail margin-0" href="javascript:void(0)">
+                            <img class="width-full" src="resources/images/view-3-150x100.jpg" alt="...">
+                          </a>
+                        </li>
+                        <li>
+                          <a class="thumbnail margin-0" href="javascript:void(0)">
+                            <img class="width-full" src="resources/images/view-4-150x100.jpg" alt="...">
+                          </a>
+                        </li>
+                        <li>
+                          <a class="thumbnail margin-0" href="javascript:void(0)">
+                            <img class="width-full" src="resources/images/view-5-150x100.jpg" alt="...">
+                          </a>
+                        </li>
+                        <li>
+                          <a class="thumbnail margin-0" href="javascript:void(0)">
+                            <img class="width-full" src="resources/images/view-6-150x100.jpg" alt="...">
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-sm-4">
+                      <h5 class="margin-bottom-0">Accordion</h5>
+                      <!-- Accordion -->
+                      <div class="panel-group panel-group-simple" id="siteMegaAccordion" aria-multiselectable="true" role="tablist">
+                        <div class="panel">
+                          <div class="panel-heading" id="siteMegaAccordionHeadingOne" role="tab">
+                            <a class="panel-title" data-toggle="collapse" href="#siteMegaCollapseOne" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseOne">
+                                Collapsible Group Item #1
+                              </a>
+                          </div>
+                          <div class="panel-collapse collapse" id="siteMegaCollapseOne" aria-labelledby="siteMegaAccordionHeadingOne" role="tabpanel">
+                            <div class="panel-body">
+                              De moveat laudatur vestra parum doloribus labitur sentire partes, eripuit praesenti
+                              congressus ostendit alienae, voluptati ornateque
+                              accusamus clamat reperietur convicia albucius.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="panel">
+                          <div class="panel-heading" id="siteMegaAccordionHeadingTwo" role="tab">
+                            <a class="panel-title collapsed" data-toggle="collapse" href="#siteMegaCollapseTwo" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseTwo">
+                                Collapsible Group Item #2
+                              </a>
+                          </div>
+                          <div class="panel-collapse collapse" id="siteMegaCollapseTwo" aria-labelledby="siteMegaAccordionHeadingTwo" role="tabpanel">
+                            <div class="panel-body">
+                              Praestabiliorem. Pellat excruciant legantur ullum leniter vacare foris voluptate
+                              loco ignavi, credo videretur multoque choro fatemur
+                              mortis animus adoptionem, bello statuat expediunt
+                              naturales.
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="panel">
+                          <div class="panel-heading" id="siteMegaAccordionHeadingThree" role="tab">
+                            <a class="panel-title collapsed" data-toggle="collapse" href="#siteMegaCollapseThree" data-parent="#siteMegaAccordion" aria-expanded="false" aria-controls="siteMegaCollapseThree">
+                                Collapsible Group Item #3
+                              </a>
+                          </div>
+                          <div class="panel-collapse collapse" id="siteMegaCollapseThree" aria-labelledby="siteMegaAccordionHeadingThree" role="tabpanel">
+                            <div class="panel-body">
+                              Horum, antiquitate perciperet d conspectum locus obruamus animumque perspici probabis
+                              suscipere. Desiderat magnum, contenta poena desiderant
+                              concederetur menandri damna disputandum corporum.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End Accordion -->
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!-- End Navbar Toolbar -->
+
+        <!-- Navbar Toolbar Right -->
+        <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+          <li class="dropdown">
+            <a class="navbar-avatar dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false" data-animation="scale-up" role="button">
+              <span class="avatar avatar-online">
+                <img src="resources/images/5.jpg" alt="...">
+                <i></i>
+              </span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li role="presentation">
+                <a href="javascript:void(0)" role="menuitem"><i class="icon wb-user" aria-hidden="true"></i> Profile</a>
+              </li>
+              <li role="presentation">
+                <a href="javascript:void(0)" role="menuitem"><i class="icon wb-payment" aria-hidden="true"></i> Billing</a>
+              </li>
+              <li role="presentation">
+                <a href="javascript:void(0)" role="menuitem"><i class="icon wb-settings" aria-hidden="true"></i> Settings</a>
+              </li>
+              <li class="divider" role="presentation"></li>
+              <li role="presentation">
+                <a href="javascript:void(0)" role="menuitem"><i class="icon wb-power" aria-hidden="true"></i> Logout</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a data-toggle="dropdown" href="javascript:void(0)" title="Notifications" aria-expanded="false" data-animation="scale-up" role="button">
+              <i class="icon wb-bell" aria-hidden="true"></i>
+              <span class="badge badge-danger up">5</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
+              <li class="dropdown-menu-header" role="presentation">
+                <h5>NOTIFICATIONS</h5>
+                <span class="label label-round label-danger">New 5</span>
+              </li>
+
+              <li class="list-group" role="presentation">
+                <div data-role="container">
+                  <div data-role="content">
+                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                      <div class="media">
+                        <div class="media-left padding-right-10">
+                          <i class="icon wb-order bg-red-600 white icon-circle" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading">A new order has been placed</h6>
+                          <time class="media-meta" datetime="2016-06-12T20:50:48+08:00">5 hours ago</time>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                      <div class="media">
+                        <div class="media-left padding-right-10">
+                          <i class="icon wb-user bg-green-600 white icon-circle" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading">Completed the task</h6>
+                          <time class="media-meta" datetime="2016-06-11T18:29:20+08:00">2 days ago</time>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                      <div class="media">
+                        <div class="media-left padding-right-10">
+                          <i class="icon wb-settings bg-red-600 white icon-circle" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading">Settings updated</h6>
+                          <time class="media-meta" datetime="2016-06-11T14:05:00+08:00">2 days ago</time>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                      <div class="media">
+                        <div class="media-left padding-right-10">
+                          <i class="icon wb-calendar bg-blue-600 white icon-circle" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading">Event started</h6>
+                          <time class="media-meta" datetime="2016-06-10T13:50:18+08:00">3 days ago</time>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                      <div class="media">
+                        <div class="media-left padding-right-10">
+                          <i class="icon wb-chat bg-orange-600 white icon-circle" aria-hidden="true"></i>
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading">Message received</h6>
+                          <time class="media-meta" datetime="2016-06-10T12:34:48+08:00">3 days ago</time>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="dropdown-menu-footer" role="presentation">
+                <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
+                  <i class="icon wb-settings" aria-hidden="true"></i>
+                </a>
+                <a href="javascript:void(0)" role="menuitem">
+                    All notifications
+                  </a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a data-toggle="dropdown" href="javascript:void(0)" title="Messages" aria-expanded="false" data-animation="scale-up" role="button">
+              <i class="icon wb-envelope" aria-hidden="true"></i>
+              <span class="badge badge-info up">3</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right dropdown-menu-media" role="menu">
+              <li class="dropdown-menu-header" role="presentation">
+                <h5>MESSAGES</h5>
+                <span class="label label-round label-info">New 3</span>
+              </li>
+
+              <li class="list-group" role="presentation">
+                <div data-role="container">
+                  <div data-role="content">
+                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                      <div class="media">
+                        <div class="media-left padding-right-10">
+                          <span class="avatar avatar-sm avatar-online">
+                            <img src="resources/images/2.jpg" alt="...">
+                            <i></i>
+                          </span>
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading">Mary Adams</h6>
+                          <div class="media-meta">
+                            <time datetime="2016-06-17T20:22:05+08:00">30 minutes ago</time>
+                          </div>
+                          <div class="media-detail">Anyways, i would like just do it</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                      <div class="media">
+                        <div class="media-left padding-right-10">
+                          <span class="avatar avatar-sm avatar-off">
+                            <img src="resources/images/3.jpg" alt="...">
+                            <i></i>
+                          </span>
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading">Caleb Richards</h6>
+                          <div class="media-meta">
+                            <time datetime="2016-06-17T12:30:30+08:00">12 hours ago</time>
+                          </div>
+                          <div class="media-detail">I checheck the document. But there seems</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                      <div class="media">
+                        <div class="media-left padding-right-10">
+                          <span class="avatar avatar-sm avatar-busy">
+                            <img src="resources/images/4.jpg" alt="...">
+                            <i></i>
+                          </span>
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading">June Lane</h6>
+                          <div class="media-meta">
+                            <time datetime="2016-06-16T18:38:40+08:00">2 days ago</time>
+                          </div>
+                          <div class="media-detail">Lorem ipsum Id consectetur et minim</div>
+                        </div>
+                      </div>
+                    </a>
+                    <a class="list-group-item" href="javascript:void(0)" role="menuitem">
+                      <div class="media">
+                        <div class="media-left padding-right-10">
+                          <span class="avatar avatar-sm avatar-away">
+                            <img src="resources/images/5.jpg" alt="...">
+                            <i></i>
+                          </span>
+                        </div>
+                        <div class="media-body">
+                          <h6 class="media-heading">Edward Fletcher</h6>
+                          <div class="media-meta">
+                            <time datetime="2016-06-15T20:34:48+08:00">3 days ago</time>
+                          </div>
+                          <div class="media-detail">Dolor et irure cupidatat commodo nostrud nostrud.</div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li class="dropdown-menu-footer" role="presentation">
+                <a class="dropdown-menu-footer-btn" href="javascript:void(0)" role="button">
+                  <i class="icon wb-settings" aria-hidden="true"></i>
+                </a>
+                <a href="javascript:void(0)" role="menuitem">
+                    See all messages
+                  </a>
+              </li>
+            </ul>
+          </li>
+          <li id="toggleChat">
+            <a data-toggle="site-sidebar" href="javascript:void(0)" title="Chat" data-url="site-sidebar.tpl">
+              <i class="icon wb-chat" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+        <!-- End Navbar Toolbar Right -->
+      </div>
+      <!-- End Navbar Collapse -->
+
+      <!-- Site Navbar Seach -->
+      <div class="collapse navbar-search-overlap" id="site-navbar-search">
+        <form role="search">
+          <div class="form-group">
+            <div class="input-search">
+              <i class="input-search-icon wb-search" aria-hidden="true"></i>
+              <input type="text" class="form-control" name="site-search" placeholder="Type and hit enter to search...">
+              <button type="button" class="input-search-close icon wb-close" data-target="#site-navbar-search" data-toggle="collapse" aria-label="Close"></button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- End Site Navbar Seach -->
+    </div>
+  </nav>    
+    
+    
+    <!-- Main Nav -->
+    <div class="site-menubar site-menubar-light top_nav">
+        <nav class="navbar navbar-default">
+      <div class="">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+            <li class="active"><a href="#/dashboard"><i class="icon wb-dashboard"></i> Dashboard</a></li>
+            
+            <li class="dropdown">
+              <a data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <i class="icon wb-users"></i> Employee <span class="site-menu-arrow"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#/add-employee"><i class="icon wb-plus"></i> Add</a></li>
+                <li><a href="#/list-employee"><i class="icon wb-list"></i> List</a></li>
+              </ul>
+            </li>
+              
+            <li class="dropdown">
+              <a data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon wb-random"></i> Role <span class="site-menu-arrow"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon wb-plus"></i> Add</a></li>
+                <li><a href="#"><i class="icon wb-list"></i> List</a></li>
+              </ul>
+            </li>
+              
+            <li class="dropdown">
+              <a data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon wb-bookmark"></i> Designation <span class="site-menu-arrow"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon wb-plus"></i> Add</a></li>
+                <li><a href="#"><i class="icon wb-list"></i> List</a></li>
+              </ul>
+            </li>
+              
+            <li class="dropdown">
+              <a data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  <i class="icon wb-table"></i> Department <span class="site-menu-arrow"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon wb-plus"></i> Add</a></li>
+                <li><a href="#"><i class="icon wb-list"></i> List</a></li>
+              </ul>
+            </li>
+              
+            <li class="dropdown">
+              <a data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon wb-plugin"></i> Platform <span class="site-menu-arrow"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon wb-plus"></i> Add</a></li>
+                <li><a href="#"><i class="icon wb-list"></i> List</a></li>
+              </ul>
+            </li>  
+            
+            <li class="dropdown">
+              <a data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon wb-order"></i> Project <span class="site-menu-arrow"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon wb-plus"></i> Add</a></li>
+                <li><a href="#"><i class="icon wb-list"></i> List</a></li>
+              </ul>
+            </li>
+              
+            <li class="dropdown">
+              <a data-target="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon wb-check-circle"></i> Task <span class="site-menu-arrow"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><i class="icon wb-plus"></i> Add</a></li>
+                <li><a href="#"><i class="icon wb-list"></i> List</a></li>
+              </ul>
+            </li>
+              
+            <li class="active"><a href="#/dashboard"><i class="icon wb-warning"></i> Backlogs</a></li>
+
+              
+            <!--<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="site-menu-arrow"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </li>-->
+              
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/login">Login</a></li>
+            <li><a href="#/calendar">Calendar</a></li>
+            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    </div>    
+ 
+    
+    <!-- Rendering Page -->
+    <div class="page animsition" style="animation-duration: 800ms; opacity: 1;">
+        <div class="page-content padding-30 container-fluid">
+      
+            <div ng-view></div>
+            
+        </div>
+    </div>
+    <!-- End Page -->  
+    
+    
+
+  <!-- Add Item Dialog -->
+  <div id="addtodoItemForm" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="addtodoItemForm" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content form-horizontal" role="form" action="#" method="post">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="moadl-title">Create New To Do Item</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="title">Title:</label>
+            <div class="col-sm-10">
+              <input id="title" class="form-control" type="text" name="title">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="dueDate">Due Date</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <input id="dueDate" class="form-control" type="text" data-plugin="datepicker" data-container="#addtodoItemForm">
+                <span class="input-group-addon">
+                  <i class="icon wb-calendar" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="people">People:</label>
+            <div class="col-sm-10">
+              <select id="people" multiple="multiple" data-plugin="jquery-selective">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <button class="btn btn-primary" data-dismiss="modal" type="button">
+              Add This Item
+            </button>
+            <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">
+            Cancel
+          </a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- End Add Item Dialog -->
+
+  <!-- Edit Dialog -->
+  <div class="modal fade" id="edittodoItemForm" aria-hidden="true" aria-labelledby="edittodoItemForm" role="dialog" tabindex="-1" data-show="false">
+    <div class="modal-dialog">
+      <form class="modal-content form-horizontal" action="#" method="post" role="form">
+        <div class="modal-header">
+          <button type="button" class="close" aria-hidden="true" data-dismiss="modal">×</button>
+          <h4 class="modal-title">Edit To Do Item</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="editTitle">Title:
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="editTitle" name="editTitle">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="editStarts">Due Date:
+            </label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <input type="text" class="form-control" id="editDueDate" name="editDueDate" data-container="#edittodoItemForm" data-plugin="datepicker">
+                <span class="input-group-addon">
+                  <i class="icon wb-calendar" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="editPeople">People:
+            </label>
+            <div class="col-sm-10">
+              <select id="editPeople" multiple="multiple" data-plugin="jquery-selective"></select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-actions">
+            <button class="btn btn-primary" data-dismiss="modal" type="button">Save</button>
+            <button class="btn btn-danger" data-dismiss="modal" type="button">Delete</button>
+            <a class="btn btn-sm btn-white" data-dismiss="modal" href="javascript:void(0)">Cancel</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- End Edit Dialog -->
+    
+    
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer-legal">&copy; 2016 <a href="http://www.cliffcreations.com/" target="_blank">TMP</a>, v<span app-version></span></div>
+    <div class="site-footer-right">
+      Crafted with <i class="red-600 wb wb-heart"></i> by <a href="http://www.cliffcreations.com/" target="_blank">cliffcreations</a>
+    </div>
+  </footer>    
+    
+  
+<!--build:js resources/js/main.min.js -->
+    
+  <!-- Angular core -->
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularresources/js/x.x.x/angular.min.js"></script>
+  -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+      
+    
+  <!-- App Core  -->
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.min.js"></script>
+    
+    
+  <!-- Plugins -->
+
+  <script src="resources/js/pace.min.js"></script>
+  <script src="bower_components/jquery-asPieProgress/dist/jquery-asPieProgress.min.js"></script>
+  <script src="resources/js/chartist.min.js"></script>
+  <script src="bower_components/chartist/dist/chartist.min.js"></script>
+  <script src="resources/js/chartist-plugin-tooltip.min.js"></script>
+  <script src="bower_components/screenfull/dist/screenfull.js"></script>
+  <script src="bower_components/angular-screenfull/dist/angular-screenfull.min.js"></script>
+  <script src="bower_components/matchHeight/dist/jquery.matchHeight-min.js"></script>
+  <script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
+  <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+  <script src="bower_components/wow/dist/wow.min.js"></script>
+
+    
+ 
+  <!-- Angular components -->
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script> 
+    
+  
+  <!-- Angular views -->
+  <script src="app.js"></script>
+  <script src="views/login/login.js"></script>
+  <script src="views/dashboard/dashboard.js"></script>
+  <script src="views/employee/employee.js"></script>
+    
+  <script src="views/view1/view1.js"></script>
+  <script src="views/view2/view2.js"></script>
+    
+    
+  <script src="resources/js/animsition.min.js"></script>
+  <script src="resources/js/jquery-asScroll.min.js"></script>
+  <script src="resources/js/jquery.mousewheel.min.js"></script>
+  <script src="resources/js/jquery.asScrollable.all.min.js"></script>
+  <script src="resources/js/jquery-asHoverScroll.min.js"></script>
+
+  <!-- Plugins -->
+  <script src="resources/js/switchery.min.js"></script>
+  <script src="resources/js/intro.min.js"></script>
+  <script src="resources/js/jquery-slidePanel.min.js"></script>
+  <script src="resources/js/jquery-asPieProgress.min.js"></script>
+  <script src="resources/js/jquery-selective.min.js"></script>
+  <script src="resources/js/bootstrap-datepicker.min.js"></script>
+  
+
+  <!-- Scripts -->
+  <script src="resources/js/core.min.js"></script>
+  <script src="resources/js/menu.min.js"></script>
+  <script src="resources/js/menubar.min.js"></script>
+  <script src="resources/js/sidebar.min.js"></script>
+  <script src="resources/js/config-colors.min.js"></script>
+  <script src="resources/js/config-tour.min.js"></script>
+  <script src="resources/js/asscrollable.min.js"></script>  
+  <script src="resources/js/slidepanel.min.js"></script>
+  <script src="resources/js/matchheight.min.js"></script>
+  <!--  <script src="resources/js/team.min.js"></script>    -->
+  <script src="resources/js/site.js"></script>    
+    
+<!-- endbuild -->
+    
+</body>
+</html>

@@ -1,0 +1,88 @@
+<style>
+    
+    .activeLogin {
+        padding-top: 0!important;
+    }
+    .activeLogin .page {
+        background-image: url(../../resources/images/login_bg.jpg);
+        background-size: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+    .activeLogin .page:before {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        content: '';
+        background: #000;
+        opacity: .8;
+    }
+    
+    .login_box {
+        position: relative;
+        left: 50%;
+        margin-left: -12.5%;
+    }
+    .sign_in_btn {
+        margin-bottom: 30px;
+    }
+    .brand-text, .login_box p {
+        color: #fff;
+    }
+    .txt_grey {
+        color: #ccc;
+    }
+    
+</style>
+
+
+  <!-- Page -->
+  <div class="page text-center">
+    <div class="page-content col-xs-3 login_box">
+      <div class="brand">
+        <img class="brand-img" src="../../resources/images/logo.svg" alt="" width="80">
+        <h2 class="brand-text">TMP</h2>
+      </div>
+      <p>Sign in to your account</p>
+      <form method="post" action="login.html">
+        <div class="form-group">
+          <label class="sr-only" for="inputName">Name</label>
+          <input type="text" class="form-control" id="inputName" name="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="inputEmail">Email</label>
+          <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="inputPassword">Password</label>
+          <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
+        </div>
+        <div class="form-group clearfix">
+          <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
+            <input type="checkbox" id="inputCheckbox" name="remember">
+            <label for="inputCheckbox" class="txt_grey">Remember me</label>
+          </div>
+          <a class="pull-right" href="#/">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block sign_in_btn">Sign in</button>
+      </form>
+      <p>Still no account? Please go to <a href="#/">Register</a></p>
+
+      <footer class="page-copyright page-copyright-inverse">
+        <p>WEBAPP BY cliffcreations</p>
+        <p>© 2016. All RIGHT RESERVED.</p>
+        <div class="social">
+          <a href="javascript:void(0)">
+            <i class="icon bd-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="javascript:void(0)">
+            <i class="icon bd-facebook" aria-hidden="true"></i>
+          </a>
+          <a href="javascript:void(0)">
+            <i class="icon bd-dribbble" aria-hidden="true"></i>
+          </a>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- End Page -->
