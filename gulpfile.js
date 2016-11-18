@@ -121,12 +121,14 @@ gulp.task('commit', function(){
 // Run git push with options
 // branch is the remote branch to push to
 gulp.task('push', function(){
-  git.push('origin', 'master',{args: '-f'}, function (err) {
+  git.push('origin', 'master',{args: '-u'}, function (err) {
     if (err) console.log(err);
   });
 });
 
-//http://cliffvault:d3fault\@cliffvault@github.com/cliffvault/cliffvault.github.io.git
+//https://cliffvault:d3fault\@cliffvault@github.com/cliffvault/cliffvault.github.io.git
+                            //cliffvault:d3fault%40cliffvault%40github.com/cliffvault/cliffvault.github.io.git
+//git remote add origin https://cliffvault:d3fault%40cliffvault%40github.com/cliffvault/cliffvault.github.io.git
 
 gulp.task('gitsend', function() {
   runSequence('add', 'commit', 'push');
