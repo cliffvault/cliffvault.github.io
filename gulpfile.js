@@ -122,7 +122,7 @@ gulp.task('commit', function(){
 // branch is the remote branch to push to
 gulp.task('push', function(){
   git.push('origin', 'master', function (err) {
-    //if (err) ...
+    if (err) throw err;
   });
 });
 
