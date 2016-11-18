@@ -121,8 +121,8 @@ gulp.task('commit', function(){
 // Run git push with options
 // branch is the remote branch to push to
 gulp.task('push', function(){
-  git.push('origin', 'master', {Username: "cliffvault", Password: "d3fault@cliffvault"}, function (err) {
-    if (err) throw err;
+  git.push('origin', 'master', function (err) {
+    //if (err) ...
   });
 });
 
