@@ -1,3 +1,27 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}h1{font-size:2em;margin:.67em 0}mark{background:#ff0;color:#000}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}hr{box-sizing:content-box;height:0}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input[type=search]{-webkit-appearance:textfield;box-sizing:content-box}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}table{border-collapse:collapse;border-spacing:0}
+
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */html{color:#222;font-size:1em;line-height:1.4}::-moz-selection{background:#b3d4fc;text-shadow:none}::selection{background:#b3d4fc;text-shadow:none}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}audio,canvas,iframe,img,svg,video{vertical-align:middle}fieldset{border:0;margin:0;padding:0}textarea{resize:vertical}.browserupgrade{margin:.2em 0;background:#ccc;color:#000;padding:.2em 0}.visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.visuallyhidden.focusable:active,.visuallyhidden.focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.clearfix:after,.clearfix:before{content:" ";display:table}.clearfix:after{clear:both}@media print{*,:after,:before,:first-letter,:first-line{background:transparent!important;color:#000!important;box-shadow:none!important;text-shadow:none!important}a,a:visited{text-decoration:underline}a[href]:after{content:" (" attr(href) ")"}abbr[title]:after{content:" (" attr(title) ")"}a[href^="#"]:after,a[href^="javascript:"]:after{content:""}blockquote,pre{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}img,tr{page-break-inside:avoid}img{max-width:100%!important}h2,h3,p{orphans:3;widows:3}h2,h3{page-break-after:avoid}}.logo_txt{font-family:Baumans,cursive;font-size:26px}.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#fff;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}.pie-progress-number{position:absolute;top:50%;left:0;width:100%;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.top_nav .navbar{min-height:53px}.top_nav nav li a{padding-top:15px!important;padding-bottom:15px!important}.fullscreen{width:100%;height:100%}#toggleFullscreen a{cursor:pointer}.navbar-brand .navbar-brand-logo{-webkit-transition:all .2s;transition:all .2s}.navbar-brand:hover .navbar-brand-logo{-webkit-transform:scale(1.2);transform:scale(1.2)}.material_btn_corner{position:fixed;bottom:50px;right:50px}a.lnk_white:hover{color:#fff}.auto_height{height:auto!important}span.error{width:100%;color:red;margin-bottom:8px;display:inline-block}span.error .icon{width:25px;height:25px;border:1px solid red;font-size:12px;border-radius:50%;text-align:center;line-height:23px;margin-left:5px}.warning_icon{font-size:3em;margin-bottom:10px}@font-face{font-family:Glyphicons Halflings;src:url(../resources/icons/glyphicons-halflings-regular.eot);src:url(../resources/icons/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(../resources/icons/glyphicons-halflings-regular.woff2) format('woff2'),url(../resources/icons/glyphicons-halflings-regular.woff) format('woff'),url(../resources/icons/glyphicons-halflings-regular.ttf) format('truetype'),url(../resources/icons/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')}.glyphicon{position:relative;top:1px;display:inline-block;font-family:Glyphicons Halflings;font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.glyphicon-ok:before{content:"\e013"}.glyphicon-remove:before{content:"\e014"}.display-flex{display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*!
  * Remark (http://getbootstrapadmin.com/remark)
  * Copyright 2016 amazingsurge

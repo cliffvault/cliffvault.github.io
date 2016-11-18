@@ -9,6 +9,7 @@ var cache = require('gulp-cache');
 var imagemin = require('gulp-imagemin');
 var del = require('del');
 var runSequence = require('run-sequence');
+var git = require('gulp-git');
 
 
 // CSS preprocessor
@@ -30,9 +31,10 @@ gulp.task('browserSync', function() {
   })
 });
 
-// Distribution with js/css minification
+// Distribution with js/css minification 
+//['app/*.html', 'app/*.css', 'app/*.js', 'app/*.png', 'app/*.svg', 'app/*.txt']
 gulp.task('useref', function(){
-  return gulp.src('app/*.html')
+  return gulp.src(['app/*.html', 'app/*.png', 'app/*.svg', 'app/*.txt'])
     .pipe(useref())
     // Minifies only if it's a JavaScript file
     .pipe(gulpIf('*.js', uglify()))
@@ -61,12 +63,12 @@ gulp.task('icons', function() {
 //Cleaning up generated files automatically
 gulp.task('clean:dist', function() {
   return del.sync('dist');
-})
+});
 
 //Clear Cache
 gulp.task('cache:clear', function (callback) {
 return cache.clearAll(callback)
-})
+});
 
 // Watching
 gulp.task('watch', ['browserSync', 'sass'], function (){
@@ -76,17 +78,53 @@ gulp.task('watch', ['browserSync', 'sass'], function (){
   gulp.watch('app/js/**/*.js', browserSync.reload); 
 });
 
-
 // Build Sequences
 gulp.task('build', function (callback) {
   runSequence('clean:dist', 
     ['sass', 'useref', 'images', 'icons'],
     callback
   )
-})
+});
 
+// Live development
 gulp.task('default', function (callback) {
   runSequence(['sass','browserSync', 'watch'],
     callback
   )
-})
+});
+
+
+
+
+
+// Run git init
+// src is the root folder for git to initialize
+gulp.task('init', function(){
+  git.init(function (err) {
+    if (err) throw err;
+  });
+});
+
+// Run git add
+// src is the file(s) to add (or ./*)
+gulp.task('add', function(){
+  return gulp.src('./*')
+    .pipe(git.add());
+});
+
+// Run git commit without checking for a message using raw arguments
+gulp.task('commit', function(){
+  return gulp.src('./*', {buffer:false})
+    .pipe(git.commit('initial commit'));
+});
+
+// Run git push with options
+// branch is the remote branch to push to
+gulp.task('push', function(){
+  git.push('origin', 'master', {Username: "cliffvault", Password: "d3fault@cliffvault"}, function (err) {
+    if (err) throw err;
+  });
+});
+
+
+

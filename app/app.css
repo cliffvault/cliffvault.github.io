@@ -1,5 +1,10 @@
 /* app css stylesheet */
 
+.logo_txt {
+    font-family: 'Baumans', cursive;
+    font-size: 26px;
+}
+
 .pace {
   -webkit-pointer-events: none;
   pointer-events: none;
