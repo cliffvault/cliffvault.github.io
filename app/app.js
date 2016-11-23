@@ -33,12 +33,11 @@ appTmp.run(function(editableOptions, editableThemes) {
 
 appTmp.run(['$rootScope', '$route', function($rootScope, $route, $location) {
     
-                
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {        
        
         $('body').removeClass('activeLogin');
         $('.site-navbar, .site-menubar, .site-footer').show();
-       
+        
     });
     
 }]);
@@ -51,6 +50,4 @@ appTmp.controller('MainCtrl', function($scope, $http, $route, $routeParams, $loc
     
     $scope.Math = window.Math;
     
-    
-          
 });

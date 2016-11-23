@@ -19,6 +19,12 @@ angular.module('appTmp.employee', ['ngRoute'])
 appTmp.controller('AddEmployeeCtrl', function($scope, $http, $location, $filter, $uibModal, $timeout) {
     
     
+    $http.get('http://dev.syntrio.in/cliffvault/api/public/todos')
+       .then(function(res){
+       $scope.getnodes = res.data;
+    });
+    
+    
     $scope.phoneNumberPattern = /^\+?\d{2}[ ]?\d{3}[ ]?\d{5}$/;
     
     
@@ -286,7 +292,6 @@ appTmp.controller('AddEmployeeCtrl', function($scope, $http, $location, $filter,
 	}
     ]
     
-
     
         // Function for add new employee    
         $scope.new_e_name_check = 0;
@@ -312,7 +317,7 @@ appTmp.controller('AddEmployeeCtrl', function($scope, $http, $location, $filter,
                                 name: $scope.new_e_name
                             })
                         });
-                        $http.post("actions/post.php", data).success(function(data, status) {
+                        $http.post("action/post.php", data).success(function(data, status) {
                                 $scope.e_name = data;
                         }).error(function(data) {
                             $scope.new_e_name_check = 1;
@@ -366,7 +371,7 @@ appTmp.controller('AddEmployeeCtrl', function($scope, $http, $location, $filter,
                         name: $scope.new_e_name_input
                     })
                 });
-                $http.post("actions/post.php", data).success(function(data, status) {
+                $http.post("api/action", data).success(function(data, status) {
                         // $scope.e_name = data;
                         // Add to array
                         $scope.listEmployee.unshift({e_name:$scope.new_e_name_input});

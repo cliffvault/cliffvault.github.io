@@ -10,6 +10,9 @@ var imagemin = require('gulp-imagemin');
 var del = require('del');
 var runSequence = require('run-sequence');
 var git = require('gulp-git');
+var sftp = require('gulp-sftp');
+var connect = require('gulp-connect');
+var cors = require('cors');
 
 
 // CSS preprocessor
@@ -74,8 +77,11 @@ return cache.clearAll(callback)
 gulp.task('watch', ['browserSync', 'sass'], function (){
   gulp.watch('app/resources/scss/**/*.scss', ['sass']); 
   // Reloads the browser whenever HTML or JS files change
-  gulp.watch('app/*.html', browserSync.reload); 
+  gulp.watch('app/*.html', browserSync.reload);
+  gulp.watch('app/*.js', browserSync.reload);
+  gulp.watch('app/*.css', browserSync.reload);
   gulp.watch('app/js/**/*.js', browserSync.reload); 
+  gulp.watch('app/**/*', browserSync.reload); 
 });
 
 // Build Sequences
@@ -96,9 +102,8 @@ gulp.task('default', function (callback) {
 
 
 
-
+/*************** GITHUB ***************/
 // Run git init
-// src is the root folder for git to initialize
 gulp.task('init', function(){
   git.init(function (err) {
     if (err) throw err;
@@ -125,13 +130,30 @@ gulp.task('push', function(){
     if (err) console.log(err);
   });
 });
-
-//https://cliffvault:d3fault\@cliffvault@github.com/cliffvault/cliffvault.github.io.git
-                            //cliffvault:d3fault%40cliffvault%40github.com/cliffvault/cliffvault.github.io.git
-//git remote add origin https://cliffvault:d3fault%40cliffvault%40github.com/cliffvault/cliffvault.github.io.git
-
+// Send to GITHUB
 gulp.task('gitsend', function() {
-  runSequence('add', 'commit', 'push');
+  runSequence('init','add', 'commit', 'push');
 });
 
 
+/*************** SFTP ***************/
+gulp.task('sftp', function () {
+    return gulp.src('dist/**/*')
+        .pipe(sftp({
+            host: 'dev.syntrio.in',
+            user: 'develop',
+            pass: '3k@kk@r@d3fault',
+            port: '21',
+            remotePath: '/public_html/cliffvault/'
+        }));
+});
+
+/*************** CORS ***************/
+gulp.task('connect', function() {
+  connect.server({
+    root: 'app',
+    middleware: function() {
+        return [cors()];
+    }
+  });
+});
