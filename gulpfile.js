@@ -120,7 +120,7 @@ gulp.task('init', function(){
 // Run git add
 // src is the file(s) to add (or ./*)
 gulp.task('add', function(){
-  return gulp.src('./cliffvault.github.io/*')
+  return gulp.src('')
     .pipe(git.add());
 });
 
