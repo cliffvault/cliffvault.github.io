@@ -103,6 +103,13 @@ gulp.task('default', function (callback) {
 
 
 /*************** GITHUB ***************/
+
+var filesToMove = [
+        './app/**/*.*',
+        './dist/**/*.*',
+        './node_modules/**/*.*',
+];
+
 // Run git init
 gulp.task('init', function(){
   git.init(function (err) {
@@ -113,14 +120,14 @@ gulp.task('init', function(){
 // Run git add
 // src is the file(s) to add (or ./*)
 gulp.task('add', function(){
-  return gulp.src('./*')
+  return gulp.src('./cliffvault.github.io/*')
     .pipe(git.add());
 });
 
 // Run git commit without checking for a message using raw arguments
 gulp.task('commit', function(){
-  return gulp.src('./*', {buffer:false})
-    .pipe(git.commit('initial commit'));
+  return gulp.src('', {buffer:false})
+    .pipe(git.commit('Initial commit'));
 });
 
 // Run git push with options
