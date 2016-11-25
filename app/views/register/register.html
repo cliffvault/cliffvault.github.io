@@ -25,6 +25,7 @@
     }
     .sign_in_btn {
         margin-bottom: 30px;
+        font-weight: 400;
     }
     .brand-text, .login_box p {
         color: #fff;
@@ -51,7 +52,7 @@
       </div>
       <p>Sign up to work more collaboratively</p>
         
-      <form name="registerForm" role="form" novalidate>
+      <form name="registerForm" ng-submit="vm.register()" role="form">
           
         <div class="form-group" ng-class="{ 'has-error': registerForm.regsterName.$dirty && registerForm.regsterName.$error.required }">
           <label class="sr-only" for="regsterName">Name</label>
@@ -66,15 +67,23 @@
           <span ng-show="registerForm.regsterEmail.$dirty && registerForm.regsterEmail.$error.email" class="help-block text-left">Please enter a valid email address</span>
         </div>
           
-        <div class="form-group" ng-class="{ 'has-error': registerForm.registerPassword.$dirty && registerForm.registerPassword.$error.required }">
-          <label class="sr-only" for="registerPassword">Password</label>
-          <input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="Password" ng-model="vm.user.registerPassword" required pattern=".{6,}">
-          <span ng-show="registerForm.registerPassword.$dirty && registerForm.registerPassword.$error.required" class="help-block text-left">Password is required</span>
-          <span ng-show="registerForm.registerPassword.$dirty && registerForm.registerPassword.$error.pattern" class="help-block text-left">Please enter minimum 6 characters</div>
+        <div class="form-group" ng-class="{ 'has-error': registerForm.username.$dirty && registerForm.username.$error.required }">
+          <label class="sr-only" for="username">Username</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Username" ng-model="vm.user.username" pattern=".{2,}" required>
+          <span ng-show="registerForm.username.$dirty && registerForm.username.$error.required" class="help-block text-left">Username is required</span>
+          <span ng-show="registerForm.username.$dirty && registerForm.username.$error.pattern" class="help-block text-left">Please enter atleast 2 characters</span>
+        </div>
+          
+        <div class="form-group" ng-class="{ 'has-error': registerForm.password.$dirty && registerForm.password.$error.required }">
+          <label class="sr-only" for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="vm.user.password" required pattern=".{6,}">
+          <span ng-show="registerForm.password.$dirty && registerForm.password.$error.required" class="help-block text-left">Password is required</span>
+          <span ng-show="registerForm.password.$dirty && registerForm.password.$error.pattern" class="help-block text-left">Please enter minimum 6 characters</span>
+        </div>
             
         <div class="form-group" ng-class="{ 'has-error': registerForm.registerPasswordCheck.$dirty && registerForm.registerPasswordCheck.$error.required }">
           <label class="sr-only" for="registerPasswordCheck">Retype Password</label>
-          <input type="password" class="form-control" id="registerPasswordCheck" name="registerPasswordCheck" placeholder="Confirm Password" ng-model="vm.user.registerPasswordCheck" match="vm.user.registerPassword" required>
+          <input type="password" class="form-control" id="registerPasswordCheck" name="registerPasswordCheck" placeholder="Confirm Password" ng-model="vm.user.registerPasswordCheck" match="vm.user.password" required>
           <span ng-show="registerForm.registerPasswordCheck.$dirty && registerForm.registerPasswordCheck.$error.required" class="help-block text-left">Confirm Password is required</span>
           <span ng-show="registerForm.registerPasswordCheck.$dirty && registerForm.registerPasswordCheck.$error.match" class="help-block text-left">Password and Confirm Password is not match!</span>
         </div>

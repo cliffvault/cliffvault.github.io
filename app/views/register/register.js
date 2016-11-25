@@ -6,14 +6,15 @@ angular.module('appTmp.register', ['ngRoute']);
 appTmp.config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/register', {
     templateUrl: 'views/register/register.html',
-    controller: 'RegisterCtrl'
+    controller: 'RegisterCtrl',
+    controllerAs: 'vm'
   });
 });
 
 
 
 // LoginCtrl
-appTmp.controller('RegisterCtrl', function($scope, $http, $route, $routeParams, $location, $rootScope, FlashService) {
+appTmp.controller('RegisterCtrl', function(UserService, $scope, $http, $route, $routeParams, $location, $rootScope, FlashService) {
                                 
     $scope.currentPath = $location.path();
     

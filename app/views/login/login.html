@@ -52,19 +52,22 @@
       </div>
       <p>Sign in to your account</p>
         
+      <div class="">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+      </div>
         
       <form name="loginFrom" ng-submit="vm.login()" role="form">
           
-        <div class="form-group" ng-class="{ 'has-error': loginFrom.loginName.$dirty && loginFrom.loginName.$error.required }">
-          <label class="sr-only" for="loginName">Username</label>
-          <input type="text" class="form-control" id="loginName" name="loginName" placeholder="Username" ng-model="vm.username" required>
-          <span ng-show="loginFrom.loginName.$dirty && loginFrom.loginName.$error.required" class="help-block text-left">Username is required</span>
+        <div class="form-group" ng-class="{ 'has-error': loginFrom.username.$dirty && loginFrom.username.$error.required }">
+          <label class="sr-only" for="username">Username</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Username" ng-model="vm.username" required>
+          <span ng-show="loginFrom.username.$dirty && loginFrom.username.$error.required" class="help-block text-left">Username is required</span>
         </div>
           
-        <div class="form-group" ng-class="{ 'has-error': loginFrom.loginPassword.$dirty && loginFrom.loginPassword.$error.required }">
-          <label class="sr-only" for="loginPassword">Password</label>
-          <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Password" ng-model="vm.password" required>
-          <span ng-show="loginFrom.loginPassword.$dirty && loginFrom.loginPassword.$error.required" class="help-block text-left">Password is required</span>
+        <div class="form-group" ng-class="{ 'has-error': loginFrom.password.$dirty && loginFrom.password.$error.required }">
+          <label class="sr-only" for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" ng-model="vm.password" required>
+          <span ng-show="loginFrom.password.$dirty && loginFrom.password.$error.required" class="help-block text-left">Password is required</span>
         </div>
           
         <div class="form-group clearfix">
