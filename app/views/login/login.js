@@ -13,20 +13,41 @@ appTmp.config(function($routeProvider, $locationProvider) {
 
 
 // LoginCtrl
-appTmp.controller('LoginCtrl', function($scope, $http, $route, $routeParams, $location) {
+appTmp.controller('LoginCtrl', function($scope, $http, $route, $routeParams, $location, AuthenticationService, FlashService) {
                                 
     $scope.currentPath = $location.path();
     
     $('body').addClass('activeLogin');
     $('.site-navbar, .site-menubar, .site-footer').hide();
+   
     
-    /*
-    if ( $scope.currentPath=='/login' ) {
-        $('body').addClass('activeLogin');
-    } else {
-        $('body').removeClass('activeLogin');
-    }
-    */
+    var vm = this;
+
+    vm.login = login;
+
+    (function initController() {
+         // reset login status
+         AuthenticationService.ClearCredentials();
+    })();
+
+    function login() {
+        
+           console.log('login');
+        
+            vm.dataLoading = true;
+            AuthenticationService.Login(vm.username, vm.password, function (response) {
+                if (response.success) {
+                    AuthenticationService.SetCredentials(vm.username, vm.password);
+                    $location.path('/dashboard');
+                } else {
+                    FlashService.Error(response.message);
+                    vm.dataLoading = false;
+                }
+            });
+    };
+    
+    
+   
           
 });
     

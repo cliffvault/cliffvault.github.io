@@ -1,0 +1,106 @@
+<style>
+    
+    .activeLogin {
+        padding-top: 0!important;
+    }
+    .activeLogin .page {
+        background-image: url(../../resources/images/login_bg.jpg);
+        background-size: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+    .activeLogin .page:before {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        content: '';
+        background: #000;
+        opacity: .8;
+    }
+    
+    .login_box {
+        position: relative;
+        left: 50%;
+        margin-left: -12.5%;
+    }
+    .sign_in_btn {
+        margin-bottom: 30px;
+    }
+    .brand-text, .login_box p {
+        color: #fff;
+    }
+    .txt_grey {
+        color: #ccc;
+    }
+    .f_2_7em { font-size: 2.7em!important; }
+    .login_box .brand-img {
+        background: rgb(255, 255, 255);
+        border-radius: 50%;
+        padding: 35px;
+    }
+    
+</style>
+
+
+  <!-- Page -->
+  <div class="page text-center">
+    <div class="page-content col-xs-3 login_box">
+      <div class="brand">
+        <img class="brand-img hidden" src="../../resources/images/vaultlogo.PNG" alt="">
+        <h2 class="brand-text logo_txt f_2_7em">CliffVault</h2>
+      </div>
+      <p>Sign up to work more collaboratively</p>
+        
+      <form name="registerForm" role="form" novalidate>
+          
+        <div class="form-group" ng-class="{ 'has-error': registerForm.regsterName.$dirty && registerForm.regsterName.$error.required }">
+          <label class="sr-only" for="regsterName">Name</label>
+          <input type="text" class="form-control" id="regsterName" name="regsterName" placeholder="Name" ng-model="vm.user.regsterName" required>
+          <span ng-show="registerForm.regsterName.$dirty && registerForm.regsterName.$error.required" class="help-block text-left">Name is required</span>
+        </div>
+          
+        <div class="form-group" ng-class="{ 'has-error': registerForm.regsterEmail.$dirty && registerForm.regsterEmail.$error.required }">
+          <label class="sr-only" for="regsterEmail">Email</label>
+          <input type="email" class="form-control" id="regsterEmail" name="regsterEmail" placeholder="Email" ng-model="vm.user.regsterEmail" required>
+          <span ng-show="registerForm.regsterEmail.$dirty && registerForm.regsterEmail.$error.required" class="help-block text-left">Email address is required</span>
+          <span ng-show="registerForm.regsterEmail.$dirty && registerForm.regsterEmail.$error.email" class="help-block text-left">Please enter a valid email address</span>
+        </div>
+          
+        <div class="form-group" ng-class="{ 'has-error': registerForm.registerPassword.$dirty && registerForm.registerPassword.$error.required }">
+          <label class="sr-only" for="registerPassword">Password</label>
+          <input type="password" class="form-control" id="registerPassword" name="registerPassword" placeholder="Password" ng-model="vm.user.registerPassword" required pattern=".{6,}">
+          <span ng-show="registerForm.registerPassword.$dirty && registerForm.registerPassword.$error.required" class="help-block text-left">Password is required</span>
+          <span ng-show="registerForm.registerPassword.$dirty && registerForm.registerPassword.$error.pattern" class="help-block text-left">Please enter minimum 6 characters</div>
+            
+        <div class="form-group" ng-class="{ 'has-error': registerForm.registerPasswordCheck.$dirty && registerForm.registerPasswordCheck.$error.required }">
+          <label class="sr-only" for="registerPasswordCheck">Retype Password</label>
+          <input type="password" class="form-control" id="registerPasswordCheck" name="registerPasswordCheck" placeholder="Confirm Password" ng-model="vm.user.registerPasswordCheck" match="vm.user.registerPassword" required>
+          <span ng-show="registerForm.registerPasswordCheck.$dirty && registerForm.registerPasswordCheck.$error.required" class="help-block text-left">Confirm Password is required</span>
+          <span ng-show="registerForm.registerPasswordCheck.$dirty && registerForm.registerPasswordCheck.$error.match" class="help-block text-left">Password and Confirm Password is not match!</span>
+        </div>
+            
+        <button type="submit" class="btn btn-primary btn-block sign_in_btn" ng-disabled="registerForm.$invalid || vm.dataLoading">REGISTER</button>
+        <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            
+      </form>
+        
+      <p>Have account already? Please go to <a href="#/login">Sign In</a></p>
+
+      <footer class="page-copyright page-copyright-inverse">
+        <p>WEBAPP BY cliffcreations</p>
+        <p>© 2016. All RIGHT RESERVED.</p>
+        <div class="social">
+          <a href="javascript:void(0)">
+            <i class="icon bd-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="javascript:void(0)">
+            <i class="icon bd-facebook" aria-hidden="true"></i>
+          </a>
+          <a href="javascript:void(0)">
+            <i class="icon bd-dribbble" aria-hidden="true"></i>
+          </a>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <!-- End Page -->

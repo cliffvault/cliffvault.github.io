@@ -6,7 +6,7 @@
 
     // get all employees
     $app->get('/todos', function ($request, $response, $args) {
-         $sth = $this->db->prepare("SELECT * FROM article");
+         $sth = $this->db->prepare("SELECT * FROM tmp_employee_tbl");
         $sth->execute();
         $todos = $sth->fetchAll();
         return $this->response->withJson($todos);

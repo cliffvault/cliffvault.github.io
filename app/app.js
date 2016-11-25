@@ -6,11 +6,17 @@ var appTmp = angular.module('appTmp', [
   'ngSanitize',
   'ui.bootstrap',
   'ngRoute',
+  'ngCookies',
   'ui',  
   'angularScreenfull',
   'ngImgCrop',
   'xeditable',
+  'validation.match',
+  'appTmp.AuthService',
+  'appTmp.FlashService',
+  'appTmp.UserService',
   'appTmp.login',
+  'appTmp.register',
   'appTmp.dashboard',
   'appTmp.employee',
   'appTmp.view1',
@@ -23,7 +29,6 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
 }]);
 
 
-
 appTmp.run(function(editableOptions, editableThemes) {
   editableThemes.bs3.inputClass = 'input-sm';
   editableThemes.bs3.buttonsClass = 'btn-sm';
@@ -31,12 +36,23 @@ appTmp.run(function(editableOptions, editableThemes) {
 });
 
 
-appTmp.run(['$rootScope', '$route', function($rootScope, $route, $location) {
+appTmp.run(['$rootScope', '$route', '$location', '$cookieStore', '$http', function($rootScope, $route, $location, $cookieStore, $http) {
+    
+    
+    // keep user logged in after page refresh
+    $rootScope.globals = $cookieStore.get('globals') || {};
+    if ($rootScope.globals.currentUser) {
+            $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+    }
     
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {        
        
-        $('body').removeClass('activeLogin');
-        $('.site-navbar, .site-menubar, .site-footer').show();
+       // redirect to login page if not logged in and trying to access a restricted page
+       var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+       var loggedIn = $rootScope.globals.currentUser;
+       if (restrictedPage && !loggedIn) {
+            $location.path('/login');
+       } 
         
     });
     
@@ -45,7 +61,11 @@ appTmp.run(['$rootScope', '$route', function($rootScope, $route, $location) {
 
 // MainCtrl
 appTmp.controller('MainCtrl', function($scope, $http, $route, $routeParams, $location) {
-                                
+    
+    $('body').show();
+    
+    $scope.apiUrl = 'http://dev.syntrio.in/cliffvault/';
+    
     $scope.currentPath = $location.path();
     
     $scope.Math = window.Math;

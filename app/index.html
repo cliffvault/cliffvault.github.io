@@ -66,6 +66,10 @@
     <script src="../global/vendor/respond/respond.min.js"></script>
     <![endif]-->
   <!-- Scripts -->
+    
+    <style>
+        body { display: none; }
+    </style>
       
 </head>
 
@@ -609,7 +613,6 @@
     </div>
     <!-- End Page -->  
     
-    
 
   <!-- Add Item Dialog -->
   <div id="addtodoItemForm" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="addtodoItemForm" aria-hidden="true">
@@ -720,6 +723,10 @@
   
 <!--build:js resources/js/main.min.js -->
     
+  <!-- App Core  -->
+  <script src="resources/js/jquery.min.js"></script>
+  <script src="resources/js/bootstrap.min.js"></script>
+    
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>    
   <script src="resources/js/modernizr.min.js"></script>
   <script src="resources/js/breakpoints.min.js"></script>
@@ -737,15 +744,10 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui/0.4.0/angular-ui.min.js"></script>
+  <script src="//code.angularjs.org/1.4.0/angular-cookies.js"></script>
       
     
-  <!-- App Core  -->
-  <script src="resources/js/jquery.min.js"></script>
-  <script src="resources/js/bootstrap.min.js"></script>
-    
-    
   <!-- Plugins -->
-
   <script src="resources/js/pace.min.js"></script>
   <script src="bower_components/jquery-asPieProgress/dist/jquery-asPieProgress.min.js"></script>
   <script src="resources/js/chartist.min.js"></script>
@@ -757,9 +759,16 @@
   <script src="bower_components/ng-img-crop/compile/minified/ng-img-crop.js"></script>
   <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
   <script src="bower_components/wow/dist/wow.min.js"></script>
+  <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
 
     
- 
+  <!-- Angular services -->
+  <script src="services/authentication.service.js"></script>
+  <script src="services/flash.service.js"></script>
+  <script src="services/user.service.js"></script>
+  <script src="services/user.service.local-storage.js"></script>
+    
+    
   <!-- Angular components -->
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
@@ -768,6 +777,7 @@
   
   <!-- Angular views -->
   <script src="app.js"></script>
+  <script src="views/register/register.js"></script>
   <script src="views/login/login.js"></script>
   <script src="views/dashboard/dashboard.js"></script>
   <script src="views/employee/employee.js"></script>

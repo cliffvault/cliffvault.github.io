@@ -19,7 +19,7 @@ angular.module('appTmp.employee', ['ngRoute'])
 appTmp.controller('AddEmployeeCtrl', function($scope, $http, $location, $filter, $uibModal, $timeout) {
     
     
-    $http.get('http://dev.syntrio.in/cliffvault/api/public/todos')
+    $http.get($scope.apiUrl+'api/public/todos')
        .then(function(res){
        $scope.getnodes = res.data;
     });

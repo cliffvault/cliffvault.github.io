@@ -25,12 +25,19 @@
     }
     .sign_in_btn {
         margin-bottom: 30px;
+        font-weight: 400;
     }
     .brand-text, .login_box p {
         color: #fff;
     }
     .txt_grey {
         color: #ccc;
+    }
+    .f_2_7em { font-size: 2.7em!important; }
+    .login_box .brand-img {
+        background: rgb(255, 255, 255);
+        border-radius: 50%;
+        padding: 35px;
     }
     
 </style>
@@ -40,23 +47,26 @@
   <div class="page text-center">
     <div class="page-content col-xs-3 login_box">
       <div class="brand">
-        <img class="brand-img" src="../../resources/images/logo.svg" alt="" width="80">
-        <h2 class="brand-text">TMP</h2>
+        <img class="brand-img hidden" src="../../resources/images/vaultlogo.PNG" alt="">
+        <h2 class="brand-text logo_txt f_2_7em">CliffVault</h2>
       </div>
       <p>Sign in to your account</p>
-      <form method="post" action="login.html">
-        <div class="form-group">
-          <label class="sr-only" for="inputName">Name</label>
-          <input type="text" class="form-control" id="inputName" name="name" placeholder="Name">
+        
+        
+      <form name="loginFrom" ng-submit="vm.login()" role="form">
+          
+        <div class="form-group" ng-class="{ 'has-error': loginFrom.loginName.$dirty && loginFrom.loginName.$error.required }">
+          <label class="sr-only" for="loginName">Username</label>
+          <input type="text" class="form-control" id="loginName" name="loginName" placeholder="Username" ng-model="vm.username" required>
+          <span ng-show="loginFrom.loginName.$dirty && loginFrom.loginName.$error.required" class="help-block text-left">Username is required</span>
         </div>
-        <div class="form-group">
-          <label class="sr-only" for="inputEmail">Email</label>
-          <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
+          
+        <div class="form-group" ng-class="{ 'has-error': loginFrom.loginPassword.$dirty && loginFrom.loginPassword.$error.required }">
+          <label class="sr-only" for="loginPassword">Password</label>
+          <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Password" ng-model="vm.password" required>
+          <span ng-show="loginFrom.loginPassword.$dirty && loginFrom.loginPassword.$error.required" class="help-block text-left">Password is required</span>
         </div>
-        <div class="form-group">
-          <label class="sr-only" for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
-        </div>
+          
         <div class="form-group clearfix">
           <div class="checkbox-custom checkbox-inline checkbox-primary pull-left">
             <input type="checkbox" id="inputCheckbox" name="remember">
@@ -64,9 +74,14 @@
           </div>
           <a class="pull-right" href="#/">Forgot password?</a>
         </div>
-        <button type="submit" class="btn btn-primary btn-block sign_in_btn">Sign in</button>
+          
+        <button type="submit" ng-disabled="loginFrom.$invalid || vm.dataLoading" class="btn btn-primary btn-block sign_in_btn">SIGN IN</button>
+        <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+          
       </form>
-      <p>Still no account? Please go to <a href="#/">Register</a></p>
+        
+        
+      <p>Still no account? Please go to <a href="#/register">Register</a></p>
 
       <footer class="page-copyright page-copyright-inverse">
         <p>WEBAPP BY cliffcreations</p>

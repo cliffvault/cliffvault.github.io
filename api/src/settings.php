@@ -18,7 +18,7 @@ return [
          // Database connection settings           
           "db" => [
             "host" => "localhost",
-            "dbname" => "develop_demo_post",
+            "dbname" => "cliffvault",
             "user" => "develop_praveen",
             "pass" => "d3fault"
         ],
