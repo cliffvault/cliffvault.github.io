@@ -25,7 +25,7 @@ var appTmp = angular.module('appTmp', [
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
     //$locationProvider.hashPrefix('!');
-    $routeProvider.otherwise({redirectTo: '/dashboard'});
+    $routeProvider.otherwise({redirectTo: '/login'});
 }]);
 
 

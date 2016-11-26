@@ -1,0 +1,3 @@
+app.js > MainCtrl
+-----------------
+Change $scope.apiUrl = 'http://dev.syntrio.in/cliffvault/';  To  live domain
