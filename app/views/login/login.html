@@ -81,19 +81,25 @@
     .txt_grey {
         color: #ccc;
     }
-    .f_2_7em { font-size: 2.7em!important; }
+    .f_2_7em { font-size: 2.7em; }
     .login_box .brand-img {
         background: rgb(255, 255, 255);
         border-radius: 50%;
         padding: 35px;
     }
     .loader { margin-top: -29px; }
+    .flash_message {
+        width: 100%;
+        margin-top: 10px!important;
+    }
+    .flash_message .tooltip { margin: 0!important; }
+    .flash_message .tooltip-inner { max-width: 100%; font-weight: 400; }
     
 </style>
 
 
 <div class="animation_poster">
-   <img src="resources/images/login_bg.jpg" alt="" class="bg_anim">
+   <div backstretch backstretch-images="loginBgImages" backstretch-duration="5000" backstretch-fade="2" class="bg_anim"></div>
 </div>
 
   <!-- Page -->
@@ -101,13 +107,25 @@
     <div class="page-content login_box">
       <div class="brand">
         <img class="brand-img hidden" src="../../resources/images/vaultlogo.PNG" alt="">
-        <h2 class="brand-text logo_txt f_2_7em">CliffVault</h2>
+        <h2 class="brand-text logo_txt f_2_7em" data-fittext data-fittext-max="inherit">CliffVault</h2>
       </div>
-      <p>Sign in to your account</p>
+      <p class="margin-bottom-20">Sign In to your account</p>
         
+<!--
       <div class="">
-                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+        <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
       </div>
+-->
+        
+        <div class="example example-tooltip flash_message" ng-if="flash">
+            <button type="button" class="btn sr-only" ng-class="{ 'tooltip-success': flash.type === 'success', 'tooltip-danger': flash.type === 'error' }" title="">Danger</button>
+            <div class="tooltip top" role="tooltip">
+                <div class="tooltip-arrow" ></div>
+                <div class="tooltip-inner" ng-bind="flash.message">
+                </div>
+            </div>
+        </div>
+        
         
       <form name="loginFrom" ng-submit="vm.login()" role="form">
           
@@ -141,7 +159,7 @@
 
       <footer class="page-copyright page-copyright-inverse">
         <p>WEBAPP BY cliffcreations</p>
-        <p>© 2016. All RIGHT RESERVED.</p>
+        <p class="text-uppercase">&copy; 2016, Cliffvault. All RIGHT RESERVED.</p>
         <div class="social">
           <a href="javascript:void(0)">
             <i class="icon bd-twitter" aria-hidden="true"></i>

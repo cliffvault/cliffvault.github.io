@@ -155,6 +155,18 @@ gulp.task('sftp', function () {
         }));
 });
 
+// API upload to server
+gulp.task('apisend', function () {
+    return gulp.src('api/src/*')
+        .pipe(sftp({
+            host: 'dev.syntrio.in',
+            user: 'develop',
+            pass: '3k@kk@r@d3fault',
+            port: '21',
+            remotePath: '/public_html/cliffvault/api/src'
+        }));
+});
+
 /*************** CORS ***************/
 gulp.task('connect', function() {
   connect.server({

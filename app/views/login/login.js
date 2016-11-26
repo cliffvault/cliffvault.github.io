@@ -32,6 +32,16 @@ appTmp.controller('LoginCtrl', function($scope, $http, $route, $routeParams, $lo
     $('.site-navbar, .site-menubar, .site-footer').hide();
    
     
+    // For background poster
+    $scope.loginBgImages = [
+        'resources/images/login/img1.jpg',
+        'resources/images/login/img2.jpg',
+        'resources/images/login/img3.jpg'
+    ];
+    
+    
+    
+    
     var vm = this;
 
     vm.login = login;

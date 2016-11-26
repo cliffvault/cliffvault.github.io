@@ -1,12 +1,30 @@
 <?php
 
     /*----------------------
+      * User Registration
+    -----------------------*/
+
+    // Add User
+    $app->post('/users', function ($request, $response) {
+        $input = $request->getParsedBody();
+        $sql = "INSERT INTO tmp_employee_tbl (regsterName, regsterEmail, username, password) VALUES (:regsterName, regsterEmail, username, password)";
+        $sth = $this->db->prepare($sql);
+        $sth->bindParam("regsterName", $input['regsterName']);
+        $sth->bindParam("regsterEmail", $input['regsterEmail']);
+        $sth->bindParam("username", $input['username']);
+        $sth->bindParam("password", $input['password']);
+        $sth->execute();
+        $input['id'] = $this->db->lastInsertId();
+        return $this->response->withJson($input);
+    });
+
+    /*----------------------
       * All about employees 
     -----------------------*/
 
     // get all employees
     $app->get('/todos', function ($request, $response, $args) {
-         $sth = $this->db->prepare("SELECT * FROM tmp_employee_tbl");
+        $sth = $this->db->prepare("SELECT * FROM tmp_employee_tbl");
         $sth->execute();
         $todos = $sth->fetchAll();
         return $this->response->withJson($todos);
@@ -14,7 +32,7 @@
  
     // Retrieve todo with id 
     $app->get('/todo/[{id}]', function ($request, $response, $args) {
-         $sth = $this->db->prepare("SELECT * FROM tasks WHERE id=:id");
+        $sth = $this->db->prepare("SELECT * FROM tasks WHERE id=:id");
         $sth->bindParam("id", $args['id']);
         $sth->execute();
         $todos = $sth->fetchObject();
@@ -24,7 +42,7 @@
  
     // Search for todo with given search teram in their name
     $app->get('/todos/search/[{query}]', function ($request, $response, $args) {
-         $sth = $this->db->prepare("SELECT * FROM tasks WHERE UPPER(task) LIKE :query ORDER BY task");
+        $sth = $this->db->prepare("SELECT * FROM tasks WHERE UPPER(task) LIKE :query ORDER BY task");
         $query = "%".$args['query']."%";
         $sth->bindParam("query", $query);
         $sth->execute();
@@ -57,7 +75,7 @@
     $app->put('/todo/[{id}]', function ($request, $response, $args) {
         $input = $request->getParsedBody();
         $sql = "UPDATE tasks SET task=:task WHERE id=:id";
-         $sth = $this->db->prepare($sql);
+        $sth = $this->db->prepare($sql);
         $sth->bindParam("id", $args['id']);
         $sth->bindParam("task", $input['task']);
         $sth->execute();

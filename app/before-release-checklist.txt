@@ -1,0 +1,10 @@
+app.js > MainCtrl
+-----------------
+Change $scope.apiUrl = 'http://dev.syntrio.in/cliffvault/'; >> To live domain
+
+
+Index.html
+-----------------
+<script>
+    var apiUrl = 'http://dev.syntrio.in/cliffvault/'; >> To live domain
+</script>    

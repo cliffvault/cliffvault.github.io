@@ -22,6 +22,13 @@ appTmp.controller('RegisterCtrl', function(UserService, $scope, $http, $route, $
     $('.site-navbar, .site-menubar, .site-footer').hide();
    
     
+    // For background poster
+    $scope.loginBgImages = [
+        'resources/images/register/img1.jpg',
+        'resources/images/register/img2.jpg',
+        'resources/images/register/img3.jpg'
+    ];
+    
     
     var vm = this;
 
@@ -32,7 +39,7 @@ appTmp.controller('RegisterCtrl', function(UserService, $scope, $http, $route, $
        UserService.Create(vm.user)
                 .then(function (response) {
                     if (response.success) {
-                        FlashService.Success('Registration successful', true);
+                        FlashService.Success('Welcome! You Are Successfully Registered, please login to continue', true);
                         $location.path('/login');
                     } else {
                         FlashService.Error(response.message);
@@ -40,6 +47,12 @@ appTmp.controller('RegisterCtrl', function(UserService, $scope, $http, $route, $
                     }
             });
     }
+    
+    
+      $http.post($scope.apiUrl+'api/public/users')
+       .then(function(res){
+       $scope.test = res.data;
+    });
     
     
     

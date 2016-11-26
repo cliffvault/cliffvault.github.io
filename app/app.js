@@ -6,6 +6,8 @@ var appTmp = angular.module('appTmp', [
   'ngSanitize',
   'ui.bootstrap',
   'ngRoute',
+  'ngFitText',
+  'ng-backstretch',
   'ngCookies',
   'ui',  
   'angularScreenfull',
@@ -38,6 +40,10 @@ appTmp.run(function(editableOptions, editableThemes) {
 
 appTmp.run(['$rootScope', '$route', '$location', '$cookieStore', '$http', function($rootScope, $route, $location, $cookieStore, $http) {
     
+    // Sends this header with any AJAX request
+    $http.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+    // Send this header only in post requests. Specifies you are sending a JSON object
+    $http.defaults.headers.post['Content-Type'] = 'application/json'
     
     // keep user logged in after page refresh
     $rootScope.globals = $cookieStore.get('globals') || {};

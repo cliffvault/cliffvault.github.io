@@ -70,6 +70,9 @@
     <style>
         body { display: none; }
     </style>
+    <script>
+        var apiUrl = 'http://dev.syntrio.in/cliffvault/';
+    </script>    
       
 </head>
 
@@ -714,7 +717,7 @@
     
   <!-- Footer -->
   <footer class="site-footer">
-    <div class="site-footer-legal">&copy; 2016 <a href="http://www.cliffcreations.com/" target="_blank">TMP</a>, v<span app-version></span></div>
+    <div class="site-footer-legal">&copy; 2016 <a href="http://www.cliffcreations.com/" target="_blank">Cliffvault</a>, v<span app-version></span></div>
     <div class="site-footer-right">
       Crafted with <i class="red-600 wb wb-heart"></i> by <a href="http://www.cliffcreations.com/" target="_blank">cliffcreations</a>
     </div>
@@ -760,13 +763,16 @@
   <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
   <script src="bower_components/wow/dist/wow.min.js"></script>
   <script src="bower_components/angular-validation-match/dist/angular-validation-match.min.js"></script>
+  <script src="bower_components/ngFitText/dist/ng-FitText.min.js"></script>
+  <script src="bower_components/ng-backstretch/dist/ng-backstretch.min.js"></script>
+    
 
     
   <!-- Angular services -->
   <script src="services/authentication.service.js"></script>
   <script src="services/flash.service.js"></script>
   <script src="services/user.service.js"></script>
-  <script src="services/user.service.local-storage.js"></script>
+<!--  <script src="services/user.service.local-storage.js"></script>-->
     
     
   <!-- Angular components -->
@@ -792,7 +798,7 @@
   <script src="resources/js/jquery.asScrollable.all.min.js"></script>
   <script src="resources/js/jquery-asHoverScroll.min.js"></script>
 
-  <!-- Plugins -->
+  <!-- Plugins from js folder -->
   <script src="resources/js/switchery.min.js"></script>
   <script src="resources/js/intro.min.js"></script>
   <script src="resources/js/jquery-slidePanel.min.js"></script>
