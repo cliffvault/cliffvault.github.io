@@ -15,6 +15,16 @@ appTmp.config(function($routeProvider, $locationProvider) {
 
 // LoginCtrl
 appTmp.controller('LoginCtrl', function($scope, $http, $route, $routeParams, $location, AuthenticationService, FlashService) {
+    
+    // Function for set window height
+    function calculateHeight() {
+        var H = $(window).height();
+        $(".window_height").css("height", H);
+    }; //end function
+    calculateHeight();
+    $(window).on("resize", function () {
+        calculateHeight();
+    });
                                 
     $scope.currentPath = $location.path();
     

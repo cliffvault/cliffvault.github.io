@@ -4,26 +4,73 @@
         padding-top: 0!important;
     }
     .activeLogin .page {
-        height: 100%;
-        background-image: url(../../resources/images/login_bg.jpg);
-        background-size: 100%;
-        -o-object-fit: cover;
-        object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            overflow-y: scroll;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            background: transparent;
     }
-    .activeLogin .page:before {
+    .bg_anim { 
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+            -webkit-animation: 20s cubic-bezier(.2, 0, .7, 1) bg_zoom infinite;
+    }
+    @-webkit-keyframes bg_zoom {
+        0% {
+            -webkit-transform: scale(1);
+        }
+        50% {
+            -webkit-transform: scale(1.11)
+        }
+        100% {
+            -webkit-transform: scale(1);
+        }
+    }
+    .animation_poster {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+    .animation_poster:before {
         width: 100%;
         height: 100%;
         position: absolute;
         content: '';
         background: #000;
         opacity: .8;
+        top: 0;
+        left: 0;
+        z-index: 1;
     }
     
     .login_box {
-        position: relative;
-        /*left: 50%;
-        margin-left: -12.5%;*/
+            left: 25%;
+            width: 50%;
+            top: 15%;
+            position: absolute;
     }
+    @media (min-width: 1200px) {
+        .login_box {
+            width: 25%!important;
+            left: 35%!important;
+        }
+    }
+    @media (max-width: 650px) {
+        .login_box {
+            width: 100%!important;
+            left: 0!important;
+        }
+    }
+    
     .sign_in_btn {
         margin-bottom: 30px;
         font-weight: 400;
@@ -45,9 +92,13 @@
 </style>
 
 
+<div class="animation_poster">
+   <img src="resources/images/login_bg.jpg" alt="" class="bg_anim">
+</div>
+
   <!-- Page -->
   <div class="page text-center">
-    <div class="page-content col-lg-3 col-md-3 col-sm-6 col-xs-12 login_box">
+    <div class="page-content login_box">
       <div class="brand">
         <img class="brand-img hidden" src="../../resources/images/vaultlogo.PNG" alt="">
         <h2 class="brand-text logo_txt f_2_7em">CliffVault</h2>
