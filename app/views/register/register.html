@@ -1,5 +1,4 @@
 <style>
-    
     .activeLogin {
         padding-top: 0!important;
     }
@@ -88,7 +87,12 @@
         padding: 35px;
     }
     .loader { margin-top: -29px; }
-    
+    .flash_message {
+        width: 100%;
+        margin-top: 10px!important;
+    }
+    .flash_message .tooltip { margin: 0!important; }
+    .flash_message .tooltip-inner { max-width: 100%; font-weight: 400; }
 </style>
 
   
@@ -105,7 +109,16 @@
       </div>
       <p class="margin-bottom-20">Sign Up to work more collaboratively</p>
         
-        <p>{{test}}</p>
+        
+        <div class="example example-tooltip flash_message" ng-if="flash">
+            <button type="button" class="btn sr-only" ng-class="{ 'tooltip-success': flash.type === 'success', 'tooltip-danger': flash.type === 'error' }" title="">Danger</button>
+            <div class="tooltip top" role="tooltip">
+                <div class="tooltip-arrow" ></div>
+                <div class="tooltip-inner" ng-bind="flash.message">
+                </div>
+            </div>
+        </div>        
+        
         
       <form name="registerForm" ng-submit="vm.register()" role="form">
           
@@ -124,9 +137,10 @@
           
         <div class="form-group" ng-class="{ 'has-error': registerForm.username.$dirty && registerForm.username.$error.required }">
           <label class="sr-only" for="username">Username</label>
-          <input type="text" class="form-control" id="username" name="username" placeholder="Username" ng-model="vm.user.username" pattern=".{2,}" required>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Username" ng-model="vm.user.username" pattern=".{2,}" ng-unique required>
           <span ng-show="registerForm.username.$dirty && registerForm.username.$error.required" class="help-block text-left">Username is required</span>
           <span ng-show="registerForm.username.$dirty && registerForm.username.$error.pattern" class="help-block text-left">Please enter atleast 2 characters</span>
+          <span ng-show="takenErrorMsg" ng-bind="takenErrorMsg" class="help-block text-left error margin-bottom-0"></span>
         </div>
           
         <div class="form-group" ng-class="{ 'has-error': registerForm.password.$dirty && registerForm.password.$error.required }">
@@ -143,9 +157,8 @@
           <span ng-show="registerForm.registerPasswordCheck.$dirty && registerForm.registerPasswordCheck.$error.match" class="help-block text-left">Password and Confirm Password is not match!</span>
         </div>
             
-        <button type="submit" class="btn btn-primary btn-block sign_in_btn" ng-disabled="registerForm.$invalid || vm.dataLoading">REGISTER</button>
+        <button type="submit" class="btn btn-primary btn-block sign_in_btn" ng-disabled="registerForm.$invalid || vm.dataLoading || takenErrorMsg">REGISTER</button>
         <img ng-if="vm.dataLoading" src="resources/images/loading.gif" class="loader" />
-        <!--data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA== -->
       </form>
         
       <p>Have account already? Please go to <a href="#/login">Sign In</a></p>

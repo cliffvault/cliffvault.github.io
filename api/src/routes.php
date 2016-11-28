@@ -4,18 +4,39 @@
       * User Registration
     -----------------------*/
 
+    // Retrieve User with name
+    $app->get('/users/[{username}]', function ($request, $response, $args) {
+        $sth = $this->db->prepare("SELECT * FROM user_tbl WHERE username=:username");
+        $sth->bindParam("username", $args['username']);
+        $sth->execute();
+        $todos = $sth->fetchObject();
+        return $this->response->withJson($todos);
+    });
+
+
     // Add User
     $app->post('/users', function ($request, $response) {
         $input = $request->getParsedBody();
-        $sql = "INSERT INTO tmp_employee_tbl (regsterName, regsterEmail, username, password) VALUES (:regsterName, regsterEmail, username, password)";
-        $sth = $this->db->prepare($sql);
-        $sth->bindParam("regsterName", $input['regsterName']);
-        $sth->bindParam("regsterEmail", $input['regsterEmail']);
-        $sth->bindParam("username", $input['username']);
-        $sth->bindParam("password", $input['password']);
-        $sth->execute();
-        $input['id'] = $this->db->lastInsertId();
-        return $this->response->withJson($input);
+        $sql = "INSERT INTO user_tbl (regsterName, regsterEmail, username, password) VALUES (:regsterName, :regsterEmail, :username, :password)";
+        try {
+            $sth = $this->db->prepare($sql);
+            $sth->bindParam("regsterName", $input['regsterName']);
+            $sth->bindParam("regsterEmail", $input['regsterEmail']);
+            $sth->bindParam("username", $input['username']);
+            $sth->bindParam("password", $input['password']);
+            $sth->execute();
+            $input['id'] = $this->db->lastInsertId();
+            //return $this->response->withJson($input);
+            $success['success'] = "true";
+            $success['message'] =   "Successfully created new user";
+            return $this->response->withJson($success);
+        }   
+        catch(PDOException $e) {
+            $success['message'] = "Failed";
+            $success['error'] = $e->getMessage();
+            return $this->response->withJson($success);
+            //echo '{"error":{"text":'. $e->getMessage() .'}}';           
+        }
     });
 
     /*----------------------
@@ -38,7 +59,6 @@
         $todos = $sth->fetchObject();
         return $this->response->withJson($todos);
     });
- 
  
     // Search for todo with given search teram in their name
     $app->get('/todos/search/[{query}]', function ($request, $response, $args) {

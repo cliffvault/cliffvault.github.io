@@ -39,24 +39,53 @@ appTmp.controller('RegisterCtrl', function(UserService, $scope, $http, $route, $
        UserService.Create(vm.user)
                 .then(function (response) {
                     if (response.success) {
-                        FlashService.Success('Welcome! You Are Successfully Registered, please login to continue', true);
+                        FlashService.Success('Welcome! You are successfully registered, please login to continue', true);
                         $location.path('/login');
                     } else {
-                        FlashService.Error(response.message);
+                        FlashService.Error('Your account creation request failed, please try again later');
                         vm.dataLoading = false;
                     }
             });
     }
     
     
-      $http.post($scope.apiUrl+'api/public/users')
+
+    
+    /*
+      $http.get($scope.apiUrl+'api/public/todos')
        .then(function(res){
        $scope.test = res.data;
     });
-    
-    
+    */
     
    
           
 });
     
+
+
+
+
+  appTmp.directive('ngUnique', ['$http', function (async) {
+            return {
+                require: 'ngModel',
+                link: function (scope, elem, attrs, ctrl) {
+                    elem.on('blur', function (evt) {
+                        scope.$apply(function () {                   
+                            var val = elem.val();
+                            //var req = { "username": val }
+                            var ajaxConfiguration = { method: 'GET', url: apiUrl+'api/public/users/'+val };
+                            async(ajaxConfiguration)
+                                .success(function(data, status, headers, config) {                                    
+                                    //ctrl.$setValidity('unique', data.username);                                
+                                    if (val === data.username) {
+                                        scope.takenErrorMsg = 'Username already exists';
+                                    } else {
+                                         scope.takenErrorMsg = '';
+                                    }
+                                });                                
+                        });
+                    });
+                }
+            }
+    }]);

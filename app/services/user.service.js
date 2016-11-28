@@ -5,8 +5,9 @@
         .module('appTmp.UserService', [])
         .factory('UserService', UserService);
 
-    UserService.$inject = ['$http'];
-    function UserService($http) {
+    UserService.$inject = ['$http','$timeout','$filter','$q'];
+    function UserService($http, $timeout, $filter, $q) {
+        
         var service = {};
         
         service.GetAll = GetAll;
@@ -27,7 +28,7 @@
         }
 
         function GetByUsername(username) {
-            return $http.get('api/users/' + username).then(handleSuccess, handleError('Error getting user by username'));
+            return $http.get(apiUrl+'api/public/users/' + username).then(handleSuccess, handleError('Error getting user by username'));
         }
 
         function Create(user) {
