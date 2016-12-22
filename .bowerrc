@@ -1,6 +1,0 @@
-{
-  "directory": "app/bower_components",
-  "proxy":"http://praveen:pr%40v33n@192.168.11.231:3128/",
-  "https-proxy":"http://praveen:pr%40v33n@192.168.11.231:3128/",
-  "resolvers": ["bower-npm-resolver"]
-}
