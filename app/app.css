@@ -1,0 +1,311 @@
+/* app css stylesheet */
+
+::-webkit-scrollbar-track
+{
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+	background-color: #fff;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #333;	
+}
+
+a[ng-click] {
+    cursor: pointer;
+}
+
+.logo_txt {
+    font-family: 'Baumans', cursive;
+    font-size: 26px;
+}
+
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  background: #fff;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 2px;
+}
+
+.pie-progress-number {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.top_nav .navbar {
+    /*height: 55px;*/
+    min-height: 53px;
+}
+.top_nav nav li a {
+    padding-top: 15px!important;
+    padding-bottom: 15px!important;
+}
+
+.fullscreen {
+    width: 100%;
+    height: 100%;
+}
+#toggleFullscreen a {
+    cursor: pointer;
+}
+.navbar-brand .navbar-brand-logo {
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+.navbar-brand:hover .navbar-brand-logo {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.material_btn_corner {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
+a.lnk_white:hover { color: #fff; }
+.auto_height { height: auto!important; }
+
+span.error {
+    width: 100%;
+    color: #f96868;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+span.error .icon {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #f00;
+    font-size: 12px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 23px;
+    margin-left: 5px;
+}
+.warning_icon {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+@font-face {
+    font-family: 'Glyphicons Halflings';
+    src: url(../resources/icons/glyphicons-halflings-regular.eot);
+    src: url(../resources/icons/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'), url(../resources/icons/glyphicons-halflings-regular.woff2) format('woff2'), url(../resources/icons/glyphicons-halflings-regular.woff) format('woff'), url(../resources/icons/glyphicons-halflings-regular.ttf) format('truetype'), url(../resources/icons/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+.glyphicon-ok:before {
+    content: "\e013"
+}
+.glyphicon-remove:before {
+    content: "\e014"
+}
+.display-flex { display: -webkit-box!important; display: -webkit-flex!important; display: -ms-flexbox!important; display: flex!important; }
+
+.lang_dropdown {
+    width: auto!important;
+    position: absolute;
+    right: 30px;
+    z-index: 1000;
+    font-size: 12px!important;
+    height: 32px!important;
+    padding: 0 20px 0 10px!important;
+    background: transparent!important;
+    border: 0!important;
+    color: #fff!important;
+}
+.lang_dropdown option {
+    color: #333!important;
+}
+.social a {
+    font-size: 16px;
+    color: #fff;
+}
+.site-navbar-small .site-navbar .navbar-brand {
+	white-space: nowrap;
+}
+.lang_select {
+	margin-top: 12px;
+    background: transparent!important;
+    color: #fff!important;
+    border: 0!important;
+    font-size: 12px!important;
+    font-weight: 400!important;
+    padding-right: 10px!important;
+}
+.lang_select option {
+	color: #333;
+}
+a.disabled {
+	pointer-events: none;
+}
+
+.blink_me {
+  -webkit-animation: blinker 1s linear infinite;
+  animation: blinker 1s linear infinite;
+}
+
+@-webkit-keyframes blinker {  
+  50% { opacity: 0; }
+}
+
+@keyframes blinker {  
+  50% { opacity: 0; }
+}
+
+.f-500 { font-weight: 500; }
+
+.startTaskBtn {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    line-height: 25px;
+    text-align: center;
+    font-size: 13px;
+    background: #62a8ea;
+    color: #fff;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    text-indent: 4px;
+    margin-right: 5px;
+	margin-top: -3px;
+}
+.task_timer_widget {
+	width: 100%;
+    background: #222;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    color: #fff;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.task_timer_widget .boxs {
+		
+}
+.timer_controls {
+	font-size: 20px;
+}
+.timer_controls button {
+	background: none;
+	border: none!important;
+}
+.timer_controls button i {
+	-webkit-transition: all .1s;
+	transition: all .1s;
+}
+.timer_controls button:hover i {
+	-webkit-transform: scale(1.3);
+	-ms-transform: scale(1.3);
+	transform: scale(1.3);
+}
+.timer_controls button[disabled] {
+	cursor: not-allowed!important;
+	opacity: .3;
+}
+
+.task_timer_minimise {
+	width: 335px!important;
+    right: 0!important;
+    padding: 0 5px!important;
+    left: initial;
+}
+.task_timer_minimise .minim {
+	display: none;
+}
+.startTimeTrackerBtn {
+    width: 47px;
+    height: 47px;
+    border-radius: 50%;
+    text-align: center;
+    text-indent: 2px;
+    line-height: 47px;
+    background: #62a8ea!important;
+}
+.timerScreen {
+	display: block;
+	font-size: 14px;
+	text-align: center;
+	font-weight: 400;
+}
+
+.width-180 {
+    width: 180px
+}
+.blue-btn {
+    background: #62a8ea!important;
+    border: 1px solid #62a8ea!important;
+    color: #fff!important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

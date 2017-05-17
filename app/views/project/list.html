@@ -1,0 +1,657 @@
+<style>
+	
+	.font-size-25 { font-size: 25px; }
+	
+	.counter-lg .counter-number-group, .counter-lg>.counter-number {
+		font-size: 33px;
+	}
+	
+	.addMember-trigger-button { color: #666; }
+	
+	.margin-top--20 {
+		margin-top: -20px;
+	}
+	
+.app-work .panel-heading{overflow:auto;padding:20px}.app-work .panel-search-form,.app-work .panel-title{float:left}.app-work .panel-title{font-size:14px;font-weight:100;padding:29px 10px}.app-work .panel-search-form{padding:19px;margin-left:20px}.app-work .panel-search-form .form-control{border:0;border-radius:17px;width:280px;opacity:.6;background-color:#f8fafb}.app-work .panel-search-form .form-control:focus,.app-work .panel-search-form .form-control:hover{background-color:#f3f7f9}.app-work .panel-search-form .icon{color:#aeb5b9;font-size:16px;position:absolute;top:11px;left:107%;-webkit-transition:all .4s;-o-transition:all .4s;transition:all .4s}.app-work .panel-search-form .icon:hover{color:#62a8ea}.app-work .panel-info{float:right;padding:11px 0;margin:0}.app-work .panel-info li{list-style:none;display:inline-block;margin-right:50px;text-align:center}.app-work .panel-info li:last-child{margin:0}.app-work .panel-info li .num{font-size:24px;line-height:1.2em}.app-work .panel-info li p{margin:0}.app-work .panel-body{clear:both}.app-work .panel-body .table td{vertical-align:middle;padding:20px 8px}.app-work .panel-body .table tr th:first-child{padding-left:0!important}.app-work .panel-body .table tr:last-of-type td{border-bottom:1px solid #e4eaec}.app-work .work-status{width:15%;padding-left:0!important}.app-work .subject{width:34%}.app-work .subject .table-content p{margin:0}.app-work .subject .table-content span:first-of-type{font-size:13px}.app-work .subject .table-content .label{margin-left:10px;}.app-work .work-progress{width:26%;background-color:transparent;position:relative}.app-work .work-progress .progress{margin:0;width:60%}.app-work .work-progress>span{position:absolute;top:50%;left:64%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%)}.app-work .members{width:20%;position:relative}.app-work .members img{width:30px;border-radius:50%;margin-right:6px}.app-work .members img:last-child{margin-right:0}.app-work .addMember-trigger{position:absolute;right:-76px;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%);transform:translateY(-50%)}.app-work .addMember-trigger-button{background-color:transparent}.app-work .addMember-trigger-button:hover{background-color:transparent}.app-work .addMember-trigger-button .wb-plus{color:#666;font-size:16px;-webkit-transition:all .3s;-o-transition:all .3s;transition:all .3s}.app-work .addMember-trigger-button .wb-plus:hover{opacity:.8}.app-work .addMember-trigger-dropdown{left:50%;top:0;-webkit-transform:translate(-50%,-100%);-ms-transform:translate(-50%,-100%);-o-transform:translate(-50%,-100%);transform:translate(-50%,-100%)}.app-work .addMember-trigger-dropdown::before{display:none}.app-work .addMember-list{max-height:150px}.app-work .addMember-item{margin-bottom:5px}.app-work .actions{padding:20px 0!important}.app-work .actions button{display:none;width:102px;height:35px;font-size:12px;position:relative;z-index:0;background-color:#fff}.app-work .actions button.finish{display:block}.app-work .actions button.finish+.table-content{display:none}.app-work .actions i{font-size:14px;margin-right: 13px;color:#666;-webkit-transition:all .3s;-o-transition:all .3s;transition:all .3s}.app-work .actions i:hover{opacity:.8}/*.app-work .actions i:first-of-type{margin-right:20px}*/.app-work .actions i:first-of-type:hover{cursor:pointer}.app-work .actions .table-content{/*margin-left:10px;*/ white-space: nowrap;}.app-work .slidePanel-actions{position:absolute;top:30px;right:20px}.app-work .slidePanel-inner{padding:0 15px}.app-work .step-info{overflow:hidden;margin-bottom:30px}.app-work .step-info>div{border-right:1px solid rgba(0,0,0,.078);margin-bottom:15px}.app-work .step-info>div:last-of-type{border:0}.app-work .step{background-color:transparent;padding:0;text-align:center}.app-work .step-numbers{font-size:42px;line-height:42px}.app-work .step-desc{display:inline-block}.app-work .step-title,.app-work .step-title+p{color:#76838f;font-size:14px}.app-work .bar-chart,.app-work .line-chart{width:100%;overflow-x:auto}.app-work .bar-chart .chart-header,.app-work .line-chart .chart-header{padding:0 20px;margin-bottom:20px}.app-work .bar-chart h3,.app-work .line-chart h3{font-size:14px;float:left;margin:0;padding:10px 0}.app-work .bar-chart .btn-group,.app-work .line-chart .btn-group{float:right}.app-work .bar-chart .btn-group button,.app-work .line-chart .btn-group button{border-color:#e4eaec;border-radius:16px;padding:5px 23px}.app-work .bar-chart .chart-color,.app-work .line-chart .chart-color{clear:both;text-align:center;padding-top:15px}.app-work .bar-chart .chart-color span:first-child,.app-work .line-chart .chart-color span:first-child{margin-right:40px}.app-work .bar-chart .chart-color i,.app-work .line-chart .chart-color i{display:inline-block;width:12px;height:12px;border-radius:50%}.app-work .bar-chart .chart-color p,.app-work .line-chart .chart-color p{display:inline-block}.app-work .line-chart{margin-bottom:30px}.app-work .line-chart .trends-chart{min-width:480px}.app-work .line-chart .ct-series-a .ct-line,.app-work .line-chart .ct-series-a .ct-point{stroke:#46be8a}.app-work .line-chart .ct-series-b .ct-line,.app-work .line-chart .ct-series-b .ct-point{stroke:#57c7d4}.app-work .line-chart .chartist-tooltip{padding:10px 25px}.app-work .line-chart .chartist-tooltip::after{content:"";display:block;width:0;height:0;position:absolute;top:100%;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%);transform:translateX(-50%);border-bottom:0;border-right:8px solid transparent;border-left:8px solid transparent;border-top:8px solid rgba(0,0,0,.701961)}.app-work .bar-chart .member-chart{min-width:500px}.app-work .bar-chart .ct-series-b .ct-bar{stroke:#46be8a}.app-work .ct-point-content{stroke:#fff;stroke-width:4px;stroke-linecap:round;pointer-events:none}.app-work .ct-series .ct-bar-fill{stroke:#f3f7f9;stroke-width:20px}.app-work .slidePanel-footer{padding:35px 0;margin-bottom:20px}.app-work .slidePanel-footer button{width:30px;height:30px;padding:8px}.app-work .slidePanel-footer>span{margin-left:20px}@media (max-width:988px){.app-work .panel-title{float:none}.app-work .panel-search-form{padding:19px 10px;margin:0}.app-work .panel-body .table thead th:first-of-type{display:none}.app-work .panel-body .table .work-status{display:none}.app-work .panel-body .table .subject{width:45%}.app-work .panel-body .table .subject .table-content .label{display:inline}}@media (max-width:898px){.app-work .panel-body .table thead th:nth-of-type(3){display:none}.app-work .panel-body .table .work-progress{display:none}.app-work .panel-body .table .members{width:40%}}@media (max-width:620px){.app-work .panel-body .table thead th:nth-of-type(4){display:none}.app-work .panel-body .table .members{display:none}.app-work .panel-body .table .subject{width:88%}.app-work .panel-body .table .actions .btn{display:none}.app-work .panel-body .table .actions .table-content{margin-left:0;text-align:center;display:block}.app-work .panel-body .table .wb-plus{display:none}.app-work .panel-body .table .wb-menu{margin-right:0}}@media (max-width:830px){.app-work .panel-search-form{float:none}.app-work .panel-search-form .form-control{width:94%}.app-work .panel-search-form .icon{left:97%}.app-work .panel-info{float:none;text-align:center}}@media (max-width:991px){.app-work .step-info>div:nth-of-type(2){border:0}}@media (max-width:418px){.app-work .panel-info li{margin-right:20px}}@media (max-width:380px){.app-work .step-numbers{display:block}}@media (max-width:355px){.app-work .panel-info li{margin-right:2px}}
+	
+	
+/*  Slide Panel */ 
+.slidePanel{position:fixed;z-index:1310;max-width:100%;max-height:100%;visibility:hidden;background:#fff;-webkit-box-shadow:-10px 0 20px 0 rgba(66,66,66,.2);box-shadow:-10px 0 20px 0 rgba(66,66,66,.2)}.slidePanel-left,.slidePanel-right{top:66px;bottom:0;width:700px}@media (max-width:1199px){.slidePanel-left,.slidePanel-right{width:-webkit-calc(100% - 230px);width:calc(100% - 230px)}}@media (max-width:767px){.slidePanel-left,.slidePanel-right{width:100%}}.slidePanel-bottom,.slidePanel-top{width:100%;height:500px}@media (max-width:1199px){.slidePanel-bottom,.slidePanel-top{top:0;bottom:0;height:auto}}.slidePanel-left{left:0}.slidePanel-right{right:0}.slidePanel-top{top:0;left:0}.slidePanel-bottom{bottom:0;left:0}.slidePanel .scrollable-container{height:100%}.slidePanel-show{visibility:visible}.slidePanel-handler{position:absolute;top:0;left:0;width:30px;height:100%;cursor:e-resize;background-color:transparent}.slidePanel-loading{position:absolute;top:0;width:100%;height:100%;font-size:0;text-align:center;visibility:hidden}.slidePanel-loading:before{display:inline-block;height:100%;vertical-align:middle;content:""}.slidePanel-loading .loader{vertical-align:middle}.slidePanel-loading-show{visibility:visible}.slidePanel-scrollable{height:100%}.slidePanel-header{position:relative;padding:40px 30px;padding-right:120px;color:#fff}.slidePanel-header h1{margin:0;font-size:22px;line-height:33px;color:#fff}.slidePanel-actions{float:right;min-height:67px;margin:0;margin-left:15px;text-align:right;list-style:none}.slidePanel-actions .btn{line-height:33px}.slidePanel-action{border:1px solid transparent;border-radius:3px;-webkit-transition:border .25s linear;-o-transition:border .25s linear;transition:border .25s linear}.slidePanel-action:last-child{margin-right:0}.slidePanel-action.dropdown.open{border-color:#fff}.slidePanel-action .icon{cursor:pointer}.slidePanel-action .icon:hover{color:#ecf0f3}.slidePanel-action .dropdown-menu{right:0;left:auto;margin-top:10px}.slidePanel-action .dropdown-menu .icon{margin-right:10px}.slidePanel-inner{padding:0 30px}.slidePanel-inner-section{padding-top:30px;padding-bottom:30px;border-bottom:1px solid #e4eaec}.slidePanel-comment{position:relative;margin-top:50px;margin-bottom:50px}.slidePanel-comment textarea{margin-bottom:5px}.slidePanel-comment .reply{position:absolute;top:10px;left:10px}
+	
+	
+	
+	
+</style>
+
+<!--
+<div class="row padding-vertical-20 padding-top-0">
+    <div class="col-sm-12 text-center">
+        <h2>List Projects</h2>
+        <form role="search">
+            <div class="input-search">
+                <input type="text" ng-model="search.$" class="form-control round text-center ng-pristine ng-valid ng-touched" placeholder="Type any keyword...">
+                <button type="submit" class="input-search-btn">
+                    <i class="icon wb-search" aria-hidden="true"></i>
+                </button>
+            </div>
+            <p class="page-search-count margin-bottom-0 count_from_text margin-top--20">
+                About {{(listProjects | filter:search:strict).length}} result
+            </p>
+        </form>
+    </div>
+</div>
+-->
+
+
+
+<div class="app-work">
+	
+	
+ <div class="panel">
+			<div class="panel-heading">
+				<h3 class="panel-title">PROJECT LIST</h3>
+				<form class="panel-search-form" role="search">
+					<div class="input-search">
+						<i class="input-search-icon wb-search" aria-hidden="true"></i>
+						<input type="text" class="form-control" ng-model="search.$" name="search" placeholder="Search List">
+						<a href="" ng-click="refreshListProject()"><i class="icon wb-loop"></i></a>
+					</div>
+				</form>
+
+				<ul class="panel-info">
+					<li>
+						<div class="num blue-600">{{(listProjects | filter: {"status": "Not Started"}).length}}</div>
+						<p>Not Started</p>
+					</li>
+					<li>
+						<div class="num orange-600">{{(listProjects | filter: {"status": "In Progress"}).length}}</div>
+						<p>In Progress</p>
+					</li>
+					<li>
+						<div class="num green-600">{{(listProjects | filter: {"status": "Completed"}).length}}</div>
+						<p>Completed</p>
+					</li>
+				</ul>
+			</div>
+	 
+	 
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Code / Status</th>
+							<th>Title / Created date / Priority / Type / Client</th>
+							<th>Progress</th>
+							<th>Members</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in listProjects.slice(((currentPageProj-1)*itemsPerPageProj), ((currentPageProj)*itemsPerPageProj)) | filter:search:strict">
+							<td class="work-status">
+								<span class="label label-default">{{item.project_code}}</span>
+								<span class="label margin-left-10" ng-class="{'label-primary': item.status == 'Not Started', 'label-warning': item.status == 'In Progress', 'label-success': item.status == 'Completed'}">{{item.status}}</span>
+							</td>
+							<td class="subject">
+								<div class="table-content">
+									<p class="blue-grey-500">{{item.p_name}}</p>
+									<span class="blue-grey-400">{{item.created_date}}</span>
+									<span class="label label-sm" ng-class="{'label-danger': item.priority == 'Urgent', 'label-warning': item.priority == 'High', 'label-success': item.priority == 'Normal', 'label-primary': item.priority == 'Low'}">{{item.priority}}</span>
+									<span class="label label-sm label-default">{{item.type}}</span>
+									<span class="label label-sm label-default">{{item.client_company_name}}</span>
+								</div>
+							</td>
+							<td class="work-progress">
+								<div class="progress progress-xs table-content">
+									<div class="progress-bar progress-bar-primary progress-bar-indicating" style="width: 90%" role="progressbar">
+										<span class="sr-only">90%</span>
+									</div>
+								</div>
+								<span>90%</span>
+							</td>
+							<td class="members">
+								<div class="table-content">
+									<div class="addMember">
+										<ul class="addMember-items">
+											<li class="addMember-item">
+												<img class="avatar" src="http://dev.syntrio.in/cliffvault/app/resources/images/profile/were.png" title="">
+											</li>
+											<li class="addMember-item">
+												<img class="avatar" src="http://dev.syntrio.in/cliffvault/app/resources/images/profile/were.png" title="">
+											</li>
+										</ul>
+										
+									</div>
+								</div>
+							</td>
+							<td class="actions">
+								<!-- <button data-toggle="slidePanel" type="button" class="btn btn-outline btn-success ">Achievements</button> -->
+								<div class="table-content">
+									<i class="icon wb-menu" ng-click="toggleSlidePanel(item.prj_id)"></i>
+									<a href="#/edit-project/{{item.prj_id}}"><i class="wb-edit"></i></a>
+									<a ng-click="deleteProject($index, item.prj_id, item.project_code)"><i class="wb-trash"></i></a>
+								</div>
+							</td>
+						</tr>
+						
+					</tbody>
+				</table>
+			</div>
+	 
+	 
+	 
+			<div class="panel-footer">
+				<nav>
+					<ul uib-pagination total-items="totalItemsProj" ng-model="currentPageProj" ng-change="pageChangedProj()" max-size="maxSizeProj" items-per-page="itemsPerPageProj" class="pagination-gap" boundary-links="true" force-ellipses="true"></ul>
+				</nav>
+			</div>
+	 
+	 
+</div>
+	
+	
+	
+	
+<div class="slidePanel slidePanel-right slidePanel-dragging" ng-class="{'slidePanel-show': ShowSlide == true}">
+	<div class="slidePanel-scrollable scrollable is-enabled scrollable-vertical">
+		<div class="scrollable-container">
+			<div class="slidePanel-content scrollable-content">
+				<header class="slidePanel-header bg-purple-600">
+					<div class="slidePanel-actions" aria-label="actions" role="group">
+						<button type="button" class="btn btn-pure btn-inverse actions-top icon wb-close" aria-hidden="true" ng-click="slidePanelClose()"></button>
+					</div>
+					<!--<h4 class="white"><i class="icon wb-user-circle"></i>{{currentProject.client}}</h4>-->
+					<h1>{{currentProject.p_name}}</h1>
+				</header>
+				<div class="slidePanel-inner">
+					<section class="slidePanel-inner-section">
+
+						<div class="step-info">
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="step">
+									<span class="step-numbers blue-600">85%</span>
+									<div class="step-desc">
+										<span class="step-title">Project</span>
+										<p>Progress</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="step">
+									<span class="step-numbers red-600">14</span>
+									<div class="step-desc">
+										<span class="step-title">In-Progress</span>
+										<p>Tasks</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="step">
+									<span class="step-numbers orange-600">14</span>
+									<div class="step-desc">
+										<span class="step-title">Unfinished</span>
+										<p>Tasks</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="step">
+									<span class="step-numbers green-600">8</span>
+									<div class="step-desc">
+										<span class="step-title">Completed</span>
+										<p>Tasks</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+						
+						<div class="step-info">
+							
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="widget margin-bottom-0">
+									<div class="widget-content bg-white">
+									  <div class="counter-lg">
+										<span class="counter-number">3%</span>
+										<div class="counter-label text-uppercase">Delay Rate</div>
+									  </div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="widget margin-bottom-0">
+									<div class="widget-content bg-white">
+									  <div class="counter-lg">
+										<span class="counter-number">2</span>
+										<div class="counter-label text-uppercase">Team Size</div>
+									  </div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="widget margin-bottom-0">
+									<div class="widget-content bg-white">
+									  <div class="counter-lg">
+										<span class="counter-number">{{currentProject.p_duration}}</span>
+										<div class="counter-label text-uppercase">Duration</div>
+									  </div>
+									</div>
+								</div>
+							</div>
+							
+							<div class="col-md-3 col-sm-6 col-xs-6">
+								<div class="widget margin-bottom-0">
+									<div class="widget-content bg-white">
+									  <div class="counter-lg">
+										<span class="counter-number">15</span>
+										<div class="counter-label text-uppercase">Sprints</div>
+									  </div>
+									</div>
+								</div>
+							</div>
+							
+							
+						</div>
+						
+						
+						<div class="step-info">
+							
+							<div class="col-md-6">
+								  <!-- Widget -->
+								  <div class="widget margin-bottom-0">
+									<div class="widget-content bg-white">
+									  <div class="counter counter-md text-left">
+										<div class="counter-label text-uppercase margin-bottom-5">Start Date</div>
+										<div class="counter-number-group margin-bottom-10">
+										  <span class="counter-number">{{currentProject.start_time}}</span>
+										</div>
+										<div class="counter-label">
+										  <div class="progress progress-xs margin-bottom-10">
+											<div class="progress-bar progress-bar-info bg-blue-600" aria-valuenow="70.3" aria-valuemin="0" aria-valuemax="100" style="width: 100%" role="progressbar">
+											  <span class="sr-only">70.3%</span>
+											</div>
+										  </div>
+										  <div class="counter counter-sm text-left">
+											<div class="counter-number-group">
+											  <span class="counter-icon blue-600">Estimated -</span>
+											  <span class="counter-number-related">{{currentProject.estimated_end_date}}</span>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									</div>
+								  </div>
+								  <!-- End Widget -->
+							</div>
+							
+							
+							<div class="col-md-6">
+								  <!-- Widget -->
+								  <div class="widget margin-bottom-0">
+									<div class="widget-content bg-white">
+									  <div class="counter counter-md text-left">
+										<div class="counter-label text-uppercase margin-bottom-5">End Date</div>
+										<div class="counter-number-group margin-bottom-10">
+										  <span class="counter-number">{{currentProject.end_time}}</span>
+										</div>
+										<div class="counter-label">
+										  <div class="progress progress-xs margin-bottom-10">
+											<div class="progress-bar progress-bar-info bg-blue-600" aria-valuenow="70.3" aria-valuemin="0" aria-valuemax="100" style="width: 100%" role="progressbar">
+											  <span class="sr-only">70.3%</span>
+											</div>
+										  </div>
+										  <div class="counter counter-sm text-left">
+											<div class="counter-number-group">
+											  <span class="counter-icon blue-600 margin-right-5"><i class="wb-graph-down"></i></span>
+											  <span class="counter-number">1</span>
+											  <span class="counter-number-related"> Day more than estimated date</span>
+											</div>
+										  </div>
+										</div>
+									  </div>
+									</div>
+								  </div>
+								  <!-- End Widget -->
+							</div>
+							
+						</div>
+						
+						
+						<div class="step-info">
+							
+							<div class="col-md-6">
+							  <!-- Widget -->
+							  <div class="widget margin-bottom-0">
+								<div class="widget-content bg-white clearfix">
+								  <div class="pull-left white">
+									<i class="icon icon-circle icon-2x wb-clipboard bg-red-600" aria-hidden="true"></i>
+								  </div>
+								  <div class="counter counter-md counter text-right pull-right">
+									<div class="counter-number-group">
+									  <span class="counter-number-related text-capitalize font-size-25">Project Manager</span>
+									</div>
+									<div class="counter-label text-capitalize font-size-16">{{currentProject.e_name}}</div>
+								  </div>
+								</div>
+							  </div>
+							  <!-- End Widget -->
+							</div>
+							
+							<div class="col-md-6">
+							  <!-- Widget -->
+							  <div class="widget margin-bottom-0">
+								<div class="widget-content bg-white clearfix">
+								  <div class="counter counter-md pull-left text-left">
+									<div class="counter-number-group">
+									  <span class="counter-number-related text-capitalize font-size-25">Created by</span>
+									</div>
+									<div class="counter-label text-capitalize font-size-16">{{currentProject.created_by}}</div>
+								  </div>
+								  <div class="pull-right white">
+									<i class="icon icon-circle icon-2x wb-user bg-blue-600" aria-hidden="true"></i>
+								  </div>
+								</div>
+							  </div>
+							  <!-- End Widget -->
+							</div>
+							
+						</div>
+						
+						
+						<div class="step-info margin-bottom-0">
+							<div class="col-md-12">
+								<h3 class="blue-grey-700 example-title">PROJECT DESCRIPTION</h3>
+								<section>
+									<p ng-bind-html="currentProject.p_description">
+										
+									</p>
+							  	</section>
+							</div>
+						</div>
+						
+						
+						<div class="step-info">
+							<div class="col-md-12">
+								<h3 class="blue-grey-700 example-title">Client Comments</h3>
+								
+								<div class="comment media">
+									<div class="media-left">
+									  <a class="avatar avatar-lg" href="javascript:void(0)">
+										<img src="http://dev.syntrio.in/cliffvault/app/resources/images/profile/were.png" alt="">
+									  </a>
+									</div>
+									<div class="comment-body media-body">
+									  <a class="comment-author" href="javascript:void(0)">Caleb Richards</a>
+									  <div class="comment-meta">
+										<span class="date">5 days ago</span>
+									  </div>
+									  <div class="comment-content">
+										<p>Elliot you are always so right :)</p>
+									  </div>
+									  <div class="comment-actions">
+										<a class="text-like icon wb-heart" href="javascript:void(0)" role="button"></a>
+										<a href="javascript:void(0)" role="button">Reply</a>
+										<a href="javascript:void(0)" role="button">Edit</a>
+									  </div>
+									</div>
+								</div>
+								
+								<div class="comment media">
+									<div class="media-left">
+									  <a class="avatar avatar-lg" href="javascript:void(0)">
+										<img src="http://dev.syntrio.in/cliffvault/app/resources/images/profile/were.png" alt="">
+									  </a>
+									</div>
+									<div class="comment-body media-body">
+									  <a class="comment-author" href="javascript:void(0)">Caleb Richards</a>
+									  <div class="comment-meta">
+										<span class="date">5 days ago</span>
+									  </div>
+									  <div class="comment-content">
+										<p>Elliot you are always so right :)</p>
+									  </div>
+									  <div class="comment-actions">
+										<a class="text-like icon wb-heart" href="javascript:void(0)" role="button"></a>
+										<a href="javascript:void(0)" role="button">Reply</a>
+										<a href="javascript:void(0)" role="button">Edit</a>
+									  </div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						
+						
+						
+						<div class="line-chart">
+							<div class="chart-header">
+								<h3 class="blue-grey-700">PROJECT TREENDS</h3>
+								<div class="btn-group dropdown">
+									<button type="button" class="btn btn-outline btn-default dropdown-toggle" data-toggle="dropdown">
+										Week
+										<span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu animate dropdown-menu-right" role="menu">
+										<li role="presentation">
+											<a href="#" role="menuitem">Day</a>
+										</li>
+										<li role="presentation">
+											<a href="#" role="menuitem">Month</a>
+										</li>
+										<li role="presentation">
+											<a href="#" role="menuitem">Year</a>
+										</li>
+									</ul>
+								</div>
+								<div class="chart-color">
+									<span>
+            <i class="bg-green-600"></i>
+            <p>COMPLETED</p>
+          </span>
+									<span>
+            <i class="bg-cyan-600"></i>
+            <p>ADDED</p>
+          </span>
+								</div>
+							</div>
+							<div class="ct-chart trends-chart">
+								<div class="chartist-tooltip" style="display: none;"></div>
+								<svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="250" class="ct-chart-line" style="width: 100%; height: 250;">
+									<g class="ct-grids">
+										<line y1="215" y2="215" x1="50" x2="645" class="ct-grid ct-vertical"></line>
+										<line y1="165" y2="165" x1="50" x2="645" class="ct-grid ct-vertical"></line>
+										<line y1="115" y2="115" x1="50" x2="645" class="ct-grid ct-vertical"></line>
+										<line y1="65" y2="65" x1="50" x2="645" class="ct-grid ct-vertical"></line>
+										<line y1="15" y2="15" x1="50" x2="645" class="ct-grid ct-vertical"></line>
+									</g>
+									<g>
+										<g series-name="series-1" class="ct-series ct-series-a">
+											<path d="M50,175C50.992,175,148.175,140,149.167,140C150.158,140,247.342,175,248.333,175C249.325,175,346.508,80,347.5,80C348.492,80,445.675,95,446.667,95C447.658,95,544.842,20,545.833,20C546.825,20,644.008,160,645,160" class="ct-line"></path>
+											<line x1="50" y1="175" x2="50.01" y2="175" class="ct-point" value="0.8"></line>
+											<line x1="50" y1="175" x2="50.01" y2="175" class="ct-point-content"></line>
+											<line x1="149.16666666666669" y1="140" x2="149.17666666666668" y2="140" class="ct-point" value="1.5"></line>
+											<line x1="149.16666666666669" y1="140" x2="149.17666666666668" y2="140" class="ct-point-content"></line>
+											<line x1="248.33333333333334" y1="175" x2="248.34333333333333" y2="175" class="ct-point" value="0.8"></line>
+											<line x1="248.33333333333334" y1="175" x2="248.34333333333333" y2="175" class="ct-point-content"></line>
+											<line x1="347.5" y1="80" x2="347.51" y2="80" class="ct-point" value="2.7"></line>
+											<line x1="347.5" y1="80" x2="347.51" y2="80" class="ct-point-content"></line>
+											<line x1="446.6666666666667" y1="95" x2="446.6766666666667" y2="95" class="ct-point" value="2.4"></line>
+											<line x1="446.6666666666667" y1="95" x2="446.6766666666667" y2="95" class="ct-point-content"></line>
+											<line x1="545.8333333333334" y1="20" x2="545.8433333333334" y2="20" class="ct-point" value="3.9"></line>
+											<line x1="545.8333333333334" y1="20" x2="545.8433333333334" y2="20" class="ct-point-content"></line>
+											<line x1="645" y1="160" x2="645.01" y2="160" class="ct-point" value="1.1"></line>
+											<line x1="645" y1="160" x2="645.01" y2="160" class="ct-point-content"></line>
+										</g>
+										<g series-name="series-2" class="ct-series ct-series-b">
+											<path d="M50,105C50.992,105,148.175,65,149.167,65C150.158,65,247.342,80,248.333,80C249.325,80,346.508,35,347.5,35C348.492,35,445.675,140,446.667,140C447.658,140,544.842,165,545.833,165C546.825,165,644.008,70,645,70" class="ct-line"></path>
+											<line x1="50" y1="104.99999999999999" x2="50.01" y2="104.99999999999999" class="ct-point" value="2.2"></line>
+											<line x1="50" y1="104.99999999999999" x2="50.01" y2="104.99999999999999" class="ct-point-content"></line>
+											<line x1="149.16666666666669" y1="65" x2="149.17666666666668" y2="65" class="ct-point" value="3"></line>
+											<line x1="149.16666666666669" y1="65" x2="149.17666666666668" y2="65" class="ct-point-content"></line>
+											<line x1="248.33333333333334" y1="80" x2="248.34333333333333" y2="80" class="ct-point" value="2.7"></line>
+											<line x1="248.33333333333334" y1="80" x2="248.34333333333333" y2="80" class="ct-point-content"></line>
+											<line x1="347.5" y1="35" x2="347.51" y2="35" class="ct-point" value="3.6"></line>
+											<line x1="347.5" y1="35" x2="347.51" y2="35" class="ct-point-content"></line>
+											<line x1="446.6666666666667" y1="140" x2="446.6766666666667" y2="140" class="ct-point" value="1.5"></line>
+											<line x1="446.6666666666667" y1="140" x2="446.6766666666667" y2="140" class="ct-point-content"></line>
+											<line x1="545.8333333333334" y1="165" x2="545.8433333333334" y2="165" class="ct-point" value="1"></line>
+											<line x1="545.8333333333334" y1="165" x2="545.8433333333334" y2="165" class="ct-point-content"></line>
+											<line x1="645" y1="70" x2="645.01" y2="70" class="ct-point" value="2.9"></line>
+											<line x1="645" y1="70" x2="645.01" y2="70" class="ct-point-content"></line>
+										</g>
+									</g>
+									<g class="ct-labels">
+										<foreignObject style="overflow: visible;" x="50" y="220" width="99.16666666666667" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 99px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">SUN</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="149.16666666666669" y="220" width="99.16666666666667" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 99px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">MON</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="248.33333333333334" y="220" width="99.16666666666666" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 99px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">TUE</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="347.5" y="220" width="99.16666666666669" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 99px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">WED</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="446.6666666666667" y="220" width="99.16666666666669" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 99px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">THU</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="545.8333333333334" y="220" width="99.16666666666663" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 99px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">FRI</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="645" y="220" width="30" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 30px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">SAT</span></foreignObject>
+										<foreignObject style="overflow: visible;" y="165" x="10" height="50" width="30"><span class="ct-label ct-vertical ct-start" style="height: 50px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">0</span></foreignObject>
+										<foreignObject style="overflow: visible;" y="115" x="10" height="50" width="30"><span class="ct-label ct-vertical ct-start" style="height: 50px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">1</span></foreignObject>
+										<foreignObject style="overflow: visible;" y="65" x="10" height="50" width="30"><span class="ct-label ct-vertical ct-start" style="height: 50px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">2</span></foreignObject>
+										<foreignObject style="overflow: visible;" y="15" x="10" height="50" width="30"><span class="ct-label ct-vertical ct-start" style="height: 50px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">3</span></foreignObject>
+										<foreignObject style="overflow: visible;" y="-15" x="10" height="30" width="30"><span class="ct-label ct-vertical ct-start" style="height: 30px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">4</span></foreignObject>
+									</g>
+								</svg>
+							</div>
+						</div>
+						<div class="bar-chart">
+							<div class="chart-header">
+								<h3 class="blue-grey-700">PROJECT TRENDS</h3>
+								<div class="chart-color">
+									<span>
+            <i class="bg-blue-600"></i>
+            <p>UNFINISHED</p>
+          </span>
+									<span>
+            <i class="bg-green-600"></i>
+            <p>COMPLETED</p>
+          </span>
+								</div>
+							</div>
+							<div class="ct-chart member-chart">
+								<svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="210" class="ct-chart-bar" style="width: 100%; height: 210;">
+									<g class="ct-grids"></g>
+									<g>
+										<g class="ct-series ct-series-a">
+											<line x1="81.21428571428572" x2="81.21428571428572" y1="175" y2="43" class="ct-bar" value="3.3" style="stroke-width: 20px"></line>
+											<line x1="81.21428571428572" x2="81.21428571428572" y1="43" y2="0" class="ct-bar-fill"></line>
+											<line x1="167.64285714285717" x2="167.64285714285717" y1="175" y2="35" class="ct-bar" value="3.5" style="stroke-width: 20px"></line>
+											<line x1="167.64285714285717" x2="167.64285714285717" y1="35" y2="0" class="ct-bar-fill"></line>
+											<line x1="254.07142857142856" x2="254.07142857142856" y1="175" y2="75" class="ct-bar" value="2.5" style="stroke-width: 20px"></line>
+											<line x1="254.07142857142856" x2="254.07142857142856" y1="75" y2="0" class="ct-bar-fill"></line>
+											<line x1="340.5" x2="340.5" y1="175" y2="95" class="ct-bar" value="2" style="stroke-width: 20px"></line>
+											<line x1="340.5" x2="340.5" y1="95" y2="0" class="ct-bar-fill"></line>
+											<line x1="426.92857142857144" x2="426.92857142857144" y1="175" y2="27" class="ct-bar" value="3.7" style="stroke-width: 20px"></line>
+											<line x1="426.92857142857144" x2="426.92857142857144" y1="27" y2="0" class="ct-bar-fill"></line>
+											<line x1="513.3571428571429" x2="513.3571428571429" y1="175" y2="67" class="ct-bar" value="2.7" style="stroke-width: 20px"></line>
+											<line x1="513.3571428571429" x2="513.3571428571429" y1="67" y2="0" class="ct-bar-fill"></line>
+											<line x1="599.7857142857142" x2="599.7857142857142" y1="175" y2="99" class="ct-bar" value="1.9" style="stroke-width: 20px"></line>
+											<line x1="599.7857142857142" x2="599.7857142857142" y1="99" y2="0" class="ct-bar-fill"></line>
+										</g>
+										<g class="ct-series ct-series-b">
+											<line x1="105.21428571428572" x2="105.21428571428572" y1="175" y2="95" class="ct-bar" value="2" style="stroke-width: 20px"></line>
+											<line x1="105.21428571428572" x2="105.21428571428572" y1="95" y2="0" class="ct-bar-fill"></line>
+											<line x1="191.64285714285717" x2="191.64285714285717" y1="175" y2="15" class="ct-bar" value="4" style="stroke-width: 20px"></line>
+											<line x1="191.64285714285717" x2="191.64285714285717" y1="15" y2="0" class="ct-bar-fill"></line>
+											<line x1="278.07142857142856" x2="278.07142857142856" y1="175" y2="35" class="ct-bar" value="3.5" style="stroke-width: 20px"></line>
+											<line x1="278.07142857142856" x2="278.07142857142856" y1="35" y2="0" class="ct-bar-fill"></line>
+											<line x1="364.5" x2="364.5" y1="175" y2="67" class="ct-bar" value="2.7" style="stroke-width: 20px"></line>
+											<line x1="364.5" x2="364.5" y1="67" y2="0" class="ct-bar-fill"></line>
+											<line x1="450.92857142857144" x2="450.92857142857144" y1="175" y2="43" class="ct-bar" value="3.3" style="stroke-width: 20px"></line>
+											<line x1="450.92857142857144" x2="450.92857142857144" y1="43" y2="0" class="ct-bar-fill"></line>
+											<line x1="537.3571428571429" x2="537.3571428571429" y1="175" y2="35" class="ct-bar" value="3.5" style="stroke-width: 20px"></line>
+											<line x1="537.3571428571429" x2="537.3571428571429" y1="35" y2="0" class="ct-bar-fill"></line>
+											<line x1="623.7857142857142" x2="623.7857142857142" y1="175" y2="75" class="ct-bar" value="2.5" style="stroke-width: 20px"></line>
+											<line x1="623.7857142857142" x2="623.7857142857142" y1="75" y2="0" class="ct-bar-fill"></line>
+										</g>
+									</g>
+									<g class="ct-labels">
+										<foreignObject style="overflow: visible;" x="50" y="180" width="86.42857142857143" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 86px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">Damon</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="136.42857142857144" y="180" width="86.42857142857143" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 86px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">Jimmy</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="222.85714285714286" y="180" width="86.42857142857142" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 86px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">Jhon</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="309.2857142857143" y="180" width="86.42857142857144" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 86px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">Alex</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="395.7142857142857" y="180" width="86.42857142857144" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 86px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">Lucy</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="482.14285714285717" y="180" width="86.42857142857139" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 86px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">Peter</span></foreignObject>
+										<foreignObject style="overflow: visible;" x="568.5714285714286" y="180" width="86.42857142857144" height="20"><span class="ct-label ct-horizontal ct-end" style="width: 86px; height: 20px" xmlns="http://www.w3.org/2000/xmlns/">Chris</span></foreignObject>
+										<foreignObject style="overflow: visible;" y="135" x="10" height="40" width="30"><span class="ct-label ct-vertical ct-start" style="height: 40px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">0</span></foreignObject>
+										<foreignObject style="overflow: visible;" y="95" x="10" height="40" width="30"><span class="ct-label ct-vertical ct-start" style="height: 40px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">1</span></foreignObject>
+										<foreignObject style="overflow: visible;" y="55" x="10" height="40" width="30"><span class="ct-label ct-vertical ct-start" style="height: 40px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">2</span></foreignObject>
+										<foreignObject style="overflow: visible;" y="15" x="10" height="40" width="30"><span class="ct-label ct-vertical ct-start" style="height: 40px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">3</span></foreignObject>
+										<foreignObject style="overflow: visible;" y="-15" x="10" height="30" width="30"><span class="ct-label ct-vertical ct-start" style="height: 30px; width: 30px" xmlns="http://www.w3.org/2000/xmlns/">4</span></foreignObject>
+									</g>
+								</svg>
+							</div>
+						</div>
+					</section>
+					<div class="slidePanel-footer">
+						<button type="button" class="btn btn-icon btn-danger btn-round">
+							<i class="icon wb-flag" aria-hidden="true"></i>
+						</button>
+						<span>Tody completed <span class="red-600">3 tasks</span> . 3 New Tasks , 0 Schedule , 1 Topic , 2 Documents.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="scrollable-bar scrollable-bar-vertical scrollable-bar-hide" draggable="false">
+			<div class="scrollable-bar-handle"></div>
+		</div>
+	</div>
+	<div class="slidePanel-handler"></div>
+	<div class="slidePanel-loading">
+		<div class="loader loader-default"></div>
+	</div>
+</div>
+	
+	
+	
+	
+	
+	
+<!--
+	<div class="projects-wrap">
+		<ul class="blocks blocks-100 blocks-xlg-5 blocks-md-4 blocks-sm-3 blocks-xs-2">
+			
+			<li ng-repeat="item in listProjects | filter:search:strict">
+				<div class="panel">
+					<figure class="overlay overlay-hover animation-hover">
+						<img class="caption-figure" src="http://getbootstrapadmin.com/remark/global/photos/city-2-960x640.jpg">
+						<figcaption class="overlay-panel overlay-background overlay-fade text-center vertical-align">
+							<div class="btn-group">
+								<div class="dropdown pull-left">
+									<button type="button" class="btn btn-icon btn-pure btn-default dropdown-toggle" title="Setting"><i class="icon wb-settings" aria-hidden="true"></i></button>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="">Copy</a></li>
+										<li><a href="">Rename</a></li>
+									</ul>
+								</div>
+								<button type="button" class="btn btn-icon btn-pure btn-default" title="Delete" data-tag="project-delete"><i class="icon wb-trash" aria-hidden="true"></i></button>
+							</div>
+							<button type="button" class="btn btn-outline btn-default project-button">View Project</button>
+						</figcaption>
+					</figure>
+					<div class="time pull-right"><i class="icon wb-calendar"></i> {{item.created_date}}</div>
+					<div class="text-truncate">{{item.p_name}}</div>
+				</div>
+			</li>
+			
+			
+		</ul>
+	</div>
+-->
+
+	
+</div>
+
+
+
+
+
+<a href="#/add-project">
+  <button type="button" class="btn btn-floating btn-danger material_btn_corner"><i class="icon wb-plus" aria-hidden="true"></i></button>
+</a>

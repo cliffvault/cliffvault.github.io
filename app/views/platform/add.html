@@ -1,0 +1,36 @@
+<div class="row padding-vertical-20 padding-top-0">
+    <div class="col-sm-12 text-center">
+        <h2>Manage Platforms</h2>
+        <br>
+    </div>
+</div>
+
+
+<div class="col-md-6 add_block listing_box col-md-offset-3">
+ <div class="panel">
+   <div class="panel-body container-fluid">    
+       
+       <div class="col-md-12 padding-horizontal-0">
+           <div class="input-search">
+			 <form name="addPlatformForm" ng-submit="addPlatformFormSubmit()" novalidate>
+			  <div class="form-control-wrap">
+                <button type="submit" class="input-search-btn"><i class="icon wb-plus" aria-hidden="true"></i></button>
+                <input type="text" class="form-control margin-bottom-7 border-radius-0" name="platformName" placeholder="Type new platform and hit enter" ng-model="newPlatform.d_platform" required minlength="2">
+			  </div>
+				<span ng-show="addPlatformForm.platformName.$dirty && addPlatformForm.platformName.$error.required" class="help-block text-left error">
+					<i class="icon wb-close"></i> Platform is required
+				</span>
+				<span class="help-block text-left error" ng-show="addPlatformForm.platformName.$error.minlength"><i class="icon wb-close"></i> Platform not less than 2 characters</span>
+			 </form>
+           </div>
+	   </div>
+	   
+	   <div class="col-md-12 padding-horizontal-0 margin-top-15">
+           <ul class="list-group list-group-dividered list-group-full">
+		     <li class="list-group-item padding-horizontal-15" editable-text="item.d_platform" ng-repeat="item in listPlatforms" onaftersave="editPlatform($data, item.pf_id)">{{item.d_platform || 'empty'}}</li>
+		   </ul>
+	   </div>
+	   
+   </div>
+</div>
+</div>

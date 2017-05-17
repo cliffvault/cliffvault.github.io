@@ -1,0 +1,324 @@
+<style>
+
+	._720kb-datepicker-calendar-body, ._720kb-datepicker-calendar-days-header, ._720kb-datepicker-calendar-header, ._720kb-datepicker-calendar-years-pagination-pages, .datepicker, [datepicker], datepicker {
+    font-family: inherit;
+	}
+	.total_sprints { font-size: 22px; color: #333; }
+	.total_sprints .badge { font-size: 22px; }
+
+</style>
+
+
+<div class="row padding-vertical-20 padding-top-0">
+    <div class="col-sm-12 text-center">
+        <h2>Edit Project - {{editProjectFormData.project_code}}</h2>
+        <br>
+    </div>
+</div>
+
+     
+     <!-- The actual modal template, just a bit o bootstrap -->
+     <script type="text/ng-template" id="modal.html">
+         <div class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Add {{ (editProjectFormData.no_of_sprints)+1 }}<sup>th</sup> Sprint To {{editProjectFormData.project_code}}</h4>
+              </div>
+              <div class="modal-body">
+				  
+				<form name="editProjectSprintForm" novalidate>
+					
+							<div class="list-group-item-text">
+								
+								<div class="col-md-6 padding-left-0">
+									<div class="form-group">
+									  <label class="control-label" for="sprint_start_date">Start Date</label>
+									  <datepicker date-format="EEEE, MMMM d, y" selector="form-control">
+										<div class="input-group">
+											<input type="text" readonly ng-model="editProjectSprintFormData.sprint_start_date" class="form-control" id="sprint_start_date" name="sprint_start_date" placeholder="Enter Start Date" required>
+											<span class="input-group-addon">
+												<i class="fa fa-lg fa-calendar"></i>
+											</span>
+										</div>
+									  </datepicker>
+									  <span ng-show="editProjectSprintForm.sprint_start_date.$dirty && editProjectForm.sprint_start_date.$error.required" class="help-block text-left error">Sprint {{$index+1}} Start Date is required</span>
+								    </div>
+								</div>
+								
+								
+								<div class="col-md-6 padding-right-0">
+									<div class="form-group">
+									  <label class="control-label" for="sprint_end_date">End Date</label>
+									  <datepicker date-format="EEEE, MMMM d, y" selector="form-control" date-min-limit="{{AddProjectFormData.sprint_start_date_[$index+1]}}">
+										<div class="input-group">
+											<input type="text" readonly ng-model="editProjectSprintFormData.sprint_end_date" class="form-control" id="sprint_end_date" name="sprint_end_date" placeholder="Enter End Date" required>
+											<span class="input-group-addon">
+												<i class="fa fa-lg fa-calendar"></i>
+											</span>
+										</div>
+									  </datepicker>
+									  <span ng-show="editProjectSprintForm.sprint_end_date.$dirty && editProjectForm.sprint_end_date.$error.required" class="help-block text-left error">Sprint {{$index+1}} End Date is required</span>
+								    </div>
+								</div>
+								
+								
+								<div class="form-group inline-block margin-top-15">
+								  <label class="control-label">Requirements</label>
+								  <text-angular ng-model="editProjectSprintFormData.sprint_requirement" placeholder="Enter Sprint Requirements">
+								  </text-angular>
+							 	</div>
+								
+							</div>
+					
+				  </form>
+				  
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" ng-click="closeAddSprintModal(editProjectFormData.prj_id, editProjectFormData.no_of_sprints)" class="btn btn-primary" data-dismiss="modal" ng-disabled="editProjectSprintForm.$invalid">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+     </script>
+
+
+
+<div class="col-md-6 add_block listing_box col-md-offset-3">
+ <div class="panel">
+   <div class="panel-body container-fluid">    
+       
+       <div class="col-md-12 padding-horizontal-0">
+		   
+		   
+		 <form name="editProjectForm" role="form" ng-submit="editProjectFormSubmit()" novalidate>
+			 
+			 
+			 <div class="form-group">
+                  <label class="control-label" for="p_name">Project Name</label>
+                  <input type="text" ng-model="editProjectFormData.p_name" class="form-control" id="p_name" name="p_name" placeholder="Enter Project Name" required>
+				  <span ng-show="editProjectForm.p_name.$dirty && editProjectForm.p_name.$error.required" class="help-block text-left error">Project name is required</span>
+             </div>
+			 
+			 
+			 <div class="form-group">
+                  <label class="control-label" for="p_name">Client</label>
+				 <select ng-options="c.client_id as c.client_company_name for c in listClient" ng-model="editProjectFormData.client" id="client" name="client" class="form-control"></select>
+             </div>
+			 
+			 
+			 <div class="form-group">
+                  <label class="control-label" for="p_description">Project Description</label>
+				 <text-angular ng-model="editProjectFormData.p_description" id="p_description" name="p_description" placeholder="Enter Project Description"></text-angular>
+             </div>
+			 
+			 
+			 <!--
+			 <div class="form-group">
+                  <label class="control-label" for="p_department">Department</label>
+				 <select ng-model="editProjectFormData.p_department" id="p_department" name="p_department" class="form-control" ng-change="fetchPmsFromDep(editProjectFormData.p_department)" ng-options="item.d_id as item.d_department for item in listDepartments" required>
+					  <option value="">-- Select --</option>
+				 </select>				 
+				 <span ng-show="editProjectFormData.p_department.$dirty && editProjectFormData.p_department.$error.required" class="help-block text-left error">Department is required</span>
+             </div>-->
+			 
+			 
+			 <div class="form-group">
+                  <label class="control-label" for="pm_id">Project Manager</label>
+				  <select ng-options="p.e_id as p.e_name for p in listEmployee" ng-model="editProjectFormData.pm_id" id="pm_id" name="pm_id" class="form-control"></select>
+             </div>
+			 
+
+			 <div class="form-group">
+                  <label class="control-label" for="p_duration">Project Duration</label>
+                  <input type="text" ng-model="editProjectFormData.p_duration" class="form-control" id="p_duration" name="p_duration" placeholder="Enter Project Duration (In Hours)" required>
+				 <span ng-show="editProjectForm.p_duration.$dirty && editProjectForm.p_duration.$error.required" class="help-block text-left error">Project duration is required</span>
+             </div>
+			 
+			 
+			 <div class="form-group">
+				 <label class="control-label" for="estimated_end_date">Estimated End Date</label>
+				 <datepicker date-format="yyyy-MM-dd" selector="form-control">
+					<div class="input-group">
+						<input readonly type="text" ng-model="editProjectFormData.estimated_end_date" class="form-control" id="estimated_end_date" name="estimated_end_date" placeholder="Select Estimated End Date">
+						<span class="input-group-addon" style="cursor: pointer">
+						<i class="fa fa-lg fa-calendar"></i>
+						</span>
+					</div>
+				</datepicker>				 
+				<span ng-show="editProjectForm.estimated_end_date.$dirty && editProjectForm.estimated_end_date.$error.required" class="help-block text-left error">Estimated end date is required</span>
+				 <div class="clearfix"></div>
+             </div>
+			 
+			 
+			 <div class="form-group">
+                      <label class="control-label">Project Type</label>				  
+                      <div>
+                        <div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="editProjectFormData.type" name="type" value="Scrum">
+                          <label for="">Scrum</label>
+                        </div>
+                        <div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="editProjectFormData.type" name="type" value="Kanban">
+                          <label for="">Kanban</label>
+                        </div>
+                      </div>
+				 <span ng-show="editProjectForm.type.$dirty && editProjectForm.type.$error.required" class="help-block text-left error">Project type is required</span>
+             </div>	
+			 
+
+		<!-- Show if type is Scrum -->
+		<div ng-if="editProjectFormData.type == 'Scrum'">
+
+			 
+<!--
+			 <div class="form-group">
+                  <label class="control-label" for="no_of_sprints">Number of Sprints</label>
+                  <input readonly type="text" ng-model="editProjectFormData.no_of_sprints" class="form-control" id="no_of_sprints" name="no_of_sprints" placeholder="Enter The Total Number of Sprints" required>
+				 <span ng-show="editProjectForm.no_of_sprints.$dirty && editProjectForm.no_of_sprints.$error.required" class="help-block text-left error">Number of Sprints is required</span>
+             </div>
+-->
+			 
+			 
+			 <div class="col-md-12 col-xs-12" ng-if="editProjectFormData.no_of_sprints != null">
+				 
+				 <span class="total_sprints">
+					 Total Sprints <span class="badge badge-danger">{{editProjectFormData.no_of_sprints}}</span>
+				 </span>
+				 
+				  <a href="" class="btn btn-primary btn-outline margin-bottom-15 pull-right" ng-click="addNewSprint()">
+					  <i class="site-menu-icon wb-plus"></i> Add New Sprint
+				  </a>
+				  <div class="clearfix"></div>
+				 
+				 
+				  <div class="widget widget-shadow">
+					<div class="widget-header bg-cyan-600 white padding-15 clearfix">
+					  <div class="font-size-18">Sprint Details</div>
+					</div>
+					<div class="widget-content">
+					  <ul class="list-group list-group-bordered">
+						  
+						<li class="list-group-item" ng-repeat="row in editProjectFormData.sprint">
+							<h4 class="list-group-item-heading">
+								{{row.sprint_stage}}
+								<a href="" class="pull-right" ng-click="active = !active" >
+									<i class="icon" ng-class="{'wb-plus': active, 'wb-minus': !active}"></i>
+								</a>
+								<!-- <a href="" class="pull-right margin-right-5" ng-click="" >
+									<i class="icon wb-trash"></i>
+								</a> -->
+							</h4>
+							
+							
+							
+							<div class="list-group-item-text margin-top-15" ng-hide="active">
+								
+								<div class="col-md-6 padding-left-0">
+									<div class="form-group">
+									  <label class="control-label" for="sprint_start_date">Start Date</label>
+										<input type="text" readonly ng-init="editProjectFormData.sprint_start_date_[$index+1] = row['sprint_start_date_[' + ($index + 1) + ']']" ng-model="editProjectFormData.sprint_start_date_[$index+1]" class="form-control" id="sprint_start_date" name="sprint_start_date_{{$index+1}}" placeholder="Enter Start Date" required>
+								    </div>
+								</div>
+								
+								<div class="col-md-6 padding-right-0">
+									<div class="form-group">
+									  <label class="control-label" for="sprint_end_date">End Date</label>
+											<input type="text" readonly ng-init="editProjectFormData.sprint_end_date_[$index+1] = row['sprint_end_date_[' + ($index + 1) + ']']" ng-model="editProjectFormData.sprint_end_date_[$index+1]" class="form-control" id="sprint_end_date" name="sprint_end_date_{{$index+1}}" placeholder="Enter End Date" required>
+								    </div>
+								</div>
+								
+								<div class="form-group inline-block">
+								  <label class="control-label" for="sprint_requirement_{{$index+1}}">Requirements</label>
+								 <text-angular ng-init="editProjectFormData.sprint_requirement_[$index+1] = row['sprint_requirement_[' + ($index + 1) + ']']" ng-model="editProjectFormData.sprint_requirement_[$index+1]" id="sprint_requirement_{{$index+1}}" name="sprint_requirement_{{$index+1}}" placeholder="Enter Sprint Requirements">
+								 </text-angular>
+							 </div>
+								
+							</div>
+						</li>
+						  
+					  </ul>
+					</div>
+				  </div>
+		     </div>
+		
+			
+		</div>
+		<!-- End type is Scrum -->
+			 
+			 
+			 <div class="form-group">
+                      <label class="control-label">Priority</label>
+				  
+                      <div ng-init="editProjectFormData.priority='Urgent'">
+                        <div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="editProjectFormData.priority" name="priority" value="Urgent">
+                          <label for="">Urgent</label>
+                        </div>
+                        <div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="editProjectFormData.priority" name="priority" value="High">
+                          <label for="">High</label>
+                        </div>
+						<div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="editProjectFormData.priority" name="priority" value="Normal">
+                          <label for="">Normal</label>
+                        </div>
+						<div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="editProjectFormData.priority" name="priority" value="Low">
+                          <label for="">Low</label>
+                        </div>
+						<div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="editProjectFormData.priority" name="priority" value="Lowest">
+                          <label for="">Lowest</label>
+                        </div>
+                      </div>
+	  		<span ng-show="editProjectForm.priority.$dirty && editProjectForm.priority.$error.required" class="help-block text-left error">Project priority is required</span>
+               </div>	
+			 
+			 
+			 <div class="form-group">
+                  <label class="control-label" for="status">Project Status</label>
+  				  <select ng-model="editProjectFormData.status" id="status" name="status" class="form-control">
+					 <option value="Not Started">Not Started</option>
+					 <option value="In Progress">In Progress</option>
+					 <option value="Completed">Completed</option>
+					 <option value="Discontinued">Discontinued</option>
+				  </select>
+             </div>
+			 
+			 
+<hr>
+			 
+			   <div class="form-group text-center">
+                   <a href="#/list-project"><button class="btn btn-default btn-outline">Cancel</button></a>
+				   <button type="reset" class="btn btn-default btn-outline">Reset</button>
+				   <button type="submit" class="btn btn-primary" ng-disabled="editProjectForm.$invalid">
+					 <span ng-hide="dataLoadingGif">Submit</span>
+				   	 <img ng-show="dataLoadingGif" src="resources/images/site/bars.svg" class="loader" width="18">
+				   </button>
+               </div>
+			 
+			 
+		 </form>
+		   
+		   
+	   </div>
+	   
+	   <div class="col-md-12 padding-horizontal-0 margin-top-15">
+           <ul class="list-group list-group-dividered list-group-full">
+		     <li class="list-group-item padding-horizontal-15" editable-text="item.d_platform" ng-repeat="item in listPlatforms" onaftersave="editPlatform($data, item.pf_id)">{{item.d_platform || 'empty'}}</li>
+		   </ul>
+	   </div>
+	   
+   </div>
+</div>
+</div>
+
+
+
+
+<a href="#/list-project">
+  <button type="button" class="btn btn-floating btn-danger material_btn_corner"><i class="icon wb-list" aria-hidden="true"></i></button>
+</a>

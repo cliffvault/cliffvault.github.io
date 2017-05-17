@@ -1,0 +1,1522 @@
+<style>
+	.app-taskboard .ui-tooltip{display:none!important}.app-taskboard .ui-helper-hidden-accessible{display:none}.app-taskboard .control-content .bootstrap-select{width:100%!important}.app-taskboard .page{height:-webkit-calc(100% - 44px);height:calc(100% - 44px);overflow:hidden}.app-taskboard .page-content{height:-webkit-calc(100% - 91px);height:calc(100% - 91px);width:100%;overflow-x:auto}.app-taskboard .subtasks .checkbox-custom input:checked+label{text-decoration:line-through}.app-taskboard .slidePanel .overlay-panel a:not([class]){text-decoration:none}.app-taskboard .slidePanel-header .btn .focus,.app-taskboard .slidePanel-header .btn:focus,.app-taskboard .slidePanel-header .btn:hover{color:#e4eaec}.app-taskboard .slidePanel-actions{min-height:0}.app-taskboard .slidePanel-actions .btn{line-height:1em}.app-taskboard .slidePanel-inner{padding:0 30px}.app-taskboard .slidePanel .caption{font-size:22px;font-weight:400;line-height:1}.app-taskboard .slidePanel .priority .list-inline>li{padding-left:20px;padding-right:0}.app-taskboard .slidePanel .priority .list-inline>li label{font-size:0;color:transparent}/*.app-taskboard .slidePanel .addMember{margin-top:30px;margin-bottom:20px}*/.app-taskboard .slidePanel .addMember-trigger{vertical-align:top}.app-taskboard .slidePanel .addMember-items{display:inline}.app-taskboard .slidePanel .addMember-item{margin-bottom:10px}.app-taskboard .slidePanel .addMember-trigger-dropdown{left:auto;top:40px;z-index:1}.app-taskboard .slidePanel .addMember-trigger-dropdown:before{border-color:transparent transparent #fff;left:4px;top:-20px}.app-taskboard .slidePanel .description-content{margin-bottom:20px}.app-taskboard .slidePanel .description-toggle{display:none;margin-bottom:20px}.app-taskboard .slidePanel .description.is-empty .description-toggle{display:inline-block}.app-taskboard .slidePanel .radio-custom.radio-high label::before{border-color:#f2a654}.app-taskboard .slidePanel .radio-custom.radio-high label::after{border-color:#fff}.app-taskboard .slidePanel .radio-custom.radio-urgent label::before{border-color:#f96868}.app-taskboard .slidePanel .radio-custom.radio-urgent label::after{border-color:#fff}.app-taskboard .slidePanel .overlay-panel .dropdown-menu{color:#76838f}.app-taskboard .slidePanel .subtasks-add{display:none}.app-taskboard .slidePanel .subtasks.is-edit .subtasks-add{display:block}.app-taskboard .slidePanel .subtasks-list .checkbox-custom{margin-top:0;margin-bottom:0}.app-taskboard .slidePanel .subtasks-list .subtask-editor{display:none}.app-taskboard .slidePanel .subtasks .subtask.is-edit .checkbox-custom{display:none}.app-taskboard .slidePanel .subtasks .subtask.is-edit .subtask-editor{display:block}.app-taskboard .slidePanel .attachments .list-group-item:hover .attachments-actions{display:inline-block}.app-taskboard .slidePanel .attachments .list-group-item .size{display:inline-block;width:80px;color:#a3afb7}.app-taskboard .slidePanel .attachments-list{margin-bottom:0}.app-taskboard .slidePanel .attachments-actions{display:none}.app-taskboard .slidePanel .attachments-image{width:80px;line-height:70px;text-align:center;border:1px solid #e4eaec;padding:2px}.app-taskboard .slidePanel .attachments-image>img{max-width:100%;max-height:100%}.app-taskboard .slidePanel .attachments .btn{padding-top:0;padding-bottom:0;line-height:1;vertical-align:baseline;color:#a3afb7}.app-taskboard .slidePanel .attachments .btn:hover{color:#76838f}.app-taskboard .slidePanel .attachments .icon{margin-right:0}.app-taskboard .slidePanel .slidePanel-inner-section:last-child{border-bottom:none}.app-taskboard .slidePanel .task-section{display:none}.app-taskboard .slidePanel .task-section.is-show{display:block}.app-taskboard .slidePanel .task-main.is-edit .task-main-surface{display:none}.app-taskboard .slidePanel .task-main.is-edit .task-main-editor{display:block}.app-taskboard .slidePanel .task-main-editor{display:none}.app-taskboard #fileupload{display:none}.taskboard-stages{height:100%;position:relative;list-style:none;padding:0;margin:0;white-space:nowrap}.taskboard-stage{position:relative;display:inline-block;vertical-align:top;width:260px;height:100%;margin-right:30px;background-color:#fff;border-radius:4px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);box-shadow:0 1px 1px rgba(0,0,0,.05);border-width:0;margin-top:-1px}.taskboard-stage.ui-sortable-helper{max-height:none}.taskboard-stage-rename-wrap{display:none;padding:6px 10px!important}.taskboard-stage-header{padding:16px 20px;border-top-left-radius:4px;border-top-right-radius:4px;border-bottom:1px solid #e4eaec;background-color:#fafafa}.taskboard-stage-header h2,.taskboard-stage-header h3,.taskboard-stage-header h4,.taskboard-stage-header h5,.taskboard-stage-header h6,.taskboard-stage-header>h1{margin:0}.taskboard-stage-header .dropdown-menu{left:-10px}.taskboard-stage-header .dropdown-menu>li{width:200px}.taskboard-stage-header .dropdown-menu>li>a{overflow:hidden;text-overflow:ellipsis}.taskboard-stage-header .dropdown-menu.is-edit [role=presentation]{display:none}.taskboard-stage-header .dropdown-menu.is-edit .taskboard-stage-rename-wrap{display:block}.taskboard-stage-actions .dropdown-toggle{color:#76838f}.open.taskboard-stage-actions .dropdown-toggle,.taskboard-stage-actions .dropdown-toggle:hover{color:#a3afb7}.taskboard-stage-content{height:-webkit-calc(100% - 49px);height:calc(100% - 49px);overflow:auto}.taskboard-stage-content .action-wrap{padding:20px}.taskboard-stage-content .action-wrap.action-open .add-item-toggle{display:none}.taskboard-stage-content .action-wrap.action-open .add-item-wrap{display:block}.taskboard-stage-content .add-item-toggle{display:block;color:#37474f}.taskboard-stage-content .add-item-toggle:focus,.taskboard-stage-content .add-item-toggle:hover{color:#76838f;text-decoration:none}.taskboard-stage-content .add-item-toggle>.icon{margin-right:6px;vertical-align:text-top}.taskboard-stage-content .add-item-priority{display:block}.taskboard-list{min-height:30px;margin-bottom:0;margin-top:-1px}.taskboard-list .list-group-item{padding:12px 20px;border-top:1px solid #e4eaec;border-bottom:1px solid #e4eaec;border-left:3px solid transparent;cursor:pointer}.taskboard-list .list-group-item:after,.taskboard-list .list-group-item:before{content:" ";display:table}.taskboard-list .list-group-item:after{clear:both}.taskboard-list .list-group-item .task-badge{float:left;margin-top:10px;color:#a3afb7;line-height:30px}.taskboard-list .list-group-item .task-badge.icon:before{margin-right:6px}.taskboard-list .list-group-item .task-members{float:right;text-align:right;white-space:normal;padding:0}.taskboard-list .list-group-item .task-members>li{display:inline-block;margin-left:6px;margin-top:10px}.taskboard-list .list-group-item.priority-high{border-left-color:#f2a654}.taskboard-list .list-group-item.priority-urgent{border-left-color:#f96868}.taskboard-list .list-group-item:first-child,.taskboard-list .list-group-item:last-child{border-radius:0}.taskboard-list .list-group-item.ui-sortable-helper{border-color:#e4eaec}.taskboard-list .list-group-item.ui-sortable-placeholder{background-color:#e4eaec;visibility:visible!important}.taskboard-list .list-group-item>.checkbox-custom{margin:0}.taskboard-list .list-group-item>.checkbox-custom input:checked+label{text-decoration:line-through}.taskboard-list .list-group-item>.list-group-item-title{margin-left:30px;white-space:normal}
+	
+	#floatingCirclesG {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 51px;
+            height: 51px;
+            margin: auto;
+            transform: scale(0.6);
+            -o-transform: scale(0.6);
+            -ms-transform: scale(0.6);
+            -webkit-transform: scale(0.6);
+            -moz-transform: scale(0.6);
+        }
+
+	.f_circleG {
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+            height: 9px;
+            width: 9px;
+            border-radius: 5px;
+            -o-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            animation-name: f_fadeG;
+            -o-animation-name: f_fadeG;
+            -ms-animation-name: f_fadeG;
+            -webkit-animation-name: f_fadeG;
+            -moz-animation-name: f_fadeG;
+            animation-duration: 0.622s;
+            -o-animation-duration: 0.622s;
+            -ms-animation-duration: 0.622s;
+            -webkit-animation-duration: 0.622s;
+            -moz-animation-duration: 0.622s;
+            animation-iteration-count: infinite;
+            -o-animation-iteration-count: infinite;
+            -ms-animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            animation-direction: normal;
+            -o-animation-direction: normal;
+            -ms-animation-direction: normal;
+            -webkit-animation-direction: normal;
+            -moz-animation-direction: normal;
+        }
+
+    #frotateG_01 {
+            left: 0;
+            top: 21px;
+            animation-delay: 0.2295s;
+            -o-animation-delay: 0.2295s;
+            -ms-animation-delay: 0.2295s;
+            -webkit-animation-delay: 0.2295s;
+            -moz-animation-delay: 0.2295s;
+        }
+
+        #frotateG_02 {
+            left: 6px;
+            top: 6px;
+            animation-delay: 0.316s;
+            -o-animation-delay: 0.316s;
+            -ms-animation-delay: 0.316s;
+            -webkit-animation-delay: 0.316s;
+            -moz-animation-delay: 0.316s;
+        }
+
+        #frotateG_03 {
+            left: 21px;
+            top: 0;
+            animation-delay: 0.3925s;
+            -o-animation-delay: 0.3925s;
+            -ms-animation-delay: 0.3925s;
+            -webkit-animation-delay: 0.3925s;
+            -moz-animation-delay: 0.3925s;
+        }
+
+        #frotateG_04 {
+            right: 6px;
+            top: 6px;
+            animation-delay: 0.469s;
+            -o-animation-delay: 0.469s;
+            -ms-animation-delay: 0.469s;
+            -webkit-animation-delay: 0.469s;
+            -moz-animation-delay: 0.469s;
+        }
+
+        #frotateG_05 {
+            right: 0;
+            top: 21px;
+            animation-delay: 0.5455s;
+            -o-animation-delay: 0.5455s;
+            -ms-animation-delay: 0.5455s;
+            -webkit-animation-delay: 0.5455s;
+            -moz-animation-delay: 0.5455s;
+        }
+
+        #frotateG_06 {
+            right: 6px;
+            bottom: 6px;
+            animation-delay: 0.622s;
+            -o-animation-delay: 0.622s;
+            -ms-animation-delay: 0.622s;
+            -webkit-animation-delay: 0.622s;
+            -moz-animation-delay: 0.622s;
+        }
+
+        #frotateG_07 {
+            left: 21px;
+            bottom: 0;
+            animation-delay: 0.6985s;
+            -o-animation-delay: 0.6985s;
+            -ms-animation-delay: 0.6985s;
+            -webkit-animation-delay: 0.6985s;
+            -moz-animation-delay: 0.6985s;
+        }
+
+        #frotateG_08 {
+            left: 6px;
+            bottom: 6px;
+            animation-delay: 0.775s;
+            -o-animation-delay: 0.775s;
+            -ms-animation-delay: 0.775s;
+            -webkit-animation-delay: 0.775s;
+            -moz-animation-delay: 0.775s;
+        }
+
+        <a href='https://github.com/keyframes' class='user-mention'>@keyframes</a> f_fadeG {
+            0% {
+                background-color: rgb(0, 0, 0);
+            }
+            100% {
+                background-color: rgb(255, 255, 255);
+            }
+        }
+
+        @-o-keyframes f_fadeG {
+            0% {
+                background-color: rgb(0, 0, 0);
+            }
+            100% {
+                background-color: rgb(255, 255, 255);
+            }
+        }
+
+        @-ms-keyframes f_fadeG {
+            0% {
+                background-color: rgb(0, 0, 0);
+            }
+            100% {
+                background-color: rgb(255, 255, 255);
+            }
+        }
+
+        @-webkit-keyframes f_fadeG {
+            0% {
+                background-color: rgb(0, 0, 0);
+            }
+            100% {
+                background-color: rgb(255, 255, 255);
+            }
+        }
+
+        @-moz-keyframes f_fadeG {
+            0% {
+                background-color: rgb(0, 0, 0);
+            }
+            100% {
+                background-color: rgb(255, 255, 255);
+            }
+        }
+	
+
+/*.taskboard-stage-content .add-item-wrap{display:none}*/
+/*.taskboard-stage-content { height: 200px; }*/
+.taskboard-stage-content::-webkit-scrollbar { width: 8px; background-color: #fff; }
+.taskboard-stage-content::-webkit-scrollbar-thumb { background-color: #c1c1c1; }
+	
+.sweet-overlay { z-index: 2000; }
+.widget-content { background: #f0f0f0; }
+	
+.subtsk_comments_editor .ta-scroll-window.form-control {
+    min-height: auto!important;
+    height: 130px!important;
+ }
+	
+.on-drag-enter{
+    background-color : #fff;
+}
+
+.on-drag-hover:before {
+    content: 'Drop here gently'!important;
+    display: block;
+    color: #aaa;
+    height: 88px;
+    text-align: center;
+    line-height: 85px;
+    font-size: 19px;
+    background: #eee;
+    border: 2px dashed #aaa;
+    margin-bottom: 20px;
+    width: 100%;
+}
+	
+.checkbox-custom input[type=radio]:disabled+label, .checkbox-custom input[type=checkbox]:disabled+label {
+    opacity: 1;
+}
+	
+.edt_est_trigger { display: none; }
+.edt_est_hover:hover .edt_est_trigger { display: block; }
+.taskactionrow {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    margin: 0 0 20px;
+}
+.taskactionrow .btn {
+	text-transform: uppercase;
+    font-weight: 500;
+    font-size: 12px;
+}
+.taskactionrow .btn .icon {
+	font-size: 20px!important;
+}
+.shadowtxt {
+	float: left;
+	font-size: 22px;
+	font-weight: 500;
+	opacity: .4;
+}
+
+	
+	
+</style>
+
+
+
+
+<div class="row padding-vertical-30 padding-top-0">
+    <div class="col-sm-12 text-center">
+        <h2>TaskBoard</h2>
+    </div>
+</div>
+
+<style>
+.percent {
+    position: absolute; width: 100%; height: 14px; z-index: 1; text-align: center; font-size: 0.8em; color: white;
+}
+.progress-bar {
+    width: 100%;
+    height: 14px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#6666cc), to(#4b4b95));
+    border-image: initial;
+}
+.uploaded {
+    padding: 0;
+    height: 14px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#66cc00), to(#4b9500));
+    border-image: initial;
+}
+.dropbox {
+    height: 5em;
+    border: 2px solid #DDD;
+    background-color: #FEFFEC;
+    text-align: center;
+    color: #BBB;
+    font-size: 1.7em;
+    margin-bottom: 15px;
+}
+.dropbox span {
+	margin-top: 1.5em;
+    display: block;
+}
+.dropbox.not-available {
+    background-color: #F88;
+}
+.dropbox.over {
+    background-color: #bfb;
+}
+</style>
+
+
+
+<!--
+
+<form class="container">
+	 <input type="file" file-model="myFile">
+    <button ng-click="uploadFile()">upload me</button>
+	<br>
+	<br>
+	<h1>{{myFile}}</h1>
+	<br>
+</form>
+-->
+
+<!-- Adding New Task -->
+<div class="col-md-6 animate1 fadeInLeft addTaskBox hidden">
+  <div class="panel">
+	
+   <div class="panel-heading">
+      <h3 class="panel-title padding-bottom-20 padding-left-45">Create New Task</h3>
+   </div>
+	  
+   <div class="panel-body container-fluid">    
+       
+       <div class="col-md-12 padding-horizontal-0">
+		   
+		 <!--<button ng-click="fillForm()">Fill Form</button>-->
+		   
+		 <form name="addTaskForm" role="form" ng-submit="addTaskFormSubmit()" novalidate>
+			 
+			 <div class="form-group col-md-6">
+                 <label class="control-label" for="project">Project</label>
+				 <select ng-options="p.prj_id as p.p_name for p in listProjects" ng-model="addTaskFormData.project" id="project" name="project" class="form-control" required ng-change="checkProType(addTaskFormData.project)">
+					  <option value="">-- Select --</option> 
+				 </select>
+				 <span ng-show="addTaskForm.project.$dirty && addTaskForm.project.$error.required" class="help-block text-left error">Project is required</span>
+             </div>
+			 
+			 <div class="form-group col-md-6">
+                  <label class="control-label" for="type">Project Type</label>
+                  <input type="text" readonly ng-model="addTaskFormData.type" class="form-control" id="type" name="type" placeholder="Project Type">
+             </div>
+			 
+			 <div class="clearfix"></div>
+			 
+			 <div class="form-group col-md-6">
+                  <label class="control-label" for="issue_type">Issue Type</label>
+				  <select ng-model="addTaskFormData.issue_type" id="issue_type" name="issue_type" class="form-control" required>
+					  <option value="">-- Select --</option>
+					  <option>Bug</option>
+					  <option>New Task</option>
+				  </select>
+				  <span ng-show="addTaskForm.issue_type.$dirty && addTaskForm.issue_type.$error.required" class="help-block text-left error">Issue type is required</span>
+             </div>
+			 
+			 <div class="form-group col-md-6">
+                 <label class="control-label" for="assignee">Assignee</label>
+				 <select ng-options="a.e_id as a.e_name for a in listEmployee" ng-model="addTaskFormData.assignee" class="form-control" id="assignee" name="assignee" required>
+					  <option value="">-- Select --</option>
+				 </select>
+				 <span ng-show="addTaskForm.assignee.$dirty && addTaskForm.assignee.$error.required" class="help-block text-left error">Assignee is required</span>
+             </div>
+			 
+			 <div class="clearfix"></div>
+			 
+			 <div class="form-group col-md-12">
+                  <label class="control-label" for="task_title">Task Title</label>
+  				  <input type="text" ng-model="addTaskFormData.task_title" class="form-control" id="task_title" name="task_title" placeholder="Enter Task Title" required>
+				  <span ng-show="addTaskForm.task_title.$dirty && addTaskForm.task_title.$error.required" class="help-block text-left error">Task title is required</span>
+             </div>
+			 
+			 <div class="form-group col-md-12">
+                  <label class="control-label" for="task_description">Task Description</label>
+				  <text-angular ng-model="addTaskFormData.task_description" id="task_description" name="task_description" placeholder="Enter Task Description">
+				  </text-angular>
+				  <span ng-show="addTaskForm.task_description.$dirty && addTaskForm.task_description.$error.required" class="help-block text-left error">Task description is required</span>
+             </div>
+			 
+			 <div class="form-group col-md-12">
+                      <label class="control-label">Task Priority</label>				  
+                      <div ng-init="addTaskFormData.type='Normal'">
+                        <div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="addTaskFormData.type" name="type" value="Critical">
+                          <label for="">Critical</label>
+                        </div>
+                        <div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="addTaskFormData.type" name="type" value="High">
+                          <label for="">High</label>
+                        </div>
+						<div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="addTaskFormData.type" name="type" value="Normal">
+                          <label for="">Normal</label>
+                        </div>
+						<div class="radio-custom radio-danger radio-inline">
+                          <input type="radio" ng-model="addTaskFormData.type" name="type" value="Low">
+                          <label for="">Low</label>
+                        </div>
+                      </div>
+             </div>	
+			 
+			 <div class="form-group col-md-6">
+                  <label class="control-label" for="estimated">Estimated Completion Time [In Hrs]</label>
+                  <input type="time" ng-model="addTaskFormData.estimated" class="form-control" id="estimated" name="estimated" placeholder="Enter estimated time" required>
+				 <span ng-show="addTaskForm.estimated.$dirty && addTaskForm.estimated.$error.required" class="help-block text-left error">Estimated time is required</span>
+             </div>
+			 
+			 <div class="form-group col-md-6">
+                  <label class="control-label" for="doc">Documents</label>
+                  <input type="file" ng-model="addTaskFormData.doc" class="form-control" id="doc" name="doc" placeholder="Doc">
+             </div>
+			 
+<hr>
+
+			 <div class="form-group text-center col-md-12">
+				   <a href="#/list-task"><button class="btn btn-default btn-outline">Cancel</button></a>
+				   <button type="reset" class="btn btn-default btn-outline">Reset</button>
+				   <button type="submit" class="btn btn-primary" ng-disabled="addTaskForm.$invalid">
+					 <span ng-hide="dataLoadingGif">Submit</span>
+				   	 <img ng-show="dataLoadingGif" src="resources/images/site/bars.svg" class="loader" width="18">
+				   </button>
+               </div>
+			 
+			 
+		 </form>
+		   
+	   </div>
+	   
+   </div>
+  </div>
+</div>
+<!-- End New Task -->
+
+
+
+
+<!--taskBoardBox-->
+<div class="animate1 fadeInUp taskBoardBox app-taskboard">
+	
+  <ul class="taskboard-stages" id="taskboard-stages">
+	
+		
+		<li class="taskboard-stage">
+			<header class="taskboard-stage-header">
+				<h5 class="taskboard-stage-title">TO DO</h5>
+			</header>
+			<div class="taskboard-stage-content">
+				<ul class="list-group taskboard-list todo-list">
+					
+<div class="listLoader" ng-show="loaderInList">
+	<div style="position: absolute;width:100%;height:100%;top: 0;left: 0;background-color: rgba(255,255,255,0.7);z-index:1000;">
+		<div id="floatingCirclesG">
+			<div class="f_circleG" id="frotateG_01"></div>
+			<div class="f_circleG" id="frotateG_02"></div>
+			<div class="f_circleG" id="frotateG_03"></div>
+			<div class="f_circleG" id="frotateG_04"></div>
+			<div class="f_circleG" id="frotateG_05"></div>
+			<div class="f_circleG" id="frotateG_06"></div>
+			<div class="f_circleG" id="frotateG_07"></div>
+			<div class="f_circleG" id="frotateG_08"></div>
+		</div>
+	</div>
+</div>
+					
+					<li ng-repeat="item in listTask | filter:{'status': 1}" class="list-group-item" 
+						ng-class="{'priority-urgent': item.priority == '3', 'priority-high': item.priority == '2'}" 
+						ng-click="toggleSlidePanel(item.id)" ui-draggable="true" drag="item.id" drag-channel="A" drop-channel="A" ui-on-drop="onDrop(1, $data)">
+						
+						<label class="task-title margin-bottom-0">{{item.task}}</label>
+						
+						<div class="task-badges">
+							<span class="task-badge task-badge-subtask icon wb-list-bulleted">1/2</span>
+							<span class="task-badge task-badge-attachments icon wb-paperclip">2</span>
+							<span class="task-badge task-badge-comments icon wb-chat">2</span>
+						</div>
+						<ul class="task-members">
+							<li>
+								<img class="avatar avatar-sm" src="resources/images/5.jpg">
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="action-wrap">
+					<a class="add-item-toggle" href="" ng-click="addNewTaskTodoToggle=true" ng-hide="addNewTaskTodoToggle">
+						<i class="icon wb-plus" aria-hidden="true"></i>Add Task
+					</a>
+					<div class="add-item-wrap" ng-show="addNewTaskTodoToggle">
+						<form name="addNewTaskNameTodo" class="add-item" role="form" ng-submit="addNewTaskNameTodoForm()" novalidate>
+							
+							<div class="form-group">
+								<label class="control-label margin-bottom-15" for="name">Task name:</label>
+								<input class="form-control" type="text" placeholder="Task name" name="task" ng-model="addNewTaskTodoName.task" required>
+								<span ng-show="addNewTaskNameTodo.task.$dirty && addNewTaskNameTodo.task.$error.required" class="help-block text-left error">
+									Task name is required
+								</span>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label margin-bottom-15" for="estimated_time">Estimated Time:</label>
+								<input class="form-control" type="text" placeholder="eg: 10:00" name="estimated_time" ng-model="addNewTaskTodoName.estimated_time" required>
+								<span ng-show="addNewTaskNameTodo.estimated_time.$dirty && addNewTaskNameTodo.estimated_time.$error.required" class="help-block text-left error">
+									Estimated Time is required
+								</span>
+							</div>
+							
+							<div class="form-group text-right">
+								<a class="btn btn-sm btn-white add-item-cancel" ng-click="addNewTaskTodoToggle=false">Cancel</a>
+								<button type="submit" class="btn btn-primary add-item-add" ng-disabled="addNewTaskNameTodo.$invalid">
+									<span ng-hide="dataLoadingGif">Add</span>
+				   	 				<img ng-show="dataLoadingGif" src="resources/images/site/bars.svg" class="loader" width="18">
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		
+		<li class="taskboard-stage">
+			<header class="taskboard-stage-header">
+				<h5 class="taskboard-stage-title">DOING</h5>
+			</header>
+			<div class="taskboard-stage-content">
+				<ul class="list-group taskboard-list doing-list">
+					
+<div class="listLoader" ng-show="loaderInList">
+	<div style="position: absolute;width:100%;height:100%;top: 0;left: 0;background-color: rgba(255,255,255,0.7);z-index:1000;">
+		<div id="floatingCirclesG">
+			<div class="f_circleG" id="frotateG_01"></div>
+			<div class="f_circleG" id="frotateG_02"></div>
+			<div class="f_circleG" id="frotateG_03"></div>
+			<div class="f_circleG" id="frotateG_04"></div>
+			<div class="f_circleG" id="frotateG_05"></div>
+			<div class="f_circleG" id="frotateG_06"></div>
+			<div class="f_circleG" id="frotateG_07"></div>
+			<div class="f_circleG" id="frotateG_08"></div>
+		</div>
+	</div>
+</div>
+					
+					<li ng-repeat="item in listTask | filter:{'status': 2}" class="list-group-item" ng-class="{'priority-urgent': item.priority == '3', 'priority-high': item.priority == '2'}"  ng-click="toggleSlidePanel(item.id)" ui-draggable="true" drag="item.id" drag-channel="A" drop-channel="A" ui-on-drop="onDrop(2, $data)">
+
+						<label class="task-title margin-bottom-0">{{item.task}}</label>
+						
+						<div class="task-badges">
+							<span class="task-badge task-badge-subtask icon wb-list-bulleted">1/2</span>
+							<span class="task-badge task-badge-attachments icon wb-paperclip">2</span>
+							<span class="task-badge task-badge-comments icon wb-chat">2</span>
+						</div>
+						<ul class="task-members">
+							<li>
+								<img class="avatar avatar-sm" src="../../resources/images/5.jpg">
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="action-wrap">
+					<a class="add-item-toggle" href="" ng-click="addNewTaskDoingToggle=true" ng-hide="addNewTaskDoingToggle">
+						<i class="icon wb-plus" aria-hidden="true"></i>Add Task
+					</a>
+					<div class="add-item-wrap" ng-show="addNewTaskDoingToggle">
+						<form name="addNewTaskNameDoing" class="add-item" role="form" ng-submit="addNewTaskNameDoingForm()" novalidate>
+							<div class="form-group">
+								<label class="control-label margin-bottom-15" for="name">Task name:</label>
+								<input class="form-control" type="text" placeholder="Task name" name="task" ng-model="addNewTaskDoingName.task" required>
+								<span ng-show="addNewTaskNameDoing.task.$dirty && addNewTaskNameDoing.task.$error.required" class="help-block text-left error">
+									Task name is required
+								</span>
+							</div>
+							
+							<div class="form-group">
+								<label class="control-label margin-bottom-15" for="estimated_time">Estimated Time:</label>
+								<input class="form-control" type="text" placeholder="eg: 10:00" name="estimated_time" ng-model="addNewTaskDoingName.estimated_time" required>
+								<span ng-show="addNewTaskNameDoing.estimated_time.$dirty && addNewTaskNameDoing.estimated_time.$error.required" class="help-block text-left error">
+									Estimated Time is required
+								</span>
+							</div>
+							
+							<div class="form-group text-right">
+								<a class="btn btn-sm btn-white add-item-cancel" ng-click="addNewTaskDoingToggle=false">Cancel</a>
+								<button type="submit" class="btn btn-primary add-item-add" ng-disabled="addNewTaskNameDoing.$invalid">
+									<span ng-hide="dataLoadingGif">Add</span>
+				   	 				<img ng-show="dataLoadingGif" src="resources/images/site/bars.svg" class="loader" width="18">
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</li>
+		
+		
+		<li class="taskboard-stage">
+			<header class="taskboard-stage-header">
+				<h5 class="taskboard-stage-title">DONE</h5>
+			</header>
+			<div class="taskboard-stage-content">
+				<ul class="list-group taskboard-list done-list">
+					
+<div class="listLoader" ng-show="loaderInList">
+	<div style="position: absolute;width:100%;height:100%;top: 0;left: 0;background-color: rgba(255,255,255,0.7);z-index:1000;">
+		<div id="floatingCirclesG">
+			<div class="f_circleG" id="frotateG_01"></div>
+			<div class="f_circleG" id="frotateG_02"></div>
+			<div class="f_circleG" id="frotateG_03"></div>
+			<div class="f_circleG" id="frotateG_04"></div>
+			<div class="f_circleG" id="frotateG_05"></div>
+			<div class="f_circleG" id="frotateG_06"></div>
+			<div class="f_circleG" id="frotateG_07"></div>
+			<div class="f_circleG" id="frotateG_08"></div>
+		</div>
+	</div>
+</div>
+					
+					<li ng-repeat="item in listTask | filter:{'status': 3}" class="list-group-item" ng-class="{'priority-urgent': item.priority == '3', 'priority-high': item.priority == '2'}"  ng-click="toggleSlidePanel(item.id)" ui-draggable="true" drag="item.id" drag-channel="A" drop-channel="A" ui-on-drop="onDrop(3, $data)">
+						<div class="checkbox-custom checkbox-primary">
+							<input type="checkbox" name="checkbox" checked disabled>
+							<label class="task-title">{{item.task}}</label>
+						</div>
+						<div class="task-badges">
+							<span class="task-badge task-badge-subtask icon wb-list-bulleted">1/2</span>
+							<span class="task-badge task-badge-attachments icon wb-paperclip">2</span>
+							<span class="task-badge task-badge-comments icon wb-chat">2</span>
+						</div>
+						<ul class="task-members">
+							<li>
+								<img class="avatar avatar-sm" src="../../resources/images/5.jpg">
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<div class="action-wrap">
+					
+					<a class="add-item-toggle" href="">
+						Project Timeline <i class="icon wb-chevron-right-mini" aria-hidden="true"></i>
+					</a>
+					
+					<!-- <a class="add-item-toggle" href="" ng-click="addNewTaskDoneToggle=true" ng-hide="addNewTaskDoneToggle">
+						<i class="icon wb-plus" aria-hidden="true"></i>Add Task
+					</a>
+					<div class="add-item-wrap" ng-show="addNewTaskDoneToggle">
+						<form class="add-item" role="form" method="post" action="#">
+							<div class="form-group">
+								<label class="control-label margin-bottom-15" for="name">Task name:</label>
+								<input class="form-control" type="text" placeholder="Task name" name="name">
+							</div>
+							<div class="form-group text-right">
+								<a class="btn btn-sm btn-white add-item-cancel" ng-click="addNewTaskDoneToggle=false">Cancel</a>
+								<button type="button" class="btn btn-primary add-item-add">Add</button>
+							</div>
+						</form>
+					</div> -->
+				</div>
+			</div>
+		</li>
+		
+	
+		
+	</ul>
+	
+	
+	
+	
+	
+  <div class="slidePanel slidePanel-right slidePanel-dragging" ng-class="{'slidePanel-show': ShowSlide == true}">
+	<div class="slidePanel-scrollable scrollable is-enabled scrollable-vertical">
+		<div class="scrollable-container">
+			<div class="slidePanel-content scrollable-content">
+				
+			  <form>
+				
+					<header class="slidePanel-header">
+					<div class="overlay-top overlay-panel overlay-background bg-light-green-600">
+						<div class="slidePanel-actions btn-group" aria-label="actions" role="group">
+							<div class="dropdown pull-left">
+								<button type="button" class="btn btn-pure dropdown-toggle icon wb-calendar" data-toggle="dropdown" aria-hidden="true"></button>
+								<div class="dropdown-menu dropdown-menu-right bullet taskboard-task-datepicker">
+									<div id="taskDatepicker">
+										<div class="datepicker datepicker-inline">
+											<div class="datepicker-days" style="display: block;">
+												<table class=" table-condensed">
+													<thead>
+														<tr>
+															<th colspan="7" class="datepicker-title" style="display: none;"></th>
+														</tr>
+														<tr>
+															<th class="prev" style="visibility: visible;">«</th>
+															<th colspan="5" class="datepicker-switch">March 2017</th>
+															<th class="next" style="visibility: visible;">»</th>
+														</tr>
+														<tr>
+															<th class="dow">Su</th>
+															<th class="dow">Mo</th>
+															<th class="dow">Tu</th>
+															<th class="dow">We</th>
+															<th class="dow">Th</th>
+															<th class="dow">Fr</th>
+															<th class="dow">Sa</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td class="old day">26</td>
+															<td class="old day">27</td>
+															<td class="old day">28</td>
+															<td class="day">1</td>
+															<td class="day">2</td>
+															<td class="day">3</td>
+															<td class="day">4</td>
+														</tr>
+														<tr>
+															<td class="day">5</td>
+															<td class="day">6</td>
+															<td class="day">7</td>
+															<td class="day">8</td>
+															<td class="day">9</td>
+															<td class="day">10</td>
+															<td class="day">11</td>
+														</tr>
+														<tr>
+															<td class="day">12</td>
+															<td class="day">13</td>
+															<td class="day">14</td>
+															<td class="day">15</td>
+															<td class="day">16</td>
+															<td class="day">17</td>
+															<td class="today day">18</td>
+														</tr>
+														<tr>
+															<td class="day">19</td>
+															<td class="day">20</td>
+															<td class="day">21</td>
+															<td class="day">22</td>
+															<td class="day">23</td>
+															<td class="day">24</td>
+															<td class="day">25</td>
+														</tr>
+														<tr>
+															<td class="day">26</td>
+															<td class="day">27</td>
+															<td class="day">28</td>
+															<td class="day">29</td>
+															<td class="day">30</td>
+															<td class="day">31</td>
+															<td class="new day">1</td>
+														</tr>
+														<tr>
+															<td class="new day">2</td>
+															<td class="new day">3</td>
+															<td class="new day">4</td>
+															<td class="new day">5</td>
+															<td class="new day">6</td>
+															<td class="new day">7</td>
+															<td class="new day">8</td>
+														</tr>
+													</tbody>
+													<tfoot>
+														<tr>
+															<th colspan="7" class="today" style="display: none;">Today</th>
+														</tr>
+														<tr>
+															<th colspan="7" class="clear" style="display: none;">Clear</th>
+														</tr>
+													</tfoot>
+												</table>
+											</div>
+											<div class="datepicker-months" style="display: none;">
+												<table class="table-condensed">
+													<thead>
+														<tr>
+															<th colspan="7" class="datepicker-title" style="display: none;"></th>
+														</tr>
+														<tr>
+															<th class="prev" style="visibility: visible;">«</th>
+															<th colspan="5" class="datepicker-switch">2017</th>
+															<th class="next" style="visibility: visible;">»</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month focused">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td>
+														</tr>
+													</tbody>
+													<tfoot>
+														<tr>
+															<th colspan="7" class="today" style="display: none;">Today</th>
+														</tr>
+														<tr>
+															<th colspan="7" class="clear" style="display: none;">Clear</th>
+														</tr>
+													</tfoot>
+												</table>
+											</div>
+											<div class="datepicker-years" style="display: none;">
+												<table class="table-condensed">
+													<thead>
+														<tr>
+															<th colspan="7" class="datepicker-title" style="display: none;"></th>
+														</tr>
+														<tr>
+															<th class="prev" style="visibility: visible;">«</th>
+															<th colspan="5" class="datepicker-switch">2010-2019</th>
+															<th class="next" style="visibility: visible;">»</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year focused">2017</span><span class="year">2018</span><span class="year">2019</span><span class="year new">2020</span></td>
+														</tr>
+													</tbody>
+													<tfoot>
+														<tr>
+															<th colspan="7" class="today" style="display: none;">Today</th>
+														</tr>
+														<tr>
+															<th colspan="7" class="clear" style="display: none;">Clear</th>
+														</tr>
+													</tfoot>
+												</table>
+											</div>
+											<div class="datepicker-decades" style="display: none;">
+												<table class="table-condensed">
+													<thead>
+														<tr>
+															<th colspan="7" class="datepicker-title" style="display: none;"></th>
+														</tr>
+														<tr>
+															<th class="prev" style="visibility: visible;">«</th>
+															<th colspan="5" class="datepicker-switch">2000-2090</th>
+															<th class="next" style="visibility: visible;">»</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td colspan="7"><span class="decade old">1990</span><span class="decade">2000</span><span class="decade">2010</span><span class="decade">2020</span><span class="decade">2030</span><span class="decade">2040</span><span class="decade">2050</span><span class="decade">2060</span><span class="decade">2070</span><span class="decade">2080</span><span class="decade">2090</span><span class="decade new">2100</span></td>
+														</tr>
+													</tbody>
+													<tfoot>
+														<tr>
+															<th colspan="7" class="today" style="display: none;">Today</th>
+														</tr>
+														<tr>
+															<th colspan="7" class="clear" style="display: none;">Clear</th>
+														</tr>
+													</tfoot>
+												</table>
+											</div>
+											<div class="datepicker-centuries" style="display: none;">
+												<table class="table-condensed">
+													<thead>
+														<tr>
+															<th colspan="7" class="datepicker-title" style="display: none;"></th>
+														</tr>
+														<tr>
+															<th class="prev" style="visibility: visible;">«</th>
+															<th colspan="5" class="datepicker-switch">2000-2900</th>
+															<th class="next" style="visibility: visible;">»</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td colspan="7"><span class="century old">1900</span><span class="century">2000</span><span class="century">2100</span><span class="century">2200</span><span class="century">2300</span><span class="century">2400</span><span class="century">2500</span><span class="century">2600</span><span class="century">2700</span><span class="century">2800</span><span class="century">2900</span><span class="century new">3000</span></td>
+														</tr>
+													</tbody>
+													<tfoot>
+														<tr>
+															<th colspan="7" class="today" style="display: none;">Today</th>
+														</tr>
+														<tr>
+															<th colspan="7" class="clear" style="display: none;">Clear</th>
+														</tr>
+													</tfoot>
+												</table>
+											</div>
+										</div>
+									</div>
+									<input type="hidden" id="taskDatepickerInput">
+									<div class="padding-10">
+										<button class="btn btn-primary due-date-save">Save</button>
+										<a class="btn btn-sm btn-white due-date-delete" href="javascript:void(0)">Delete</a>
+									</div>
+								</div>
+							</div>
+							<button type="button" class="btn btn-pure icon wb-list-bulleted subtask-toggle" aria-hidden="true"></button>
+							<div class="fileupload pull-left">
+								<button id="fileuploadToggle" type="button" class="btn btn-pure icon wb-paperclip" aria-hidden="true"></button>
+								<input id="fileupload" type="file" name="upload">
+							</div>
+							<div class="dropdown pull-left">
+								<button type="button" class="btn btn-pure dropdown-toggle icon wb-chevron-down" data-toggle="dropdown" aria-hidden="true"></button>
+								<ul class="dropdown-menu dropdown-menu-right bullet" role="menu">
+									<li role="presentation" class="taskboard-task-edit">
+										<a href="javascript:void(0)" role="menuitem"><i class="icon wb-pencil" aria-hidden="true"></i>Edit Task</a>
+									</li>
+									<li role="presentation" class="taskboard-task-delete">
+										<a href="javascript:void(0)" role="menuitem"><i class="icon wb-trash" aria-hidden="true"></i>Delete Task</a>
+									</li>
+								</ul>
+							</div>
+							<button type="button" class="btn btn-pure slidePanel-close icon wb-close" aria-hidden="true" ng-click="slidePanelClose()"></button>
+						</div>
+						
+						<h4 class="stage-name text-uppercase">
+							<span ng-show="currentTask.status == 1">to do</span>
+							<span ng-show="currentTask.status == 2">doing</span>
+							<span ng-show="currentTask.status == 3">done</span>
+						</h4>
+					</div>
+				</header>
+				  
+				
+					<div class="slidePanel-inner">
+						
+					<div class="col-md-12 text-right taskactionrow">
+						
+						<div class="add-members pull-left">
+									<div class="addMember">
+										<ul class="addMember-items">
+											<li class="addMember-item" ng-repeat='employee in listEmployee | customArray:currentTaskEmploySplit:"e_id"'>
+											  <a ng-click="removeTmFromTask(currentTask.id, employee.e_id, currentTask.tm_id, employee.e_name, currentTask.task)" uib-popover="{{employee.e_name}}" popover-trigger="'mouseenter'" style="display:inline-block;">
+												<img class="avatar" src="{{imageUrl}}profile/{{employee.e_photo}}">
+												<span class="addMember-remove">
+													<i class="wb-minus-circle"></i>
+												</span>
+											  </a>
+												
+											</li>
+										</ul>
+										<div class="addMember-trigger">
+											<div class="addMember-trigger-button" ng-click="addMemberTriggerDropdown = true" ng-hide="addMemberTriggerDropdown">
+												<i class="wb-plus"></i>
+											</div>
+											<div class="addMember-trigger-button bg-red-600" ng-click="addMemberTriggerDropdown = false" ng-show="addMemberTriggerDropdown">
+												<i class="wb-close"></i>
+											</div>
+											<div class="addMember-trigger-dropdown" ng-show="addMemberTriggerDropdown">
+												<ul class="addMember-list text-left">
+													
+													<li class="addMember-list-item" ng-repeat='employee in listEmployee | customArray2:currentTaskEmploySplit:"e_id"' ng-click="addTMtoTask(employee.e_id, currentTask.id, currentTask.tm_id, employee.e_name, currentTask.task)">
+														<img class="avatar" src="{{imageUrl}}profile/{{employee.e_photo}}">{{employee.e_name}}
+													</li>
+													
+													<!--<li class="addMember-list-item addMember-selected"><img class="avatar" src="../../resources/images/5.jpg">Herman Beck</li>-->
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+						
+						<a ng-click="timerData.manuallTimeAdding=true; startTracking(currentTask.id, 1)" class=""><i class="icon wb-time"></i> Add Manually</a>
+					   	<button type="button" class="btn btn-animate btn-animate-vertical btn-success margin-left-20" ng-click="timerData.manuallTimeAdding=false; startTracking(currentTask.id, 1)">
+							<span><i class="icon wb-time" aria-hidden="true"></i>Time Tracking</span>
+						</button>
+					</div>
+						
+					<section class="slidePanel-inner-section">
+						<div class="task-main">
+							<div class="task-main-surface">
+								<div class="priority pull-right">
+									<label class="margin-right-20">Priority:</label>
+									<ul class="list-unstyled list-inline inline-block">
+										<li class="radio-custom radio-normal">
+											<input type="radio" ng-model="currentTask.priority" value="1" class="icheckbox-grey" id="priorityLow" name="priorities" ng-change="changeTaskPriority(currentTask.priority, currentTask.id)" uib-popover="Low" popover-trigger="'mouseenter'">
+											<label for="priorityLow">Low</label>
+										</li>
+										<li class="radio-custom radio-high">
+											<input type="radio" ng-model="currentTask.priority" value="2" class="icheckbox-grey" id="priorityNormal" name="priorities" ng-change="changeTaskPriority(currentTask.priority, currentTask.id)" uib-popover="Normal" popover-trigger="'mouseenter'">
+											<label for="priorityNormal">Normal</label>
+										</li>
+										<li class="radio-custom radio-urgent">
+											<input type="radio" ng-model="currentTask.priority" value="3" class="icheckbox-grey" id="priorityHigh" name="priorities" ng-change="changeTaskPriority(currentTask.priority, currentTask.id)" uib-popover="High" popover-trigger="'mouseenter'">
+											<label for="priorityHigh">High</label>
+										</li>
+									</ul>
+								</div>
+								
+								
+								<div class="caption task-title">
+									{{currentTask.task}}
+								</div>
+								
+								
+								
+								
+								
+								<div class="step-info col-md-12 padding-left-0 padding-right-0 margin-bottom-25">
+							
+									<div class="col-md-6 padding-left-0">
+										  <!-- Widget -->
+										  <div class="widget margin-bottom-0 edt_est_hover">
+											<div class="bg-white">
+											  <div class="counter counter-md text-left">
+												<div class="counter-label text-uppercase margin-bottom-5">Estimated Time</div>
+												<span class="text-left error" ng-show="changedEstimatedTimeValid"><small>Required (eg: 00:01)</small></span>
+												<div class="counter-number-group margin-bottom-10" style="display:flex;">
+												  <span class="counter-number" ng-hide="editEstimateToggleScope">{{currentTask.estimated_time | secondsToDateTime | date:'HH:mm:ss'}} Hrs</span>
+													
+												  <div class="form-group" ng-show="editEstimateToggleScope">
+												 	 <div class="input-group">
+														<input type="time" class="form-control" ng-model="changedEstimatedTime" placeholder="{{currentTask.estimated_time}}" required>
+														<span class="input-group-btn">
+														  <button type="button" class="btn btn-default btn-outline" ng-click="editEstimateToggle(currentTask.id)">Change!</button>
+														</span>
+													 </div>
+												  </div>
+													
+												  <a ng-click="editEstimateToggleScope=true" ng-hide="editEstimateToggleScope" class="pull-right margin-left-20 animate1 bounceIn edt_est_trigger">
+													  <i class="icon wb-pencil"></i>
+												  </a>
+												  <a ng-click="editEstimateToggleScope=false" ng-show="editEstimateToggleScope" class="pull-right margin-left-20">
+													  <i class="icon wb-close"></i>
+												  </a>
+												</div>
+												<div class="counter-label">
+												  <div class="progress progress-xs margin-bottom-10">
+													<div class="progress-bar progress-bar-info bg-blue-600" aria-valuenow="70.3" aria-valuemin="0" aria-valuemax="100" style="width: 100%" role="progressbar">
+													  <span class="sr-only">70.3%</span>
+													</div>
+												  </div>
+												  <div class="counter counter-sm text-left">
+													<div class="counter-number-group">
+													  <span class="counter-icon">Changed estimated time up to </span>
+													  <span class="counter-number-related blue-600">15 mins</span>
+													</div>
+												  </div>
+												</div>
+											  </div>
+											</div>
+										  </div>
+										  <!-- End Widget -->
+									</div>
+
+
+									<div class="col-md-6 padding-right-0">
+										  <!-- Widget -->
+										  <div class="widget margin-bottom-0">
+											<div class="bg-white">
+											  <div class="counter counter-md text-left">
+												<div class="counter-label text-uppercase margin-bottom-5"><span class="timeFlowTxt">Remaining</span> Time</div>
+												<div class="counter-number-group margin-bottom-10">
+												 <span class="counter-number blink_me">{{currentTask.allTasksTotalTime | secondsToDateTime | date:'HH:mm:ss'}} Hrs</span>
+												</div>
+												<div class="counter-label">
+												  <div class="progress progress-xs margin-bottom-10">
+													<div class="progress-bar progress-bar-info bg-blue-600" aria-valuenow="70.3" aria-valuemin="0" aria-valuemax="100" style="width: 100%" role="progressbar">
+													  <span class="sr-only">70.3%</span>
+													</div>
+												  </div>
+												  <div class="counter counter-sm text-left">
+													<div class="counter-number-group">
+													  <span class="counter-icon blue-600 margin-right-5"><i class="wb-graph-down"></i></span>
+													  <span class="counter-number" ng-show="exceededEstToggle">{{(currentTask.allTasksTotalTime)/(60) | roundup}}</span>
+													  <span class="counter-number" ng-hide="exceededEstToggle">0</span>
+													  <span class="counter-number-related"> Minutes more than estimated time</span>
+													</div>
+												  </div>
+												</div>
+											  </div>
+											</div>
+										  </div>
+										  <!-- End Widget -->
+									</div>
+
+								</div>
+								
+
+								<div class="description edt_est_hover">
+									
+									<div class="pull-left margin-bottom-5 edt_est_trigger animate1 bounceIn" ng-hide="editTaskDescToggle">
+										<a ng-click="editTaskDescFetchFn(currentTask.id, currentTask.task_des)">
+											<i class="icon wb-pencil"></i> description.
+										</a>
+									</div>
+									<div class="clearfix"></div>
+									
+																		
+									<div ng-show="editTaskDescToggle">
+										<text-angular ng-model="editTaskDesc"></text-angular>
+										<div class="form-group text-center margin-top-15">
+										   <a ng-click="editTaskDescToggle=false">
+											   <button class="btn btn-sm btn-default btn-outline">Close</button>
+										   </a>
+										   <a ng-click="editTaskDescFn(currentTask.id)">
+											   <button class="btn btn-sm btn-primary">
+											 	<span ng-hide="edtDataLoadingGif" class="">Submit</span>
+											 	<img ng-show="edtDataLoadingGif" src="resources/images/site/bars.svg" class="loader" width="18">
+										   	   </button>
+										   </a>
+										</div>
+									</div>
+									
+									<div class="clearfix"></div>
+									<div class="description-content" ng-hide="editTaskDescToggle">
+										<p ng-bind-html="currentTask.task_des"></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="task-section subtasks is-show">
+							<label><i class="icon wb-list-bulleted margin-right-10"></i>Subtasks</label>
+							<a class="btn btn-sm btn-primary btn-outline margin-left-30" type="button" ng-click="subTaskFillBoard = true" ng-hide="subTaskFillBoard">
+							   <i class="site-menu-icon wb-plus"></i> Add Subtask
+							</a>
+							<a class="btn btn-sm btn-primary btn-outline margin-left-30" type="button" ng-click="subTaskFillBoard = false" ng-show="subTaskFillBoard">
+							   <i class="site-menu-icon wb-minus"></i> Hide Subtask Form
+							</a>
+							
+							
+						<!-- Add New SubTask Form -->
+						<div class="widget widget-shadow margin-top-20" ng-show="subTaskFillBoard">
+							<div class="widget-header bg-cyan-600 white padding-10 clearfix">
+								<div class="font-size-15">Subtask Details</div>
+							</div>
+							
+							<div class="widget-content padding-10">
+								 
+								<ng-form name="subTaskAddForm" enctype="multipart/form-data" novalidate >
+									
+									
+								    <div class="col-md-6 padding-left-0" ng-init="subTaskAddFormData.subtask='demo'">
+									
+									  <div class="form-group" ng-class="{ 'has-error': subTaskAddForm.subtask.$dirty &amp;&amp; subTaskAddForm.subtask.$error.required }">
+										<label class="control-label" for="subtask">Subtask Title</label>
+										<input type="text" ng-model="subTaskAddFormData.subtask" class="form-control" id="subtask" name="subtask" placeholder="Enter Subtask Title" pattern=".{2,}" required>
+										<span ng-show="subTaskAddForm.subtask.$dirty && subTaskAddForm.subtask.$error.required" class="help-block">Subtask Title is required</span>
+										<span ng-show="subTaskAddForm.subtask.$dirty && subTaskAddForm.subtask.$error.pattern" class="help-block error">Please enter atleast 2 characters
+										</span>
+									</div>		
+									</div>
+									
+									
+									<div class="col-md-6 padding-right-0" ng-init="subTaskAddFormData.tm_id=2">
+										<div class="form-group">
+											<label class="control-label" for="tm_id">Assignee</label>
+											<select ng-options="e.e_id as e.e_name for e in listEmployee" ng-model="subTaskAddFormData.tm_id" class="form-control" id="tm_id" name="tm_id" required>
+												<option value="">-- Select --</option>
+											</select>
+											<span ng-show="subTaskAddForm.tm_id.$dirty && subTaskAddForm.tm_id.$error.required" class="help-block error">
+												Assignee is required
+											</span>
+										</div>
+									</div>
+									
+									
+									<div class="clearfix"></div>
+									
+									
+									<div class="col-md-6 padding-left-0" ng-init="subTaskAddFormData.estimated_time='2:00'">
+										<div class="form-group">
+											<label class="control-label" for="total_time">Estimated Time</label>
+											<input type="text" ng-model="subTaskAddFormData.estimated_time" class="form-control" id="estimated_time" name="estimated_time" placeholder="In Hrs (eg: 2:30)" required>
+											<span ng-show="subTaskAddForm.estimated_time.$dirty && subTaskAddForm.estimated_time.$error.required" class="help-block error">
+												Estimated Time for Subtask is required
+											</span>
+										</div>
+									</div>
+									
+									
+									<div class="col-md-6 padding-right-0" ng-init="subTaskAddFormData.status = '1'">
+										<div class="form-group">
+											<label class="control-label" for="status">Status</label>
+											<select ng-model="subTaskAddFormData.status" class="form-control" id="status" name="status">
+												<option value="1">TO DO</option>
+											</select>
+										</div>
+									</div>
+									
+									
+									<div class="clearfix"></div>
+									
+									
+									<div class="form-group">
+										<label class="control-label" for="comments">Comments</label>
+										<text-angular ng-model="subTaskAddFormData.comments" id="comments" name="comments" placeholder="Enter Your Comments" class="subtsk_comments_editor">
+										</text-angular>
+									</div>
+									
+									
+									<div class="col-md-12 padding-0">
+										<label for="fileToUpload">Attachments</label><br />
+										<input type="file" class="form-control" ng-model-instant id="fileToUpload" multiple onchange="angular.element(this).scope().setFiles(this)">
+									</div>
+									
+									<div id="dropbox" class="dropbox col-md-12 padding-0" ng-class="dropClass"><span>{{dropText}}</span></div>
+									
+									<div ng-show="files.length">
+										
+										<ul style="margint-top:-15px" class="list-group list-group-full col-md-12 margin-bottom-25">
+											  <li class="list-group-item padding-horizontal-15" ng-repeat="file in files.slice(0)">
+												 <span class="badge badge-success">
+													<span ng-switch="file.size > 1024*1024">
+													   <span ng-switch-when="true">{{file.size / 1024 / 1024 | number:2}} MB</span>
+													   <span ng-switch-default>{{file.size / 1024 | number:2}} kB</span>
+													</span> 
+												 </span> 
+												 {{file.webkitRelativePath || file.name}}
+											  </li>
+										</ul>
+										
+									</div>
+									
+									
+<!--										<input type="button" ng-click="uploadFile()" value="Upload" />-->
+									
+									
+										<div ng-show="progressVisible" class="col-md-12 padding-0 margin-bottom-25">
+											<div class="percent">{{progress}}%</div>
+											<div class="progress-bar">
+												<div class="uploaded" ng-style="{'width': progress+'%'}"></div>
+											</div>
+										</div>
+									
+									
+									
+									<!--
+									<div class="col-md-4 padding-right-0">
+										<div class="form-group">
+											<label class="control-label" for="doc">Document - 1 {{subTaskAddFormData.doc_1}}</label>
+											<input type="file" multiple onchange="angular.element(this).scope().fileNameChanged(this)" ng-model="subTaskAddFormData.doc_1" class="form-control" id="doc_1" name="doc_1">											
+										</div>
+									</div>
+									
+									
+									<div class="col-md-4 padding-right-0">
+										<div class="form-group">
+											<label class="control-label" for="doc">Document - 2</label>
+											<input type="file" fileread="subTaskAddFormData.doc_2" class="form-control" id="doc_2" name="doc_2">
+										</div>
+									</div>
+									
+									
+									<div class="col-md-4 padding-right-0">
+										<div class="form-group">
+											<label class="control-label" for="doc">Document - 3</label>
+											<input type="file" fileread="subTaskAddFormData.doc_3" class="form-control" id="doc_3" name="doc_3">
+										</div>
+									</div>
+									-->
+									
+									
+									<div class="form-group text-center">
+									   <a ng-click="subTaskFillBoard = false"><button class="btn btn-default btn-outline">Cancel</button></a>
+									   <button type="reset" class="btn btn-default btn-outline">Reset</button>
+									   <button type="submit" class="btn btn-primary" ng-disabled="subTaskAddForm.$invalid" ng-click="subTaskAddFormSubmit(currentTask.id)">
+										 <span ng-hide="dataLoadingGif" class="">Save</span>
+										 <img ng-show="dataLoadingGif" src="resources/images/site/bars.svg" class="loader" width="18">
+									   </button>
+								   </div>
+									
+									
+								</ng-form>
+								
+							</div>
+							
+						</div>							
+							
+							
+							
+							<ul class="list-group list-group-full subtasks-list">
+								
+								<li class="list-group-item subtask" ng-repeat="item in currentTask.subtasks | filter:{parent_task: 0}">
+									<div class="checkbox-custom checkbox-primary">
+										<input type="checkbox" id="manualResolveCheckTrigget" ng-model="manualResolveCheck" ng-checked="item.status==2" ng-disabled="item.status==2" ng-change="resolveSubTskManually(manualResolveCheck)" ng-true-value="'{{item.id}}'">
+										<label class="title">
+											<a ng-click="timerData.manuallTimeAdding=false; startTracking(item.task_id, 0, item.id)" class="startTaskBtn" ng-hide="item.status==2">
+												<i class="icon wb-play"></i>
+											</a>
+											<span ng-click="showSubtask(item.id, currentTask.task)">{{item.subtask}}</span>
+											<span class="grey-500"><small>({{item.estimated_time}} / {{item.total_time | secondsToDateTime | date:'HH:mm:ss'}})</small></span>
+										</label>
+									</div>
+								</li>
+								
+							</ul>
+							
+							
+						</div>
+						
+						
+						
+						<div class="task-section attachments is-show" ng-show="(listCurrentTaskAttachments.length)!=0">
+							<label><i class="icon wb-paperclip margin-right-10"></i>Attachments | <a href="#">Download All</a></label>
+							
+							<ul class="list-group attachments-list">
+								
+								<li class="list-group-item" ng-repeat="item in listCurrentTaskAttachments">
+									<div class="meida">
+										<div class="media-left">
+											<div class="attachments-image">
+												<img src="resources/images/site/txt.png" ng-show="item.extention=='txt'">
+												<img src="resources/images/site/doc.png" ng-show="item.extention=='doc'">
+												<img src="resources/images/site/pdf.png" ng-show="item.extention=='pdf'">
+												<img src="{{taskAttachmentUrl}}{{item.attachment}}" ng-show="item.extention=='jpg' || item.extention=='png' || item.extention=='gif'">
+											</div>
+										</div>
+										<div class="media-body">
+											<p><span class="name">{{item.attachment}}</span>
+												<span< p=""></span<>
+											</p>
+											<p>
+												<span class="size">{{(item.size / 1024) | roundup}} KB</span>
+												<span class="attachments-actions">
+													<a href="{{taskAttachmentUrl}}{{item.attachment}}" target="_blank">
+														<button class="btn btn-icon btn-pure" type="button">
+															<i class="icon wb-download" aria-hidden="true"></i>
+														</button>
+													</a>
+													<a href="" ng-click="deleteTaskAttachment(item.id, item.task_id)">
+														<button class="btn btn-icon btn-pure" type="button">
+															<i class="icon wb-trash" aria-hidden="true"></i>
+														</button>
+													</a>
+												</span>
+											</p>
+										</div>
+									</div>
+								</li>
+						
+							</ul>
+						
+						</div>
+					</section>
+					<section class="slidePanel-inner-section">
+						<div class="comments">
+							<label><i class="icon wb-chat-group margin-right-10"></i>Comments</label>
+							<div class="comments-history">
+								<div class="comment media">
+									<div class="media-left">
+										<a class="avatar avatar-lg" href="javascript:void(0)"><img src="../../resources/images/3.jpg" alt="..."></a>
+									</div>
+									<div class="media-body">
+										<div class="comment-body"><a class="comment-author" href="javascript:void(0)">Caleb Richards</a>
+											<div class="comment-meta"><span class="date">2 days ago</span></div>
+											<div class="comment-content">
+												<p>Brute existimant adhibuit effugiendorum artem potiendi sabinum dicat sequitur parabilis, asperner alliciat mutat tale labefactetur corpora, albuci amori velim summam didicisset dubium</p>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="comment media">
+									<div class="media-left">
+										<a class="avatar avatar-lg" href="javascript:void(0)"><img src="../../resources/images/2.jpg" alt="..."></a>
+									</div>
+									<div class="media-body">
+										<div class="comment-body"><a class="comment-author" href="javascript:void(0)">Mary Adams</a>
+											<div class="comment-meta"><span class="date">16 hours ago</span></div>
+											<div class="comment-content">
+												<p>Deduceret, stabilitas diligenter stultorum diesque dolemus consoletur aristippus specie exeamu</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="comment media">
+								<div class="media-left">
+									<a class="avatar avatar-lg" href="javascript:void(0)">
+										<img src="../../resources/images/5.jpg" alt="...">
+									</a>
+								</div>
+								<div class="media-body">
+									<div class="comment-body">
+										<form class="comment-reply margin-top-5" method="post" action="#">
+											<textarea class="form-control margin-bottom-15" placeholder="Reply" rows="4"></textarea>
+											<grammarly-btn>
+												<div style="visibility: hidden; z-index: 2;" class="_e725ae-textarea_btn _e725ae-anonymous _e725ae-not_focused" data-grammarly-reactid=".3">
+													<div class="_e725ae-transform_wrap" data-grammarly-reactid=".3.0">
+														<div title="Protected by Grammarly" class="_e725ae-status" data-grammarly-reactid=".3.0.0">&nbsp;</div>
+													</div><span class="_e725ae-btn_text" data-grammarly-reactid=".3.1">Not signed in</span></div>
+											</grammarly-btn>
+											<button class="btn btn-primary" type="button" data-dismiss="modal">Reply</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+	  
+	  		  </form>
+	
+			</div>
+		</div>
+   	</div>
+  </div>
+
+
+
+
+</div>
+<!--/.taskBoardBox-->
+
+
+
+
+<!-- Modal Popup for show Subtask details -->
+<script type="text/ng-template" id="modal.html">
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Subtask of {{currentTaskMain}}</h4>
+				</div>
+				<div class="modal-body">
+					
+				  <form name="subtaskEditForm" novalidate>
+					
+						<div class="form-group col-md-6">
+							<label class="control-label" for="subtask">Subtask Title</label>
+							<input type="text" ng-model="currentSubtaskView.subtask" class="form-control" id="subtask" name="subtask" placeholder="Enter Subtask Title" pattern=".{2,}" required>
+							<span ng-show="subtaskEditForm.subtask.$dirty && subtaskEditForm.subtask.$error.required" class="help-block error">Subtask Title is required</span>
+							<span ng-show="subtaskEditForm.subtask.$dirty && subtaskEditForm.subtask.$error.pattern" class="help-block error">Please enter atleast 2 characters</span>
+						</div>
+					  
+					  
+						<div class="form-group col-md-6">
+											<label class="control-label" for="tm_id">Assignee</label>
+											<select ng-options="e.e_id as e.e_name for e in listEmployee" ng-model="currentSubtaskView.tm_id" class="form-control" id="tm_id" name="tm_id" required>
+											</select>
+											<span ng-show="currentSubtaskView.tm_id.$dirty && currentSubtaskView.tm_id.$error.required" class="help-block error">
+												Assignee is required
+											</span>
+						</div>
+					  
+					  
+					    <div class="form-group col-md-6" ng-init="currentSubtaskView.status = '1'">
+							<label class="control-label" for="total_time">Status</label>
+						    <select ng-model="currentSubtaskView.status" class="form-control" id="status" name="status" to-number>
+								<option value="1">TO DO</option>
+								<option value="2">DOING</option>
+								<option value="3">DONE</option>
+						    </select>
+							<span ng-show="subtaskEditForm.status.$dirty && subtaskEditForm.status.$error.required" class="help-block error">Status is required</span>
+						</div>
+					  
+					  
+					    <div class="form-group col-md-6">
+							<label class="control-label" for="estimated_time">Estimated Time</label>
+							<input type="text" ng-model="currentSubtaskView.estimated_time" class="form-control" id="estimated_time" name="estimated_time" placeholder="Enter Estimated Time" required>
+							<span ng-show="subtaskEditForm.estimated_time.$dirty && subtaskEditForm.estimated_time.$error.required" class="help-block error">Estimated Time is required</span>
+						</div>
+					  
+					  <!--
+					   <div class="form-group col-md-6" ng-init="currentSubtaskView.old_estimated_time = currentSubtaskView.estimated_time">
+							<label class="control-label" for="old_estimated_time">Old Estimated Time</label>
+							<input type="text" ng-model="currentSubtaskView.old_estimated_time" class="form-control" id="old_estimated_time" name="old_estimated_time">
+						</div>
+					  -->
+					  
+					    <div class="form-group col-md-6">
+							<label class="control-label" for="created_date">Created Date</label>
+							<input type="text" ng-model="currentSubtaskView.created_date" class="form-control" id="created_date" name="created_date" readonly>
+						</div>
+					  
+					  
+					    <div class="form-group col-md-6">
+							<label class="control-label" for="created_by">Created By</label>
+							<input type="text" ng-model="currentSubtaskView.created_by" class="form-control" id="created_by" name="created_by" readonly>
+						</div> 
+					  
+					  
+					  	<div class="form-group col-md-6">
+							<label class="control-label" for="total_time">Total Time</label>
+							<input type="text" value="{{currentSubtaskView.total_time | secondsToDateTime | date:'HH:mm:ss'}}" class="form-control" id="total_time" name="total_time" readonly>
+						</div> 
+					  
+					  
+					    <div class="form-group col-md-6">
+							<label class="control-label" for="reopen_date">Reopen Date</label>
+							<input type="text" ng-model="currentSubtaskView.reopen_date" class="form-control" id="reopen_date" name="reopen_date" readonly>
+						</div> 
+					  
+					  
+					    <div class="form-group col-md-12">
+							<label class="control-label" for="reopen_des">Reopen Description</label>
+							<textarea type="text" ng-model="currentSubtaskView.reopen_des" class="form-control" id="reopen_des" name="reopen_des" readonly></textarea>
+						</div> 
+					  
+					  
+					  <div class="form-group col-md-12">
+						  <label class="control-label" for="commentsedit">Comments</label>
+						  <text-angular ng-model="currentSubtaskView.comments" id="commentsedit" name="commentsedit" placeholder="Enter Comments"></text-angular>
+					  </div>
+					  
+					  
+					  <div class="form-group col-md-12">
+							<label class="control-label" for="client_comments">Client Comments</label>
+							<textarea type="text" ng-model="currentSubtaskView.client_comments" class="form-control" id="client_comments" name="client_comments" readonly></textarea>
+						</div> 
+					  
+					
+				  </form>
+					 
+				</div>
+				<div class="modal-footer">
+					<button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					<button type="submit" ng-click="subtaskEditFormSubmit(currentSubtaskView.id)" class="btn btn-primary" data-dismiss="modal" ng-disabled="subtaskEditForm.$invalid">
+						<span ng-hide="dataLoadingGif">Update</span>
+						<img ng-show="dataLoadingGif" src="resources/images/site/bars.svg" class="loader" width="18">
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+<!-- Modal Popup for Set Manual Time of SubTask -->
+<script type="text/ng-template" id="subTaskTime.html">
+	<div class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Resolve Task({{resolveData.subtask}})</h4>
+				</div>
+				<div class="modal-body">
+					<p>Add Logged Time Manually (hh:mm)</p>
+					<input type="time" ng-model="manualLoggedTime" class="form-control">
+				</div>
+				<div class="modal-footer">
+					<button type="button" ng-click="close('No')" class="btn btn-default" data-dismiss="modal">No</button>
+					<button type="button" ng-click="close(manualLoggedTime)" class="btn btn-primary" data-dismiss="modal">Yes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+
+
+
+
+
+<a href="#/list-task">
+  <button type="button" class="btn btn-floating btn-danger material_btn_corner"><i class="icon wb-list" aria-hidden="true"></i></button>
+</a>
